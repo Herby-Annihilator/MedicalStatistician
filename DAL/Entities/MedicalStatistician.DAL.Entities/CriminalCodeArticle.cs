@@ -26,5 +26,9 @@ namespace MedicalStatistician.DAL.Entities
         /// </summary>
         [MaxLength(1000)]
         public string? ShortDescription { get; set; }
+        /// <summary>
+        /// Коллекция решений суда о принудительном лечении на основе данной статьи
+        /// </summary>
+        public ICollection<Judgment>? Judgments { get; set; }
     }
 }

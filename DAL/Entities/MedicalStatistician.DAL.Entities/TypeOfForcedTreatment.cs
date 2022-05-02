@@ -21,5 +21,9 @@ namespace MedicalStatistician.DAL.Entities
         /// </summary>
         [MaxLength(1024)]
         public string Wording { get; set; } = "";
+        /// <summary>
+        /// Коллекция решений суда, в которых указан данный вид принудительного лечения
+        /// </summary>
+        public ICollection<Judgment>? Judgments { get; set; }
     }
 }
