@@ -83,5 +83,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Коллекция вариантов обдалбывания со ссылкой на вещество
         /// </summary>
         public ICollection<PatientUseDrugs>? PatientUseDrugs { get; set; }
+        /// <summary>
+        /// Пол
+        /// </summary>
+        public Sex Sex { get; set; }
+        /// <summary>
+        /// Код пола
+        /// </summary>
+        public int SexId { get; set; }
     }
 }
