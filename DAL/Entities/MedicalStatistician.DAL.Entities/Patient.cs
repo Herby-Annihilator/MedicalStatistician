@@ -91,5 +91,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код пола
         /// </summary>
         public int SexId { get; set; }
+        /// <summary>
+        /// Образование
+        /// </summary>
+        public Education Education { get; set; }
+        /// <summary>
+        /// Код образования
+        /// </summary>
+        public int EducationId { get; set; }
     }
 }

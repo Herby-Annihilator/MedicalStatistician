@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 namespace MedicalStatistician.DAL.Entities
 {
     /// <summary>
-    /// Пол
+    /// Образование
     /// </summary>
-    public class Sex
+    public class Education
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
-        /// Название пола
+        /// Наименование образования
         /// </summary>
-        [MaxLength(20)]
-        public string Name { get; set; }
+        [MaxLength(255)]
+        public string Name { get; set; } = "";
+
         /// <summary>
-        /// Пациенты данного пола
+        /// Коллекция пациентов с данным образованием
         /// </summary>
         public ICollection<Patient>? Patients { get; set; }
     }
