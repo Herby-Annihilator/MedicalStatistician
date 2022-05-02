@@ -54,5 +54,14 @@ namespace MedicalStatistician.DAL.Entities
         /// Коллекция стат. карт этого пациента
         /// </summary>
         public ICollection<StatisticalCard> StatisticalCards { get; set; }
+
+        /// <summary>
+        /// Группа инвалидности пациента
+        /// </summary>
+        public DisabilityGroup? DisabilityGroup { get; set; }
+        /// <summary>
+        /// Код группы инвалидности пациента
+        /// </summary>
+        public int? DisabilityGroupId { get; set; }
     }
 }
