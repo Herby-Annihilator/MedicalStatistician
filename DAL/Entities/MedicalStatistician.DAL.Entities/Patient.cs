@@ -50,5 +50,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Признак проживания с наркоманом
         /// </summary>
         public bool IsLivesWithAddict { get; set; } = false;
+        /// <summary>
+        /// Коллекция стат. карт этого пациента
+        /// </summary>
+        public ICollection<StatisticalCard> StatisticalCards { get; set; }
     }
 }
