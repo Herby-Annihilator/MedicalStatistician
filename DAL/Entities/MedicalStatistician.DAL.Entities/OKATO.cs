@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MedicalStatistician.DAL.Entities
 {
+    /// <summary>
+    /// Справочник ОКАТО
+    /// </summary>
     public class Okato
     {
         [Key]
