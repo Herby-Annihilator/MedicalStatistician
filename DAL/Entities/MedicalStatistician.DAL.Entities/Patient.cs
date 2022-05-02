@@ -107,5 +107,21 @@ namespace MedicalStatistician.DAL.Entities
         /// Код семейного положения
         /// </summary>
         public int MaritalStatusId { get; set; }
+        /// <summary>
+        /// Участие в войне по ОКИН
+        /// </summary>
+        public ParticipationInTheWar? ParticipationInTheWar { get; set; }
+        /// <summary>
+        /// Код участия в войне по ОКИН
+        /// </summary>
+        public int? ParticipationInTheWarId { get; set; }
+        /// <summary>
+        /// Источник средств существования
+        /// </summary>
+        public SourceOfLivelihood? SourceOfLivelihood { get; set; }
+        /// <summary>
+        /// Код источника средств существования
+        /// </summary>
+        public int? SourceOfLivelihoodId { get; set; }
     }
 }
