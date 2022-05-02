@@ -36,5 +36,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код вида принудительного лечения
         /// </summary>
         public int TypeOfForcedTreatmentId { get; set; }
+        /// <summary>
+        /// Пациент, к которому относится данное решение
+        /// </summary>
+        public Patient Patient { get; set; }
+        /// <summary>
+        /// Код пациента, к которому отностистя данное решение
+        /// </summary>
+        public int PatientId { get; set; }
     }
 }

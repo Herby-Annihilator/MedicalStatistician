@@ -131,5 +131,10 @@ namespace MedicalStatistician.DAL.Entities
         /// Код условия проживания
         /// </summary>
         public int AccommodationsId { get; set; }
+
+        /// <summary>
+        /// Решения суда о начале принудительного лечения в отношении данного пациента
+        /// </summary>
+        public ICollection<Judgment>? Judgments { get; set; }
     }
 }
