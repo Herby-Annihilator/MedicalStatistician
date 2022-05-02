@@ -99,5 +99,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код образования
         /// </summary>
         public int EducationId { get; set; }
+        /// <summary>
+        /// Семейное положение
+        /// </summary>
+        public MaritalStatus MaritalStatus { get; set; }
+        /// <summary>
+        /// Код семейного положения
+        /// </summary>
+        public int MaritalStatusId { get; set; }
     }
 }
