@@ -63,5 +63,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код группы инвалидности пациента
         /// </summary>
         public int? DisabilityGroupId { get; set; }
+        /// <summary>
+        /// Причина инвалидности
+        /// </summary>
+        public CauseOfDisability? CauseOfDisability { get; set; }
+        /// <summary>
+        /// Код причины инвалидности
+        /// </summary>
+        public int? CauseOfDisabilityId { get; set; }
     }
 }
