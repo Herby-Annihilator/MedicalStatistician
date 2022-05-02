@@ -20,7 +20,7 @@ namespace MedicalStatistician.DAL.Entities
         /// Формулировка
         /// </summary>
         [MaxLength(255)]
-        public string Wording { get; set; }
+        public string Wording { get; set; } = "";
         /// <summary>
         /// Пациенты с данным семейным положением
         /// </summary>

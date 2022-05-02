@@ -123,5 +123,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код источника средств существования
         /// </summary>
         public int? SourceOfLivelihoodId { get; set; }
+        /// <summary>
+        /// Условия проживания
+        /// </summary>
+        public Accommodations Accommodations { get; set; }
+        /// <summary>
+        /// Код условия проживания
+        /// </summary>
+        public int AccommodationsId { get; set; }
     }
 }

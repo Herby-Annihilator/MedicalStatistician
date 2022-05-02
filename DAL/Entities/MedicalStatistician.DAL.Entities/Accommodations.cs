@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 namespace MedicalStatistician.DAL.Entities
 {
     /// <summary>
-    /// Участие в войне по ОКИН
+    /// Условия проживания
     /// </summary>
-    public class ParticipationInTheWar
+    public class Accommodations
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
-        /// Формулировка
+        /// Формулировка условия
         /// </summary>
         [MaxLength(255)]
         public string Wording { get; set; } = "";
         /// <summary>
-        /// Пациенты с данным статусом участия в войне
+        /// Пациенты, проживающие в данных условиях
         /// </summary>
         public ICollection<Patient>? Patients { get; set; }
     }
