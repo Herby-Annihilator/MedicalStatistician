@@ -9,25 +9,21 @@ using System.Threading.Tasks;
 namespace MedicalStatistician.DAL.Entities
 {
     /// <summary>
-    /// Психоактивное вещество (ПАВ)
+    /// Страховая мед организация
     /// </summary>
-    public class PsychoactiveSubstance
+    public class InsuranceOrganization
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         /// <summary>
-        /// Название психоактивного вещества
+        /// Название организации
         /// </summary>
         [MaxLength(512)]
         public string Name { get; set; } = "";
         /// <summary>
-        /// Коллекция обдолбанных пациентов
+        /// Полисы, которые выдала данная организация
         /// </summary>
-        public ICollection<Patient>? Patients { get; set; }
-        /// <summary>
-        /// Коллекция способов обдалбывания со ссылкой на пациента-обдолбыша
-        /// </summary>
-        public ICollection<PatientUseDrugs>? PatientUseDrugs { get; set; }
+        public ICollection<Policy> Policies { get; set; }
     }
 }

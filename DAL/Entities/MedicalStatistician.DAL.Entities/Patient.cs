@@ -71,5 +71,17 @@ namespace MedicalStatistician.DAL.Entities
         /// Код причины инвалидности
         /// </summary>
         public int? CauseOfDisabilityId { get; set; }
+        /// <summary>
+        /// Полисы пациента
+        /// </summary>
+        public ICollection<Policy> Policies { get; set; }
+        /// <summary>
+        /// Коллекция наркоты, которой успел обдолбаться пациент (если успел)
+        /// </summary>
+        public ICollection<PsychoactiveSubstance>? PsychoactiveSubstances { get; set; }
+        /// <summary>
+        /// Коллекция вариантов обдалбывания со ссылкой на вещество
+        /// </summary>
+        public ICollection<PatientUseDrugs>? PatientUseDrugs { get; set; }
     }
 }
