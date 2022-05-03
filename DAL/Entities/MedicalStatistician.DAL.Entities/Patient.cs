@@ -136,5 +136,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Решения суда о начале принудительного лечения в отношении данного пациента
         /// </summary>
         public ICollection<Judgment>? Judgments { get; set; }
+        /// <summary>
+        /// Коллекция диагнозов данного пациента
+        /// </summary>
+        public ICollection<Diagnosis> Diagnosis { get; set; }
     }
 }

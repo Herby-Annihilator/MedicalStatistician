@@ -58,5 +58,9 @@ namespace MedicalStatistician.DAL.Entities
         /// поле DATE остается пустым;
         /// </summary>
         public DateTime? Date { get; set; }
+        /// <summary>
+        /// Коллекция заболеваний пациентов с данным МКБ кодом
+        /// </summary>
+        public ICollection<Disease>? Diseases { get; set; }
     }
 }
