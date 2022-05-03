@@ -44,5 +44,14 @@ namespace MedicalStatistician.DAL.Entities
         /// Код цели направления на лечение
         /// </summary>
         public int PurposeOfReferralForTreatmentId { get; set; }
+
+        /// <summary>
+        /// Отделение, в которое был направлен пациент после поступления
+        /// </summary>
+        public Department Department { get; set; }
+        /// <summary>
+        /// Код отделения, в которое был направлен пациент после поступления
+        /// </summary>
+        public int DepartmentId { get; set; }
     }
 }

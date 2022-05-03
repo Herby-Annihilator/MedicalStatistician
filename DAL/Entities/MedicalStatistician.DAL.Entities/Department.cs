@@ -42,5 +42,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Код типа отделения
         /// </summary>
         public int DepartmentTypeId { get; set; }
+        /// <summary>
+        /// Случаи госпитализации, в которых данное отделение принимало пациента
+        /// </summary>
+        public ICollection<Hospitalization>? Hospitalizations { get; set; }
     }
 }
