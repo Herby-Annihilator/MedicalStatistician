@@ -2,51 +2,57 @@
 
 <PageTitle>Стат. карта</PageTitle>
 
+
+
 <div class=stat-card-head>
     <h3>Статистическая карта</h3>
     <h4>выбывшего из психиатрического (наркологического) стационара</h4>
 </div>
 
-<p>Фамилия И.О. @str</p>
+<p>Фамилия <input @str /></p>
+<p>Имя <input @str /></p>
+<p>Отчество <input @str /></p>
 
 <section>
     <div class="row">
         <div class="col-4 border">
-            <p>Пол</p>
-            <p>Житель</p>
-            <p>Место жительства</p>
-            <p>Код по ОКАТО</p>
-            <p>Дата рождения</p>
-            <p>Название страховой компании</p>
-            <p>Страховой полис</p>
-            <p>серия</p>
-            <p>номер</p>
-            <p>Номер стат. карты</p>
-            <p>Мед.карта стац. б-го</p>
-            <p>Номер отделения</p>
-            <p>Дата поступления</p>
-            <p>Дата открытия бол-го листа</p>
-            <p>Дата закрытия бол-го листа</p>
+            <p>Пол <select></select></p>
+            @*<p>Житель </p>*@
+            <p>Место жительства <input></p>
+            <p>Код по ОКАТО <input disabled></p>
+            <p>Дата рождения <input type="date"></p>
+            <p>Вид оплаты <select></select></p>
+            <p>Название страховой компании <input></p>
+            <p>Страховой полис: серия <input style="width: 20%"/> номер <input  style="width: 30%"/></p>
+            <p>Номер стат. карты <input /></p>
+            <p>Мед.карта стац. б-го <input /></p>
+            <p>Номер отделения <input></p>
+            <p>Дата поступления  <input type="date"></p>
+            <p>Дата открытия бол-го листа  <input type="date"></p>
+            <p>Дата закрытия бол-го листа  <input type="date"></p>
         </div>
         <div class="col-4 border">
-            <p>Кем направлен</p>
-            <p>Порядок поступления</p>
-            <p>Решение судьи по ст.35</p>
-            <p>Откуда поступил</p>
-            <p>Цель направления</p>
-            <p>Диагноз направившего учреждения</p>
-            <p>Код по МКБ-10</p>
+            <p>Кем направлен <select></select></p>
+            <p>Порядок поступления <select></select></p>
+            <p>Решение судьи по ст.35 <select></select></p>
+            <p>Откуда поступил <select></select></p>
+            <p>Цель направления <select></select></p>
+            <p>Диагноз направившего учреждения </p>
+                <textarea></textarea>
+            <p>Код по МКБ-10 <input /></p>
         </div>
         <div class="col-4 border">
             <p>Заключительный диагноз</p>
-            <p>Код по МКБ-10</p>
-            <p>Основной код (+) по МКБ-10</p>
-            <p>Инвалидность при выписке по псих. заболеванию</p>
-            <p>Обследование больного на ВИЧ</p>
-            <p>Выбыл</p>
-            <p>Смерть наступила</p>
+                 <textarea></textarea>
+            <p>Код по МКБ-10 <input /></p>
+            <p>Основной код (+) по МКБ-10 <input /></p>
+            <p>Инвалидность при выписке по псих. заболеванию <select></select></p>
+            <p>Обследование больного на ВИЧ <select></select></p>
+            <p>Выбыл <select></select></p>
+            <p>Смерть наступила <select></select></p>
             <p>Основная причина смерти</p>
-            <p>Код по МКБ-10</p>
+                 <textarea></textarea>
+            <p>Код по МКБ-10 <input /></p>
         </div>
     </div>
 </section>
@@ -77,7 +83,7 @@
             </tr>           
         </thead>
         <tbody>
-            @foreach (var item in shits)
+            @foreach (var item in collection)
             {
                 <tr class="stat-card-head fw-normal">
                     <th>@item.Str1</th>
@@ -96,36 +102,38 @@
 </div>
 
 <!--Пункты 29 и 30-->
-<p>В случае окончания принудительного лечения</p>
-<p>Дата окончания принудительного лечения</p>
+<p>В случае окончания принудительного лечения <select></select> </p>
+<p>Дата окончания принудительного лечения <input type="date"></p>
 
 <h5 class=stat-card-head>Дополнительные сведения о больном</h5>
 <section>
     <div class="row">
         <div class="col-4 border">
-            <p>Дата начала заболевания</p>
-            <p>Дата обращения к психиатру (наркологу) впервые в жизни</p>
-            <p>Вид амбулаторного наблюдения</p>
-            <p>Дата предыдущей выписки из психиатрич. или наркологич. стац.</p>
-            <p>Число дней работы в ЛТМ</p>
+            <p>Дата начала заболевания <input type="date"></p>
+            <p>Дата обращения к психиатру (наркологу) впервые в жизни <input type="date"></p>
+            <p>Вид амбулаторного наблюдения <select></select></p>
+            <p>Дата предыдущей выписки из психиатрич. или наркологич. стац. <input type="date"></p>
+            <p>Число дней работы в ЛТМ <input /></p>
             <p>Число дней лечебных отпусков (за период госпитализации)</p>
+            <p>дней <input style="width: 20%"/> отпусков <input style="width: 20%"/></p>
         </div>
         <div class="col-4 border">
             <p>Сопутствующее психическое (наркологическое) заболевание</p>
-            <p>Код по МКБ-10 F</p>
+                <textarea></textarea>
+            <p>Код по МКБ-10 F <input /></p>
             <p>Сопутствующее соматическое заболевание</p>
-            <p>Код по МКБ-10</p>
-            <p>Инвалидность по общему заболеванию</p>
-            <p>Инвалид ВОВ</p>
-            <p>Участник ВОВ</p>
-            <p>Образование</p>
+            <p>Код по МКБ-10  <input /></p>
+            <p>Инвалидность по общему заболеванию <select></select></p>
+            <p>Инвалид ВОВ <input type="checkbox"></p>
+            <p>Участник ВОВ <input type="checkbox"></p>
+            <p>Образование <select></select></p>
         </div>
         <div class="col-4 border">
-            <p>Учится</p>
-            <p>Источник средств существования</p>
-            <p>Проживает</p>
-            <p>Условия проживания</p>
-            <p>Исход заболевания</p>
+            <p>Учится <input type="checkbox"></p>
+            <p>Источник средств существования <select></select></p>
+            <p>Проживает <select></select></p>
+            <p>Условия проживания <select></select></p>
+            <p>Исход заболевания <select></select></p>
         </div>
     </div>
 </section>
@@ -148,7 +156,7 @@
             </tr>           
         </thead>
         <tbody>
-            @foreach (var item in shits)
+            @foreach (var item in collection)
             {
                 <tr class="stat-card-head fw-normal">
                     <th>@item.Str1</th>
@@ -176,7 +184,7 @@
             </tr>           
         </thead>
         <tbody>
-            @foreach (var item in shits)
+            @foreach (var item in collection)
             {
                 <tr class="stat-card-head fw-normal">
                     <th>@item.Str1</th>
@@ -191,9 +199,9 @@
     </table>
 </div>
 
-<p>Использование чужих шприцов, игл, приспособлений в течении последнего года</p>
-<p>Проживание с потребителем психоактивных веществ</p>
-<p>Полученный вид наркологической помощи в данном учреждении</p>
+<p>Использование чужих шприцов, игл, приспособлений в течении последнего года <input type="checkbox"></p>
+<p>Проживание с потребителем психоактивных веществ <input type="checkbox"></p>
+<p>Полученный вид наркологической помощи в данном учреждении <select></select></p>
 
 <!--Кнопка сохранения-->
 <button class="btn btn-primary" @onclick="Save">Сохранить</button>
@@ -203,14 +211,14 @@
 
 @code {
 
-    List<Shit> shits;
-    class Shit
+    List<SmthClass> collection;
+    class SmthClass
     {
         public string Str1 { get; set; }
         public string Str2 { get; set; }
         public string Str3 { get; set; }
 
-        public Shit(string str1, string str2, string str3)
+        public SmthClass(string str1, string str2, string str3)
         {
             Str1 = str1;
             Str2 = str2;
@@ -229,9 +237,11 @@
     /// <returns></returns>
     protected async override Task OnInitializedAsync()
     {
-        shits = new List<Shit>();
-        shits.Add(new Shit("1", "2", "3"));
-        shits.Add(new Shit("4", "5", "6"));
-        shits.Add(new Shit("7", "8", "9"));
+        collection = new List<SmthClass>();
+        collection.Add(new SmthClass("1", "2", "3"));
+        collection.Add(new SmthClass("4", "5", "6"));
+        collection.Add(new SmthClass("7", "8", "9"));
     }
+
+    // временные данные
 }

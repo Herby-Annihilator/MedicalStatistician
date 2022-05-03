@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalStatistician.DAL.Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalStatistician.DAL.Repositories", "DAL\Repositories\MedicalStatistician.DAL.Repositories\MedicalStatistician.DAL.Repositories.csproj", "{9D2D2FEA-05AC-4888-AA5F-43F5D6B04779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalStatistician.UI.Blazer", "MedicalStatistician.UI.Blazer\MedicalStatistician.UI.Blazer.csproj", "{41CE54D1-F816-401E-B0C8-CCE2DE27E1C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalStatistician.UI.Blazer", "MedicalStatistician.UI.Blazer\MedicalStatistician.UI.Blazer.csproj", "{41CE54D1-F816-401E-B0C8-CCE2DE27E1C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
