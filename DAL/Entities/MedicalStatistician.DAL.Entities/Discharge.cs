@@ -29,5 +29,21 @@ namespace MedicalStatistician.DAL.Entities
         /// Код выписанного пациента
         /// </summary>
         public int PatientId { get; set; }
+        /// <summary>
+        /// Место выбытия
+        /// </summary>
+        public PlaceOfDeparture PlaceOfDeparture { get; set; }
+        /// <summary>
+        /// Код места выбытия
+        /// </summary>
+        public int PlaceOfDepartureId { get; set; }
+        /// <summary>
+        /// Исход заболевания
+        /// </summary>
+        public DiseaseOutcome DiseaseOutcome { get; set; }
+        /// <summary>
+        /// Код исхода заболевания
+        /// </summary>
+        public int DiseaseOutcomeId { get; set; }
     }
 }
