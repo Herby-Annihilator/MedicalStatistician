@@ -140,5 +140,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Коллекция диагнозов данного пациента
         /// </summary>
         public ICollection<Diagnosis> Diagnosis { get; set; }
+        /// <summary>
+        /// Случаи госпитализации
+        /// </summary>
+        public ICollection<Hospitalization> Hospitalizations { get; set; }
     }
 }
