@@ -148,5 +148,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Выписки пациента
         /// </summary>
         public ICollection<Discharge> Discharges { get; set; }
+        /// <summary>
+        /// Листки нетрудоспособности
+        /// </summary>
+        public ICollection<CertificateOfIncapacityForWork>? CertificateOfIncapacityForWork { get; set; }
     }
 }
