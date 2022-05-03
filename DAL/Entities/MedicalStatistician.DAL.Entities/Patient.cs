@@ -152,5 +152,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Листки нетрудоспособности
         /// </summary>
         public ICollection<CertificateOfIncapacityForWork>? CertificateOfIncapacityForWork { get; set; }
+        /// <summary>
+        /// Обследования на ВИЧ
+        /// </summary>
+        public ICollection<HivTest>? HivTests { get; set; }
     }
 }
