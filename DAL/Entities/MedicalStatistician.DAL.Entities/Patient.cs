@@ -156,5 +156,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Обследования на ВИЧ
         /// </summary>
         public ICollection<HivTest>? HivTests { get; set; }
+        /// <summary>
+        /// Место жительства
+        /// </summary>
+        public Location Location { get; set; }
+        /// <summary>
+        /// Код места жительства
+        /// </summary>
+        public int LocationId { get; set; }
     }
 }
