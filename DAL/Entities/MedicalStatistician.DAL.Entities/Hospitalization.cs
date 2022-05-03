@@ -28,5 +28,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код пациента
         /// </summary>
         public int PatientId { get; set; }
+        /// <summary>
+        /// Путь поступления пациента на госпитализацию
+        /// </summary>
+        public PatientEntryRoutes PatientEntryRoutes { get; set; }
+        /// <summary>
+        /// Код пути поступления
+        /// </summary>
+        public int PatientEntryRoutesId { get; set; }
     }
 }
