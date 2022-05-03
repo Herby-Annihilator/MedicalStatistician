@@ -41,7 +41,11 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// День рождения
         /// </summary>
-        public DateTime Birthday { get; set; }
+        public DateTime Birthday { get; set; } = DateTime.Now;
+        /// <summary>
+        /// Дата первого обращения к наркологу (в жизни)
+        /// </summary>
+        public DateTime? FirstConyactWithNarcologist { get; set; }
         /// <summary>
         /// Признак использования чужих шприцов
         /// </summary>
