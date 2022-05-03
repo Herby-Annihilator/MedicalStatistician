@@ -45,5 +45,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код исхода заболевания
         /// </summary>
         public int DiseaseOutcomeId { get; set; }
+        /// <summary>
+        /// Причина смерти
+        /// </summary>
+        public CauseOfDeath? CauseOfDeath { get; set; }
+        /// <summary>
+        /// Код причины смерти
+        /// </summary>
+        public int? CauseOfDeathId { get; set; }
     }
 }
