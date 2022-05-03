@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace MedicalStatistician.DAL.Entities
 {
     /// <summary>
-    /// Пути поступления пациента (из дома, доставлен скорой, переведен откуда-то)
+    /// Цель направления на лечение
     /// </summary>
-    public class PatientEntryRoutes
+    public class PurposeOfReferralForTreatment
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,10 +19,11 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Формулировка
         /// </summary>
-        [MaxLength(512)]
+        [MaxLength(255)]
         public string Wording { get; set; } = "";
+
         /// <summary>
-        /// Случаи госпитализации
+        /// Случаи госпитализации с данной целью
         /// </summary>
         public ICollection<Hospitalization>? Hospitalizations { get; set; }
     }

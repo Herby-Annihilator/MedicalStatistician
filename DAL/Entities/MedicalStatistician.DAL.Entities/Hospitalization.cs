@@ -36,5 +36,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код пути поступления
         /// </summary>
         public int PatientEntryRoutesId { get; set; }
+        /// <summary>
+        /// Цель направления на лечение
+        /// </summary>
+        public PurposeOfReferralForTreatment PurposeOfReferralForTreatment { get; set; }
+        /// <summary>
+        /// Код цели направления на лечение
+        /// </summary>
+        public int PurposeOfReferralForTreatmentId { get; set; }
     }
 }
