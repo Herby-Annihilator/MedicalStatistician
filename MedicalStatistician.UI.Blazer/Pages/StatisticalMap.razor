@@ -1,0 +1,237 @@
+﻿@page "/statisticalMap"
+
+<PageTitle>Стат. карта</PageTitle>
+
+<div class=stat-card-head>
+    <h3>Статистическая карта</h3>
+    <h4>выбывшего из психиатрического (наркологического) стационара</h4>
+</div>
+
+<p>Фамилия И.О. @str</p>
+
+<section>
+    <div class="row">
+        <div class="col-4 border">
+            <p>Пол</p>
+            <p>Житель</p>
+            <p>Место жительства</p>
+            <p>Код по ОКАТО</p>
+            <p>Дата рождения</p>
+            <p>Название страховой компании</p>
+            <p>Страховой полис</p>
+            <p>серия</p>
+            <p>номер</p>
+            <p>Номер стат. карты</p>
+            <p>Мед.карта стац. б-го</p>
+            <p>Номер отделения</p>
+            <p>Дата поступления</p>
+            <p>Дата открытия бол-го листа</p>
+            <p>Дата закрытия бол-го листа</p>
+        </div>
+        <div class="col-4 border">
+            <p>Кем направлен</p>
+            <p>Порядок поступления</p>
+            <p>Решение судьи по ст.35</p>
+            <p>Откуда поступил</p>
+            <p>Цель направления</p>
+            <p>Диагноз направившего учреждения</p>
+            <p>Код по МКБ-10</p>
+        </div>
+        <div class="col-4 border">
+            <p>Заключительный диагноз</p>
+            <p>Код по МКБ-10</p>
+            <p>Основной код (+) по МКБ-10</p>
+            <p>Инвалидность при выписке по псих. заболеванию</p>
+            <p>Обследование больного на ВИЧ</p>
+            <p>Выбыл</p>
+            <p>Смерть наступила</p>
+            <p>Основная причина смерти</p>
+            <p>Код по МКБ-10</p>
+        </div>
+    </div>
+</section>
+
+
+<p class=stat-card-head>Заполняется на больного, находившегося на принудитеьлном лечении в данном стационаре</p>
+<div class="table-responsive">
+    <p class="fw-bolder">Отметки о начале, окончании и изменении вида принудительного лечения</p>
+    <table class="table table-bordered" border="1">
+        <thead class="thead-light stat-card-head">
+            <tr>
+                <th colspan="2">Решение суда о начале принудительного лечения</th>
+                <th colspan="6">Решение суда об изменении (продлении) принудительного лечения</th>
+                <th>Решение суда об окончании принудительного лечения</th>
+            </tr>
+            <tr>
+                <th>Дата</th>
+                <th>Вид</th>
+
+                <th>Дата</th>
+                <th>Вид</th>
+                <th>Дата</th>
+                <th>Вид</th>
+                <th>Дата</th>
+                <th>Вид</th>
+
+                <th>Дата</th>
+            </tr>           
+        </thead>
+        <tbody>
+            @foreach (var item in shits)
+            {
+                <tr class="stat-card-head fw-normal">
+                    <th>@item.Str1</th>
+                    <th>@item.Str2</th>
+                    <th>@item.Str3</th>
+                    <th>@item.Str1</th>
+                    <th>@item.Str2</th>
+                    <th>@item.Str3</th>
+                    <th>@item.Str1</th>
+                    <th>@item.Str2</th>
+                    <th>@item.Str3</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!--Пункты 29 и 30-->
+<p>В случае окончания принудительного лечения</p>
+<p>Дата окончания принудительного лечения</p>
+
+<h5 class=stat-card-head>Дополнительные сведения о больном</h5>
+<section>
+    <div class="row">
+        <div class="col-4 border">
+            <p>Дата начала заболевания</p>
+            <p>Дата обращения к психиатру (наркологу) впервые в жизни</p>
+            <p>Вид амбулаторного наблюдения</p>
+            <p>Дата предыдущей выписки из психиатрич. или наркологич. стац.</p>
+            <p>Число дней работы в ЛТМ</p>
+            <p>Число дней лечебных отпусков (за период госпитализации)</p>
+        </div>
+        <div class="col-4 border">
+            <p>Сопутствующее психическое (наркологическое) заболевание</p>
+            <p>Код по МКБ-10 F</p>
+            <p>Сопутствующее соматическое заболевание</p>
+            <p>Код по МКБ-10</p>
+            <p>Инвалидность по общему заболеванию</p>
+            <p>Инвалид ВОВ</p>
+            <p>Участник ВОВ</p>
+            <p>Образование</p>
+        </div>
+        <div class="col-4 border">
+            <p>Учится</p>
+            <p>Источник средств существования</p>
+            <p>Проживает</p>
+            <p>Условия проживания</p>
+            <p>Исход заболевания</p>
+        </div>
+    </div>
+</section>
+
+
+<h5 class=stat-card-head>Сведения об употреблении психоактивных веществ</h5>
+<div class="table-responsive">
+    <p class="fw-bolder">Возраст начала употребления психоактивных веществ</p>
+    <table class="table table-bordered" border="1">
+        <thead class="thead-light stat-card-head">
+            <tr>
+                <th rowspan="2">Наименование психоактивного вещества</th>
+                <th colspan="4">Число полных лет</th>
+            </tr>
+            <tr>
+                <th>курение</th>
+                <th>прием внутрь</th>
+                <th>внутривенно</th>
+                <th>прочее</th>
+            </tr>           
+        </thead>
+        <tbody>
+            @foreach (var item in shits)
+            {
+                <tr class="stat-card-head fw-normal">
+                    <th>@item.Str1</th>
+                    <th>@item.Str2</th>
+                    <th>@item.Str3</th>
+                    <th>@item.Str1</th>
+                    <th>@item.Str2</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <p class="fw-bolder">Употребление психоактивных веществ на момент госпитализации</p>
+    <table class="table table-bordered" border="1">
+         <thead class="thead-light stat-card-head">
+            <tr>
+                <th>Вид вещества</th>
+                <th>Наименование психоактивного вещества</th>
+                <th>Курение</th>
+                <th>Прием внутрь</th>
+                <th>Внутривенно</th>
+                <th>Прочее</th>
+            </tr>           
+        </thead>
+        <tbody>
+            @foreach (var item in shits)
+            {
+                <tr class="stat-card-head fw-normal">
+                    <th>@item.Str1</th>
+                    <th>@item.Str2</th>
+                    <th>@item.Str3</th>
+                    <th>@item.Str1</th>
+                    <th>@item.Str2</th>
+                    <th>@item.Str3</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<p>Использование чужих шприцов, игл, приспособлений в течении последнего года</p>
+<p>Проживание с потребителем психоактивных веществ</p>
+<p>Полученный вид наркологической помощи в данном учреждении</p>
+
+<!--Кнопка сохранения-->
+<button class="btn btn-primary" @onclick="Save">Сохранить</button>
+
+
+
+
+@code {
+
+    List<Shit> shits;
+    class Shit
+    {
+        public string Str1 { get; set; }
+        public string Str2 { get; set; }
+        public string Str3 { get; set; }
+
+        public Shit(string str1, string str2, string str3)
+        {
+            Str1 = str1;
+            Str2 = str2;
+            Str3 = str3;
+        }
+    }
+
+    double testcount = 0;
+    string str = "Иванов Иван Иванович";
+
+    void Save() => testcount = Math.Cos(testcount);
+
+    /// <summary>
+    /// Инициализация до отрисовки
+    /// </summary>
+    /// <returns></returns>
+    protected async override Task OnInitializedAsync()
+    {
+        shits = new List<Shit>();
+        shits.Add(new Shit("1", "2", "3"));
+        shits.Add(new Shit("4", "5", "6"));
+        shits.Add(new Shit("7", "8", "9"));
+    }
+}
