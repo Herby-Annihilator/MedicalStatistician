@@ -61,5 +61,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код основной причины смерти по МКБ
         /// </summary>
         public int? CauseOfDeathCodeId { get; set; }
+        /// <summary>
+        /// Отделение, откуда выписан пациент
+        /// </summary>
+        public Department Department { get; set; }
+        /// <summary>
+        /// Код отделения, откуда пациент был выписан
+        /// </summary>
+        public int DepartmentId { get; set; }
     }
 }

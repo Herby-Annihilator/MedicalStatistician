@@ -46,5 +46,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Случаи госпитализации, в которых данное отделение принимало пациента
         /// </summary>
         public ICollection<Hospitalization>? Hospitalizations { get; set; }
+        /// <summary>
+        /// Выписки из данного отделения
+        /// </summary>
+        public ICollection<Discharge>? Discharges { get; set; }
     }
 }
