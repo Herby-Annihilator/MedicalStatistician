@@ -83,10 +83,24 @@
             </tr>           
         </thead>
         <tbody>
-            @foreach (var item in collection)
+            <tr>
+            <td><input type="date" /></td>
+            <td><select></select></td>
+
+            <td><input type="date" /></td>
+            <td><select></select></td>
+            <td><input type="date" /></td>
+            <td><select></select></td>
+            <td><input type="date" /></td>
+            <td><select></select></td>
+
+            <td><input type="date" /></td>
+            
+            </tr>
+           @* @foreach (var item in collection)
             {
                 <tr class="stat-card-head fw-normal">
-                    <th>@item.Str1</th>
+                    <th ></th>
                     <th>@item.Str2</th>
                     <th>@item.Str3</th>
                     <th>@item.Str1</th>
@@ -96,7 +110,7 @@
                     <th>@item.Str2</th>
                     <th>@item.Str3</th>
                 </tr>
-            }
+            } *@
         </tbody>
     </table>
 </div>
@@ -159,11 +173,11 @@
             @foreach (var item in collection)
             {
                 <tr class="stat-card-head fw-normal">
-                    <th>@item.Str1</th>
-                    <th>@item.Str2</th>
-                    <th>@item.Str3</th>
-                    <th>@item.Str1</th>
-                    <th>@item.Str2</th>
+                    <td>@item.Str1</td>
+                    <td>@item.Str2</td>
+                    <td>@item.Str3</td>
+                    <td>@item.Str1</td>
+                    <td>@item.Str2</td>
                 </tr>
             }
         </tbody>
@@ -187,12 +201,12 @@
             @foreach (var item in collection)
             {
                 <tr class="stat-card-head fw-normal">
-                    <th>@item.Str1</th>
-                    <th>@item.Str2</th>
-                    <th>@item.Str3</th>
-                    <th>@item.Str1</th>
-                    <th>@item.Str2</th>
-                    <th>@item.Str3</th>
+                    <td>@item.Str1</td>
+                    <td>@item.Str2</td>
+                    <td>@item.Str3</td>
+                    <td>@item.Str1</td>
+                    <td>@item.Str2</td>
+                    <td>@item.Str3</td>
                 </tr>
             }
         </tbody>
@@ -206,6 +220,7 @@
 <!--Кнопка сохранения-->
 <button class="btn btn-primary" @onclick="Save">Сохранить</button>
 
+<Footer></Footer>
 
 
 
