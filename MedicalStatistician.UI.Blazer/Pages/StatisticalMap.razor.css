@@ -1,3 +1,10 @@
-﻿.stat-card-head {
-    text-align: center
+﻿input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+
+.object-table {
+    height:100%;
+    width:100%;
+    border:0;
 }

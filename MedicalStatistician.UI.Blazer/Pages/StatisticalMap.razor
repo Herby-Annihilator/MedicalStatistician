@@ -4,160 +4,305 @@
 
 
 
-<div class=stat-card-head>
+<div style="text-align:center">
     <h3>Статистическая карта</h3>
     <h4>выбывшего из психиатрического (наркологического) стационара</h4>
 </div>
 
-<p>Фамилия <input @str /></p>
-<p>Имя <input @str /></p>
-<p>Отчество <input @str /></p>
+<p>
+    <label style="width:12%">Фамилия</label>
+    <input style="width:21%" @str />
+</p>
+<p>
+    <label style="width:12%">Имя</label>
+    <input style="width:21%" @str />
+</p>
+<p>
+    <label style="width:12%">Отчество</label>
+    <input style="width:21%" @str />
+</p>
 
 <section>
     <div class="row">
-        <div class="col-4 border">
-            <p>Пол <select></select></p>
+        <div class="col-4 border" style="padding:1%;">
+            <p>
+                <label style="width:36%">Пол</label>
+                <select style="width:62%"></select>
+            </p>
             @*<p>Житель </p>*@
-            <p>Место жительства <input></p>
-            <p>Код по ОКАТО <input disabled></p>
-            <p>Дата рождения <input type="date"></p>
-            <p>Вид оплаты <select></select></p>
-            <p>Название страховой компании <input></p>
-            <p>Страховой полис: серия <input style="width: 20%"/> номер <input  style="width: 30%"/></p>
-            <p>Номер стат. карты <input /></p>
-            <p>Мед.карта стац. б-го <input /></p>
-            <p>Номер отделения <input></p>
-            <p>Дата поступления  <input type="date"></p>
-            <p>Дата открытия бол-го листа  <input type="date"></p>
-            <p>Дата закрытия бол-го листа  <input type="date"></p>
+            <p>
+                <label style="width:36%">Место жительства</label>
+                <input style="width:62%">
+            </p>
+            <p>
+                <label style="width:36%">Код по ОКАТО</label>
+                <input style="width:62%">
+            </p>
+            <p>
+                <label  style="width:36%">Дата рождения</label>
+                <input type="date" style="width:62%">
+            </p>
+            <p>
+                <label style="width:36%">Вид оплаты</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Название страховой компании</label>
+                <input style="width:62%">
+            </p>
+            <p>Страховой полис: серия <input style="width: 20%"/> номер <input  style="width: 31%"/></p>
+            <p>
+                <label style="width:36%">Номер стат. карты</label>
+                <input style="width:62%"/>
+            </p>
+            <p>
+                <label style="width:36%">Мед.карта стац. б-го</label>
+                <input style="width:62%"/>
+            </p>
+            <p>
+                <label style="width:36%">Номер отделения</label>
+                <input style="width:62%">
+            </p>
+            <p>
+                <label style="width:36%">Дата поступления</label>
+                <input type="date" style="width:62%">
+            </p>
+            <p>
+                <label style="width:36%">Дата открытия бол-го листа</label>
+                <input type="date" style="width:62%">
+            </p>
+            <p>
+                <label style="width:36%">Дата закрытия бол-го листа</label>
+                <input type="date" style="width:62%">
+            </p>
         </div>
-        <div class="col-4 border">
-            <p>Кем направлен <select></select></p>
-            <p>Порядок поступления <select></select></p>
-            <p>Решение судьи по ст.35 <select></select></p>
-            <p>Откуда поступил <select></select></p>
-            <p>Цель направления <select></select></p>
+        <div class="col-4 border" style="padding:1%;">
+            <p>
+                <label style="width:36%">Кем направлен</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Порядок поступления</label> 
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Решение судьи по ст.35</label> 
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Откуда поступил</label> 
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Цель направления</label>
+                <select style="width:62%"></select>
+            </p>
             <p>Диагноз направившего учреждения </p>
-                <textarea></textarea>
-            <p>Код по МКБ-10 <input /></p>
+                <textarea style="width:98%"></textarea>
+             <p>
+                <label style="width:36%">Код по МКБ-10</label>
+                <input style="width:62%"/>
+            </p>
         </div>
-        <div class="col-4 border">
+        <div class="col-4 border" style="padding:1%;">
             <p>Заключительный диагноз</p>
-                 <textarea></textarea>
-            <p>Код по МКБ-10 <input /></p>
-            <p>Основной код (+) по МКБ-10 <input /></p>
-            <p>Инвалидность при выписке по псих. заболеванию <select></select></p>
-            <p>Обследование больного на ВИЧ <select></select></p>
-            <p>Выбыл <select></select></p>
-            <p>Смерть наступила <select></select></p>
+                 <textarea style="width:98%"></textarea>
+            <p>
+                <label style="width:36%">Код по МКБ-10</label>
+                <input style="width:62%"/>
+            </p>
+            <p>
+                <label style="width:36%">Основной код (+) по МКБ-10</label> 
+                <input style="width:62%"/>
+            </p>
+            <p>
+                <label style="width:36%">Инвалидность при выписке по псих. заболеванию</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Обследование больного на ВИЧ</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Выбыл</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Смерть наступила</label>
+                <select style="width:62%"></select></p>
             <p>Основная причина смерти</p>
-                 <textarea></textarea>
-            <p>Код по МКБ-10 <input /></p>
+                 <textarea style="width:98%"></textarea>
+             <p>
+                <label style="width:36%">Код по МКБ-10</label>
+                <input style="width:62%"/>
+            </p>
         </div>
     </div>
 </section>
 
 
-<p class=stat-card-head>Заполняется на больного, находившегося на принудитеьлном лечении в данном стационаре</p>
+<p style="text-align:center">Заполняется на больного, находившегося на принудитеьлном лечении в данном стационаре</p>
 <div class="table-responsive">
     <p class="fw-bolder">Отметки о начале, окончании и изменении вида принудительного лечения</p>
-    <table class="table table-bordered" border="1">
-        <thead class="thead-light stat-card-head">
-            <tr>
-                <th colspan="2">Решение суда о начале принудительного лечения</th>
-                <th colspan="6">Решение суда об изменении (продлении) принудительного лечения</th>
-                <th>Решение суда об окончании принудительного лечения</th>
-            </tr>
-            <tr>
-                <th>Дата</th>
-                <th>Вид</th>
-
-                <th>Дата</th>
-                <th>Вид</th>
-                <th>Дата</th>
-                <th>Вид</th>
-                <th>Дата</th>
-                <th>Вид</th>
-
-                <th>Дата</th>
-            </tr>           
-        </thead>
-        <tbody>
-            <tr>
-            <td><input type="date" /></td>
-            <td><select></select></td>
-
-            <td><input type="date" /></td>
-            <td><select></select></td>
-            <td><input type="date" /></td>
-            <td><select></select></td>
-            <td><input type="date" /></td>
-            <td><select></select></td>
-
-            <td><input type="date" /></td>
-            
-            </tr>
-           @* @foreach (var item in collection)
-            {
-                <tr class="stat-card-head fw-normal">
-                    <th ></th>
-                    <th>@item.Str2</th>
-                    <th>@item.Str3</th>
-                    <th>@item.Str1</th>
-                    <th>@item.Str2</th>
-                    <th>@item.Str3</th>
-                    <th>@item.Str1</th>
-                    <th>@item.Str2</th>
-                    <th>@item.Str3</th>
+    <section>
+        <table class="table table-bordered" border="1">
+        
+            <thead class="thead-light" style="text-align:center">
+                <tr>
+                    <th colspan="2" class="col-2">Решение суда о начале принудительного лечения</th>
+                    <th colspan="6" class="col-8">Решение суда об изменении (продлении) принудительного лечения</th>
+                    <th class="col-2">Решение суда об окончании принудительного лечения</th>
                 </tr>
-            } *@
-        </tbody>
-    </table>
+                <tr>
+                    <th class="col-1">Дата</th>
+                    <th class="col-1">Вид</th>
+
+                    <th class="col-1">Дата</th>
+                    <th class="col-1">Вид</th>
+                    <th class="col-1">Дата</th>
+                    <th class="col-1">Вид</th>
+                    <th class="col-1">Дата</th>
+                    <th class="col-1">Вид</th>
+
+                    <th class="col-2">Дата</th>
+                </tr>           
+            </thead>
+            <tbody>
+                <!--Вставил style т.к. импорт из css не работает-->
+                @for (int i = 0; i < 3; i++)
+                {
+                    <tr style="width:100%; height:100%;">
+                        <td><input type="date" class=object-table/></td>
+                        <td><select class=object-table></select></td>
+
+                        <td><input type="date" class=object-table/></td>
+                        <td><select class=object-table></select></td>
+                        <td><input type="date" class=object-table/></td>
+                        <td><select class=object-table></select></td>
+                        <td><input type="date" class=object-table/></td>
+                        <td><select class=object-table></select></td>
+
+                        <td><input type="date" class=object-table/></td>
+            
+                    </tr>
+                }
+               @* @foreach (var item in collection)
+                {
+                    <tr class="stat-card-head fw-normal">
+                        <th ></th>
+                        <th>@item.Str2</th>
+                        <th>@item.Str3</th>
+                        <th>@item.Str1</th>
+                        <th>@item.Str2</th>
+                        <th>@item.Str3</th>
+                        <th>@item.Str1</th>
+                        <th>@item.Str2</th>
+                        <th>@item.Str3</th>
+                    </tr>
+                } *@
+            </tbody>
+        
+        </table>
+    </section>
 </div>
 
 <!--Пункты 29 и 30-->
-<p>В случае окончания принудительного лечения <select></select> </p>
-<p>Дата окончания принудительного лечения <input type="date"></p>
+<p>
+    <label style="width:22%">В случае окончания принудительного лечения</label>
+    <select style="width:18%"></select> 
+</p>
+<p>
+    <label style="width:22%">Дата окончания принудительного лечения</label>
+    <input type="date" style="width:18%">
+</p>
 
-<h5 class=stat-card-head>Дополнительные сведения о больном</h5>
+<h5 style="text-align:center">Дополнительные сведения о больном</h5>
 <section>
     <div class="row">
-        <div class="col-4 border">
-            <p>Дата начала заболевания <input type="date"></p>
-            <p>Дата обращения к психиатру (наркологу) впервые в жизни <input type="date"></p>
-            <p>Вид амбулаторного наблюдения <select></select></p>
-            <p>Дата предыдущей выписки из психиатрич. или наркологич. стац. <input type="date"></p>
-            <p>Число дней работы в ЛТМ <input /></p>
+        <div class="col-4 border" style="padding:1%;">
+            <p>
+                <label style="width:36%">Дата начала заболевания</label>
+                <input type="date" style="width:62%">
+            </p>
+            <p>
+                <label style="width:36%">Дата обращения к психиатру (наркологу) впервые в жизни</label>
+                <input type="date" style="width:62%">
+            </p>
+            <p>
+                <label style="width:36%">Вид амбулаторного наблюдения</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Дата предыдущей выписки из психиатрич. или наркологич. стац.</label>
+                <input type="date" style="width:62%">
+            </p>
+            <p>
+                <label style="width:36%">Число дней работы в ЛТМ</label>
+                <input style="width:62%"/></p>
             <p>Число дней лечебных отпусков (за период госпитализации)</p>
-            <p>дней <input style="width: 20%"/> отпусков <input style="width: 20%"/></p>
+            <p>
+                <label style="width:28%"></label>
+                <label style="width:70%">дней <input style="width: 34%"/> отпусков <input style="width: 33%"/></label>
+            </p>
         </div>
-        <div class="col-4 border">
+        <div class="col-4 border" style="padding:1%;">
             <p>Сопутствующее психическое (наркологическое) заболевание</p>
-                <textarea></textarea>
-            <p>Код по МКБ-10 F <input /></p>
+                <textarea style="width:98%"></textarea>
+            <p>
+                <label style="width:36%">Код по МКБ-10 F</label>
+                <input style="width:62%"/></p>
             <p>Сопутствующее соматическое заболевание</p>
-            <p>Код по МКБ-10  <input /></p>
-            <p>Инвалидность по общему заболеванию <select></select></p>
-            <p>Инвалид ВОВ <input type="checkbox"></p>
-            <p>Участник ВОВ <input type="checkbox"></p>
-            <p>Образование <select></select></p>
+            <p> <label style="width:36%">Код по МКБ-10</label>
+                <input style="width:62%"/>
+            </p>
+            <p>
+                <label style="width:36%">Инвалидность по общему заболеванию</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Инвалид ВОВ</label>
+                <input type="checkbox">
+            </p>
+            <p>
+                <label style="width:36%">Участник ВОВ</label>
+                <input type="checkbox">
+            </p>
+            <p>
+                <label style="width:36%">Образование</label>
+                <select style="width:62%"></select>
+            </p>
         </div>
-        <div class="col-4 border">
-            <p>Учится <input type="checkbox"></p>
-            <p>Источник средств существования <select></select></p>
-            <p>Проживает <select></select></p>
-            <p>Условия проживания <select></select></p>
-            <p>Исход заболевания <select></select></p>
+        <div class="col-4 border" style="padding:1%;">
+            <p>
+                <label style="width:36%">Учится</label>
+                <input type="checkbox">
+            </p>
+            <p>
+                <label style="width:36%">Источник средств существования</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Проживает</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Условия проживания</label>
+                <select style="width:62%"></select>
+            </p>
+            <p>
+                <label style="width:36%">Исход заболевания</label>
+                <select style="width:62%"></select>
+            </p>
         </div>
     </div>
 </section>
 
 
-<h5 class=stat-card-head>Сведения об употреблении психоактивных веществ</h5>
+<h5 style="text-align:center">Сведения об употреблении психоактивных веществ</h5>
 <div class="table-responsive">
     <p class="fw-bolder">Возраст начала употребления психоактивных веществ</p>
     <table class="table table-bordered" border="1">
-        <thead class="thead-light stat-card-head">
+        <thead class="thead-light" style="text-align:center">
             <tr>
                 <th rowspan="2">Наименование психоактивного вещества</th>
                 <th colspan="4">Число полных лет</th>
@@ -170,14 +315,14 @@
             </tr>           
         </thead>
         <tbody>
-            @foreach (var item in collection)
+            @for (int i = 0; i < 3; i++)
             {
-                <tr class="stat-card-head fw-normal">
-                    <td>@item.Str1</td>
-                    <td>@item.Str2</td>
-                    <td>@item.Str3</td>
-                    <td>@item.Str1</td>
-                    <td>@item.Str2</td>
+                <tr style="text-align:center">
+                    <td><select class=object-table/></td>
+                    <td><input class=object-table/></td>
+                    <td><input class=object-table/></td>
+                    <td><input class=object-table/></td>
+                    <td><input class=object-table/></td>
                 </tr>
             }
         </tbody>
@@ -187,7 +332,7 @@
 <div class="table-responsive">
     <p class="fw-bolder">Употребление психоактивных веществ на момент госпитализации</p>
     <table class="table table-bordered" border="1">
-         <thead class="thead-light stat-card-head">
+         <thead class="thead-light" style="text-align:center">
             <tr>
                 <th>Вид вещества</th>
                 <th>Наименование психоактивного вещества</th>
@@ -198,24 +343,32 @@
             </tr>           
         </thead>
         <tbody>
-            @foreach (var item in collection)
+            @for (int i = 0; i < 3; i++)
             {
-                <tr class="stat-card-head fw-normal">
-                    <td>@item.Str1</td>
-                    <td>@item.Str2</td>
-                    <td>@item.Str3</td>
-                    <td>@item.Str1</td>
-                    <td>@item.Str2</td>
-                    <td>@item.Str3</td>
+                <tr style="text-align:center">
+                    <td><select class=object-table/></td>
+                    <td><select class=object-table/></td>
+                    <td><input type="checkbox"/></td>
+                    <td><input type="checkbox"/></td>
+                    <td><input type="checkbox"/></td>
+                    <td><input type="checkbox"/></td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
 
-<p>Использование чужих шприцов, игл, приспособлений в течении последнего года <input type="checkbox"></p>
-<p>Проживание с потребителем психоактивных веществ <input type="checkbox"></p>
-<p>Полученный вид наркологической помощи в данном учреждении <select></select></p>
+<p>
+    <label style="width:42%">Использование чужих шприцов, игл, приспособлений в течении последнего года</label>
+    <input type="checkbox">
+</p>
+<p>
+    <label style="width:42%">Проживание с потребителем психоактивных веществ</label> 
+    <input type="checkbox">
+</p>
+<p>
+    <label style="width:33%">Полученный вид наркологической помощи в данном учреждении</label>
+    <select style="width:10%"></select></p>
 
 <!--Кнопка сохранения-->
 <button class="btn btn-primary" @onclick="Save">Сохранить</button>
@@ -226,7 +379,7 @@
 
 @code {
 
-    List<SmthClass> collection;
+    List<SmthClass> collection = new List<SmthClass>();
     class SmthClass
     {
         public string Str1 { get; set; }
@@ -242,7 +395,7 @@
     }
 
     double testcount = 0;
-    string str = "Иванов Иван Иванович";
+    //string str = "Иванов Иван Иванович";
 
     void Save() => testcount = Math.Cos(testcount);
 
@@ -252,7 +405,6 @@
     /// <returns></returns>
     protected async override Task OnInitializedAsync()
     {
-        collection = new List<SmthClass>();
         collection.Add(new SmthClass("1", "2", "3"));
         collection.Add(new SmthClass("4", "5", "6"));
         collection.Add(new SmthClass("7", "8", "9"));
