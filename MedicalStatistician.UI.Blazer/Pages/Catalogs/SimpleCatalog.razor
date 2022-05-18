@@ -1,0 +1,56 @@
+﻿@page "/simpleCatalog"
+
+<PageTitle>Справочник</PageTitle>
+
+<h3 style="text-align:center;">Пол</h3>
+<p style="height:20px"></p>
+<div style="text-align:right">
+            <button class="btn btn-primary oi oi-plus" @onclick=Add></button>
+            <button class="btn btn-primary oi oi-minus" @onclick=Sub></button>
+        </div>  
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < size; i++)
+            {
+                 <tr>
+                <td>
+                    <input type="search" style="width:100%; border:0; background-color:transparent" @bind-value=dir.collection[i]/>
+                </td>           
+            </tr>
+            }
+           
+        </tbody>
+
+    </table>
+</div>
+
+
+@code
+{
+    class SimpleDir
+    {
+        public String Name;
+        public List<String> collection = new List<string>();
+
+        public SimpleDir()
+        {
+            Name = "Пол";
+            collection.Add("мужской");
+            collection.Add("женский");
+        }
+    }
+
+    SimpleDir dir = new SimpleDir();
+    int size = 2;
+    //!!! todo вылетает с ошибками
+    void Add() { size++; dir.collection.Add(""); }
+    void Sub() { size--; dir.collection.RemoveAt(size); }
+}
+

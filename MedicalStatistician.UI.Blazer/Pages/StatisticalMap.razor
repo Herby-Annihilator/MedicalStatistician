@@ -29,6 +29,7 @@
                 <label style="width:36%">Пол</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">мужской</option>
                     <option value="">женский</option>
                 </select>
@@ -37,6 +38,7 @@
                 <label style="width:36%">Житель</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">города</option>
                     <option value="">села</option>
                 </select>
@@ -53,6 +55,7 @@
                 <label style="width:36%">Вид оплаты</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">бюджеты всех уровней</option>
                     <option value="">обязательное мед. страхование</option>
                     <option value="">добровольное мед. страхование</option>
@@ -74,11 +77,13 @@
                 <label style="width:36%">Название страховой компании</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">СМК РЕСО-МЕД</option>
                     <option value="">КАПИТАЛ МС</option>
                 </select>
             </p>
-            <p>Страховой полис: серия <input style="width: 20%"/> номер <input  style="width: 31%"/></p>
+            <p>Страховой полис:</p>
+            <p>серия <input style="width: 20%"/> номер <input  style="width: 30%"/></p>
             <p>
                 <label style="width:36%">Номер стат. карты</label>
                 <input style="width:62%"/>
@@ -109,6 +114,7 @@
                 <label style="width:36%">Кем направлен</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">псих. дисп. (отд. кабинетом)</option>
                     <option value="">наркол. дисп. (отд. кабинетом)</option>
                     <option value="">психотерапевтом</option>
@@ -125,6 +131,7 @@
                 <label style="width:36%">Порядок поступления</label> 
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">добровольное</option>
                     <option value="">недобр. в соотв. со ст.29</option>
                     <option value="">согласия не требуется</option>
@@ -134,6 +141,7 @@
                 <label style="width:36%">Решение судьи по ст.35</label> 
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">получено</option>
                     <option value="">отказано</option>
                     <option value="">не требуется</option>
@@ -144,6 +152,7 @@
                 <label style="width:36%">Откуда поступил</label> 
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">из дома</option>
                     <option value="">переведен из псих. стационара</option>
                     <option value="">переведен из нарк. стационара</option>
@@ -156,6 +165,7 @@
                 <label style="width:36%">Цель направления</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">лечение</option>
                     <option value="">реабилитация</option>
                     <option value="">принудительное лечение</option>
@@ -189,6 +199,7 @@
                 <label style="width:36%">Инвалидность при выписке по псих. заболеванию</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">1 группа инвалидности</option>
                     <option value="">2 группа инвалидности</option>
                     <option value="">3 группа инвалидности</option>
@@ -200,6 +211,7 @@
                 <label style="width:36%">Обследование больного на ВИЧ</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">выявлен впервые в жизни</option>
                     <option value="">выявлен ранее</option>
                     <option value="">ВИЧ не выявлен</option>
@@ -210,6 +222,7 @@
                 <label style="width:36%">Выбыл</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">домой</option>
                     <option value="">в психиатрический стационар</option>
                     <option value="">в наркологический стационар</option>
@@ -226,6 +239,7 @@
                 <label style="width:36%">Смерть наступила</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">от психического заболевания</option>
                     <option value="">от соматического заболевания</option>
                     <option value="">самоубийство</option>
@@ -246,7 +260,13 @@
 
 <p style="text-align:center">Заполняется на больного, находившегося на принудитеьлном лечении в данном стационаре</p>
 <div class="table-responsive">
-    <p class="fw-bolder">Отметки о начале, окончании и изменении вида принудительного лечения</p>
+
+        <label class="fw-bolder">Отметки о начале, окончании и изменении вида принудительного лечения </label>
+        <div style="text-align:right">
+            <button class="btn btn-primary oi oi-plus" @onclick=Add></button>
+            <button class="btn btn-primary oi oi-minus" @onclick=Sub></button>
+        </div>   
+
     <section>
         <table class="table table-bordered" border="1">
         
@@ -258,27 +278,28 @@
                 </tr>
                 <tr>
                     <th class="col-1">Дата</th>
-                    <th class="col-1">Вид</th>
+                    <th class="col-1" style="padding-left:80px; padding-right:80px;">Вид</th>
 
                     <th class="col-1">Дата</th>
-                    <th class="col-1">Вид</th>
+                    <th class="col-1" style="padding-left:80px; padding-right:80px;">Вид</th>
                     <th class="col-1">Дата</th>
-                    <th class="col-1">Вид</th>
+                    <th class="col-1" style="padding-left:80px; padding-right:80px;">Вид</th>
                     <th class="col-1">Дата</th>
-                    <th class="col-1">Вид</th>
+                    <th class="col-1" style="padding-left:80px; padding-right:80px;">Вид</th>
 
                     <th class="col-2">Дата</th>
                 </tr>           
             </thead>
             <tbody>
                 <!--Вставил style т.к. импорт из css не работает-->
-                @for (int i = 0; i < 3; i++)
+                @for (int i = 0; i < size; i++)
                 {
                     <tr style="width:100%; height:100%;">
                         <td><input type="date" class=object-table/></td>
                         <td>
                             @*<select class=object-table></select>*@
                             <select class=object-table>
+                                <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
                                 <option value="">в псих.стац. спец. типа</option>
@@ -290,6 +311,7 @@
                         <td>
                             @*<select class=object-table></select>*@
                             <select class=object-table>
+                                <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
                                 <option value="">в псих.стац. спец. типа</option>
@@ -300,6 +322,7 @@
                         <td>
                             @*<select class=object-table></select>*@
                             <select class=object-table>
+                                <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
                                 <option value="">в псих.стац. спец. типа</option>
@@ -310,6 +333,7 @@
                         <td>
                             @*<select class=object-table></select>*@
                             <select class=object-table>
+                                <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
                                 <option value="">в псих.стац. спец. типа</option>
@@ -346,6 +370,7 @@
     <label style="width:22%">В случае окончания принудительного лечения</label>
     @*<select style="width:18%"></select>*@
     <select style="width:18%">
+        <option value="">(не выбрано)</option>
         <option value="">выбыл из стационара</option>
         <option value="">остался на долечивании в стационаре</option>                         
     </select>
@@ -372,6 +397,7 @@
                 <label style="width:36%">Вид амбулаторного наблюдения</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">профилактивное наблюдение</option>
                     <option value="">диспансерное наблюдение</option>
                     <option value="">активное диспансерное набл.</option>
@@ -391,8 +417,7 @@
                 <input style="width:62%"/></p>
             <p>Число дней лечебных отпусков (за период госпитализации)</p>
             <p>
-                <label style="width:28%"></label>
-                <label style="width:70%">дней <input style="width: 34%"/> отпусков <input style="width: 33%"/></label>
+                <label>дней <input style="width: 20%"/> отпусков <input style="width: 20%"/></label>
             </p>
         </div>
         <div class="col-4 border" style="padding:1%;">
@@ -409,6 +434,7 @@
                 <label style="width:36%">Инвалидность по общему заболеванию</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">1 группа инвалидности</option>
                     <option value="">2 группа инвалидности</option>
                     <option value="">3 группа инвалидности</option>
@@ -428,6 +454,7 @@
                 <label style="width:36%">Образование</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">спец корр. учреждение</option>
                     <option value="">начальное профессиональное</option>
                     <option value="">среднее профессиональное</option>
@@ -446,6 +473,7 @@
                 <label style="width:36%">Источник средств существования</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">рабочий</option>
                     <option value="">служащий</option>
                     <option value="">пенсия по возрасту</option>
@@ -461,6 +489,7 @@
                 <label style="width:36%">Проживает</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">в семье</option>
                     <option value="">один</option>
                 </select>
@@ -469,6 +498,7 @@
                 <label style="width:36%">Условия проживания</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">собственный дом</option>
                     <option value="">отдельная квартира</option>
                     <option value="">коммунальная квартира</option>
@@ -481,6 +511,7 @@
                 <label style="width:36%">Исход заболевания</label>
                 @*<select style="width:62%"></select>*@
                 <select style="width:62%">
+                    <option value="">(не выбрано)</option>
                     <option value="">выздоровление</option>
                     <option value="">улучшение</option>
                     <option value="">без изменений</option>
@@ -516,6 +547,7 @@
                     <td>
                         @*<select class=object-table/>*@
                         <select class=object-table>
+                            <option value="">(не выбрано)</option>
                             <option value="">вещество 1</option>
                             <option value="">вещество 2</option>
                             <option value="">вещество 3</option>
@@ -552,6 +584,7 @@
                     <td>
                         @*<select class=object-table/>*@
                         <select class=object-table>
+                            <option value="">(не выбрано)</option>
                             <option value="">последующее 1</option>
                             <option value="">последующее 2</option>
                             <option value="">последующее 3</option>
@@ -561,6 +594,7 @@
                     <td>
                         @*<select class=object-table/>*@
                         <select class=object-table>
+                            <option value="">(не выбрано)</option>
                             <option value="">вещество 1</option>
                             <option value="">вещество 2</option>
                             <option value="">вещество 3</option>
@@ -589,6 +623,7 @@
     <label style="width:32%">Полученный вид наркологической помощи в данном учреждении</label>
     @*<select style="width:28%"></select>*@
     <select style="width:28%">
+        <option value="">(не выбрано)</option>
         <option value="">детоксикация</option>
         <option value="">долгосрочная медикаментозная терапия</option>
         <option value="">реабилитация</option>
@@ -625,9 +660,12 @@
         }
     }
 
-
+    int size = 3;
 
     double testcount = 0;
+
+    void Add() => size++;
+    void Sub() => size--;
 
     void Save() => testcount = Math.Cos(testcount);
 
