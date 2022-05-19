@@ -1,9 +1,580 @@
 ﻿@page "/reports"
 
-<h1 style="text-align:center">Форма 36ПЛ</h1>
+<PageTitle>Форма 36-ПЛ</PageTitle>
+
+<h1 style="text-align:center">Форма 36-ПЛ</h1>
+<p>Здесь представлена только та часть формы, которая будет заполняться, однако экспортироваться документ будет полностью</p>
+
+<p>
+    <label>Отчетный период: от <input type="date" style="width:200px" /> до <input type="date" style="width:200px" /></label>
+    <button class="btn btn-primary" @onclick="Create">Сформировать</button>  
+</p>
+<div style="text-align:right;">
+    <button class="btn btn-primary" @onclick="Export">Экспорт в Exel</button>
+</div>
 
 
+<!---->
+<!--1 таблица-->
+<!---->
+<div class="table-responsive">
+    <h5 class="fw-bolder">Состав больных находящихся на принудительном лечении (ПЛ) в психиатрических стационарах</h5>
+    <table class="table table-bordered" border="1">
+        <thead class="thead-light" style="text-align:center">
+            <tr>
+                <td rowspan="2">Наименование болезней</td>
+                <td rowspan="2">Код по МКБ-10</td>
+                <td rowspan="2">№ строки</td>
+                <td colspan="6">Поступило больных в отчетном году на ПЛ</td>
+                                <td rowspan="2">Выбыло больных</td>
+
+            </tr>
+            <tr>
+                <td>Всего</td>
+                <td>из них детей до 17 лет включительно</td>
+                <td>впервые в жизни в ПБ (из гр.4)</td>
+                <td>впервые по данному УД</td>
+                <td>в связи с изменением вида ПЛ по данному УД</td>
+                <td>из них после АПНЛ</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <!--0 строка-->
+            <tr>
+                <td style="text-align:center;">1</td>
+                <td style="text-align:center;">2</td>
+                <td style="text-align:center;">3</td>
+                <td style="text-align:center;">4</td>
+                <td style="text-align:center;">5</td>
+                <td style="text-align:center;">6</td>
+                <td style="text-align:center;">7</td>
+                <td style="text-align:center;">8</td>
+                <td style="text-align:center;">9</td>
+                <td style="text-align:center;">10</td>                
+            </tr>
+
+            <!--1 строка-->
+            <tr>
+                <th>Психозы и (или) состояния слабоумия</th>
+                <td style="text-align:center;">F00-F05, F06 (часть), F09, F20-F25, F28, F29, F84.0-4, F30-F39 (часть)</td>
+                <td style="text-align:center;">1</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+            
+            <!--2 строка-->
+            <tr>
+                <td>из них: шизофрения, шизоактивные психозы, шизофреническое расстройство, аффектные психозы с неконгурентным аффекту бредом</td>
+                <td style="text-align:center;">F20, F21, F25, F3x..x4</td>
+                <td style="text-align:center;">2</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+             <!--3 строка-->
+            <tr>
+                <th>Психические расстройства непсихотического характера</th>
+                <td style="text-align:center;">F06 (часть), F07, F30-F39 (часть), F40-F69, F80-F83, F84.5, F90-F98</td>
+                <td style="text-align:center;">3</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+            
+             <!--4 строка-->
+            <tr>
+                <th>Умственная отсталость</th>
+                <td style="text-align:center;">F70-F79</td>
+                <td style="text-align:center;">4</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+            
+             <!--5 строка-->
+            <tr>
+                <th>Психические расстройства - всего</th>
+                <td style="text-align:center;">F00-F09, F20-F99</td>
+                <td style="text-align:center;">5</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+            <!--6 строка-->
+            <tr>
+                <td>Кроме того: больные с заболеваниями, связанными с употреблением психоактивных веществ</td>
+                <td style="text-align:center;">F10-F19</td>
+                <td style="text-align:center;">6</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+             <!--7 строка-->
+            <tr>
+                <td>из них: больные с алкогольными психозами и слабоумием</td>
+                <td style="text-align:center;">F10.4-F10.7</td>
+                <td style="text-align:center;">7</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+             <!--8 строка-->
+            <tr>
+                <td>Из строк 5 и 6: число больных, заболевших психическими расстройствами после совершения преступления (пункт "б" части 1 статьи УК РФ)</td>
+                <td style="text-align:center;">F00-F99</td>
+                <td style="text-align:center;">8</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+            <!--9 строка-->
+            <tr>
+                <td>Больные (из стр.5 и 6), находящиеся на ПЛ в течение отчетного годав психиатрическом стационаре общего типа</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;">9</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+            <!--10 строка-->
+            <tr>
+                <td>из них число больных, заболевших психическими расстройствами после совершения преступления (пункт "б" части 1 статьи УК РФ)</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;">10</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+            <!--11 строка-->
+            <tr>
+                <td>Больные (из стр.5 и 6), находящиеся на ПЛ в течение отчетного годав психиатрическом стационаре специализированного типа</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;">11</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+             <!--12 строка-->
+            <tr>
+                <td>из них число больных, заболевших психическими расстройствами после совершения преступления (пункт "б" части 1 статьи УК РФ)</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;">12</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<div style="height: 30px;"></div>
+<!---->
+<!--2 таблица-->
+<!---->
+<div class="table-responsive">
+    <h5 class="fw-bolder">Состав больных находящихся на принудительном лечении (ПЛ) в психиатрических стационарах (продолжение)</h5>
+    <table class="table table-bordered" border="1">
+        <thead class="thead-light" style="text-align:center">
+            <tr>
+                <td rowspan="2">Наименование болезней</td>
+                <td rowspan="2">Код по МКБ-10</td>
+                <td rowspan="2">№ строки</td>
+                <td rowspan="2">Ими проведено койко-дней в данном стационаре</td>
+                <td colspan="2">Из числа выбывших (гр.10) выбыло</td>
+                <td colspan="2">Состоит на конец года</td>
+
+            </tr>
+            <tr>
+                <td>в связи с изменением типа ПЛ</td>
+                <td>в том числе с переводом на АПНЛ</td>
+                <td>Всего</td>
+                <td>из них детей до 17 лет включительно</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <!--0 строка-->
+            <tr>
+                <td style="text-align:center;">1</td>
+                <td style="text-align:center;">2</td>
+                <td style="text-align:center;">3</td>
+                <td style="text-align:center;">11</td>
+                <td style="text-align:center;">12</td>
+                <td style="text-align:center;">13</td>
+                <td style="text-align:center;">14</td>
+                <td style="text-align:center;">15</td>               
+            </tr>
+
+            <!--1 строка-->
+            <tr>
+                <th>Психозы и (или) состояния слабоумия</th>
+                <td style="text-align:center;">F00-F05, F06 (часть), F09, F20-F25, F28, F29, F84.0-4, F30-F39 (часть)</td>
+                <td style="text-align:center;">1</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>
+            
+            <!--2 строка-->
+            <tr>
+                <td>из них: шизофрения, шизоактивные психозы, шизофреническое расстройство, аффектные психозы с неконгурентным аффекту бредом</td>
+                <td style="text-align:center;">F20, F21, F25, F3x..x4</td>
+                <td style="text-align:center;">2</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>
+
+             <!--3 строка-->
+            <tr>
+                <th>Психические расстройства непсихотического характера</th>
+                <td style="text-align:center;">F06 (часть), F07, F30-F39 (часть), F40-F69, F80-F83, F84.5, F90-F98</td>
+                <td style="text-align:center;">3</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>
+            
+             <!--4 строка-->
+            <tr>
+                <th>Умственная отсталость</th>
+                <td style="text-align:center;">F70-F79</td>
+                <td style="text-align:center;">4</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+            
+             <!--5 строка-->
+            <tr>
+                <th>Психические расстройства - всего</th>
+                <td style="text-align:center;">F00-F09, F20-F99</td>
+                <td style="text-align:center;">5</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>
+
+            <!--6 строка-->
+            <tr>
+                <td>Кроме того: больные с заболеваниями, связанными с употреблением психоактивных веществ</td>
+                <td style="text-align:center;">F10-F19</td>
+                <td style="text-align:center;">6</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>
+
+             <!--7 строка-->
+            <tr>
+                <td>из них: больные с алкогольными психозами и слабоумием</td>
+                <td style="text-align:center;">F10.4-F10.7</td>
+                <td style="text-align:center;">7</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+             <!--8 строка-->
+            <tr>
+                <td>Из строк 5 и 6: число больных, заболевших психическими расстройствами после совершения преступления (пункт "б" части 1 статьи УК РФ)</td>
+                <td style="text-align:center;">F00-F99</td>
+                <td style="text-align:center;">8</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>
+
+            <!--9 строка-->
+            <tr>
+                <td>Больные (из стр.5 и 6), находящиеся на ПЛ в течение отчетного годав психиатрическом стационаре общего типа</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;">9</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>
+
+            <!--10 строка-->
+            <tr>
+                <td>из них число больных, заболевших психическими расстройствами после совершения преступления (пункт "б" части 1 статьи УК РФ)</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;">10</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+
+            <!--11 строка-->
+            <tr>
+                <td>Больные (из стр.5 и 6), находящиеся на ПЛ в течение отчетного годав психиатрическом стационаре специализированного типа</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;">11</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>
+
+             <!--12 строка-->
+            <tr>
+                <td>из них число больных, заболевших психическими расстройствами после совершения преступления (пункт "б" части 1 статьи УК РФ)</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;">12</td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>                
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<div style="height: 50px;"></div>
+<!---->
+<!--3 таблица-->
+<!---->
+<div class="table-responsive">
+    <table class="table table-bordered" border="1">
+        <thead class="thead-light" style="text-align:center">
+            <tr>
+                <th colspan="8">Из числа больных, поступивших на стационарное принудительное лечение ПЛ</th>
+            </tr>
+            <tr>
+                <td rowspan="2">ранее находились на принудительном лечении</td>
+                <td colspan="5">из них последнее ООД совершили после прекращения предыдущего ПЛ</td>
+                <td rowspan="2">после совершения ООД (гр.1) находились под диспансерным наблюдением</td>
+                <td rowspan="2">поступило впервые в данном году</td>
+            </tr>
+            <tr>
+                <td>в течение до 1 года</td>
+                <td>в через 1-2 года</td>
+                <td>в через 2-3 года</td>
+                <td>в через 3-5 лет</td>
+                <td>в через 5 лет и более</td>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            <!--0 строка-->
+            <tr>
+                <td style="text-align:center;">1</td>
+                <td style="text-align:center;">2</td>
+                <td style="text-align:center;">3</td>
+                <td style="text-align:center;">4</td>
+                <td style="text-align:center;">5</td>
+                <td style="text-align:center;">6</td>
+                <td style="text-align:center;">7</td>
+                <td style="text-align:center;">8</td>               
+            </tr>
+
+            <!--1 строка-->
+            <tr>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>
+                <td style="text-align:center;"></td>               
+            </tr>                      
+        </tbody>
+    </table>
+</div>
+
+<div style="height: 50px;"></div>
+<!---->
+<!--4 таблица-->
+<!---->
+<div class="table-responsive">
+    <table class="table table-bordered" border="1">
+        <thead class="thead-light" style="text-align:center">
+            <tr>
+                <th colspan="9">Из числа выбывших (сумма строк 5 и 6, графа 10 таблицы 2200):</th>
+            </tr>
+            <tr>
+                <td colspan="2">умерли</td>
+                <td rowspan="2">переведено в другие психиатрические стационары (сумма гр. 4-7)</td>
+                <td colspan="3">в том числе:</td>
+                <td rowspan="2">кроме того из гр.3 переведено в другие психиатрические стационары без изменения вида ПЛ</td>
+                <td rowspan="2">выбыло в связи с прекращением принудительного лечения</td>
+                <td rowspan="2">число дней проведенное ими на ПЛ от его начала до прекращения (включая АПНЛ)</td>
+            </tr>
+            <tr>
+                <td>Всего</td>
+                <td>из них от несчастных случаев</td>
+                <td>в стационары общего типа</td>
+                <td>в стационары специализированного типа</td>
+                <td>в стационары специализированного типа с интенсивным наблюдением</td>
+            </tr>
+
+        </thead>
+        <tbody style="text-align:center;">
+            <!--0 строка-->
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+
+            <!--1 строка-->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>                      
+        </tbody>
+    </table>
+</div>
+
+<div style="height: 50px;"></div>
+<!---->
+<!--5 таблица-->
+<!---->
+<div class="table-responsive">
+    <table class="table table-bordered" border="1">
+        <thead class="thead-light" style="text-align:center">
+            <tr>
+                <th colspan="5">Из общего числа больных, находящихся в стационаре на конец года (сумма строк 5 и 6, графа 14 таблицы 2200):</th>
+            </tr>
+            <tr>
+                <td colspan="5">время их нахождения на всех видах ПЛ</td>
+            </tr>
+            <tr>
+                <td>до 1 года</td>
+                <td>от 1 до 2 лет</td>
+                <td>от 2 до 5 лет</td>
+                <td>от 5 до 10 лет</td>
+                <td>больше 10 лет</td>
+            </tr>
+
+        </thead>
+        <tbody style="text-align:center;">
+            <!--0 строка-->
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+
+            <!--1 строка-->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>                      
+        </tbody>
+    </table>
+</div>
+
+<div style="text-align:right;">
+    <button class="btn btn-primary" @onclick="Export">Экспорт в Exel</button>
+</div>
+
+<Footer></Footer>
 
 @code {
-
+    int temp = 0;
+    void Export() => temp++;
+    void Create() => temp += 2;
 }
