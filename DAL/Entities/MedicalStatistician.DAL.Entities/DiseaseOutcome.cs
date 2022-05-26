@@ -14,6 +14,9 @@ namespace MedicalStatistician.DAL.Entities
     /// </summary>
     public class DiseaseOutcome : NamedEntity
     {
-
+        /// <summary>
+        /// Случаи лечения с данным исходом
+        /// </summary>
+        public ICollection<TreatmentCase>? Treatments { get; set; }
     }
 }

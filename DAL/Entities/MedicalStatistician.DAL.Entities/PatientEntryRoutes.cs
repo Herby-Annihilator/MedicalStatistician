@@ -14,6 +14,9 @@ namespace MedicalStatistician.DAL.Entities
     /// </summary>
     public class PatientEntryRoutes : NamedEntity
     {
-
+        /// <summary>
+        /// Случаи лечения с данным путем поступления
+        /// </summary>
+        public ICollection<TreatmentCase>? Treatments { get; set; }
     }
 }

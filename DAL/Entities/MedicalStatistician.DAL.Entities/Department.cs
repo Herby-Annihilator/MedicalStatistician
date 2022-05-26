@@ -26,5 +26,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Код профиля оказываемой мед помощи
         /// </summary>
         public int ProfileId { get; set; }
+        /// <summary>
+        /// Случаи лечения в данном отделении
+        /// </summary>
+        public ICollection<TreatmentCase>? Treatments { get; set; }
     }
 }

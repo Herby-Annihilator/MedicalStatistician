@@ -14,6 +14,9 @@ namespace MedicalStatistician.DAL.Entities
     /// </summary>
     public class PlaceOfDeparture : NamedEntity
     {
-
+        /// <summary>
+        /// Случаи заболевания с данным местом выбытия
+        /// </summary>
+        public ICollection<TreatmentCase>? Treatments { get; set; }
     }
 }

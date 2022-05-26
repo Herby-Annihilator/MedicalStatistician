@@ -1,8 +1,6 @@
 ﻿using MedicalStatistician.DAL.Entities.Base;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +8,12 @@ using System.Threading.Tasks;
 namespace MedicalStatistician.DAL.Entities
 {
     /// <summary>
-    /// Цель направления на лечение
+    /// Статус решения судьи по статье 35
     /// </summary>
-    public class PurposeOfReferralForTreatment : NamedEntity
+    public class StatusOfJudgesDecisionUnderArticle35 : NamedEntity
     {
         /// <summary>
-        /// Случаи лечения с данной целью
+        /// Случаи лечения с данным решением судьи по статье 35
         /// </summary>
         public ICollection<TreatmentCase>? Treatments { get; set; }
     }
