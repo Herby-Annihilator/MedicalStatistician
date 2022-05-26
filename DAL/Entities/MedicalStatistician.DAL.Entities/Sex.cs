@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,16 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Пол
     /// </summary>
-    public class Sex
+    public class Sex : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        /// <summary>
-        /// Название пола
-        /// </summary>
-        [MaxLength(20)]
-        public string Name { get; set; }
         /// <summary>
         /// Пациенты данного пола
         /// </summary>

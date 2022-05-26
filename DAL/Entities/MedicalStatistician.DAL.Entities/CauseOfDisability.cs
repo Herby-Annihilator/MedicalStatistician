@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MedicalStatistician.DAL.Entities
@@ -6,14 +7,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Причины инвалидности
     /// </summary>
-    public class CauseOfDisability
+    public class CauseOfDisability : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [MaxLength(255)]
-        public string Name { get; set; } = "";
         /// <summary>
         /// Пациенты с данной причиной инвалидности
         /// </summary>

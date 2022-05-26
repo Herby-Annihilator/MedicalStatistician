@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,11 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Листок нетрудоспобности
     /// </summary>
-    public class CertificateOfIncapacityForWork
+    public class CertificateOfIncapacityForWork : Entity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         /// <summary>
         /// Дата открытия
         /// </summary>

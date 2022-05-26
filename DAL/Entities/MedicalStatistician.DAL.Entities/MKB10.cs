@@ -62,9 +62,5 @@ namespace MedicalStatistician.DAL.Entities
         /// Коллекция заболеваний пациентов с данным МКБ кодом
         /// </summary>
         public ICollection<Disease>? Diseases { get; set; }
-        /// <summary>
-        /// Выписки пациентов, причиной смерти которых стало это заболевание
-        /// </summary>
-        public ICollection<Discharge>? DischargesWhenPatientWasDie { get; set; } 
     }
 }

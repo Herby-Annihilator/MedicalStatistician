@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,16 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Медицинское отделение
     /// </summary>
-    public class Department
+    public class Department : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        /// <summary>
-        /// Наименование отделения
-        /// </summary>
-        [MaxLength(255)]
-        public string Name { get; set; } = "";
         /// <summary>
         /// Номер отделения
         /// </summary>
@@ -33,22 +26,5 @@ namespace MedicalStatistician.DAL.Entities
         /// Код профиля оказываемой мед помощи
         /// </summary>
         public int ProfileId { get; set; }
-
-        /// <summary>
-        /// Тип отделения (мужское, женское, детское)
-        /// </summary>
-        public DepartmentType DepartmentType { get; set; }
-        /// <summary>
-        /// Код типа отделения
-        /// </summary>
-        public int DepartmentTypeId { get; set; }
-        /// <summary>
-        /// Случаи госпитализации, в которых данное отделение принимало пациента
-        /// </summary>
-        public ICollection<Hospitalization>? Hospitalizations { get; set; }
-        /// <summary>
-        /// Выписки из данного отделения
-        /// </summary>
-        public ICollection<Discharge>? Discharges { get; set; }
     }
 }

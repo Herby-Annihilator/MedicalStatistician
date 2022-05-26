@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace MedicalStatistician.DAL.Entities
 {
     /// <summary>
-    /// Участие в войне по ОКИН
+    /// Статус проживания (один, в семье)
     /// </summary>
-    public class ParticipationInTheWar : NamedEntity
+    public class ResidenceStatus : NamedEntity
     {
         /// <summary>
-        /// Пациенты с данным статусом участия в войне
+        /// Пациенты с данным статусом проживания
         /// </summary>
         public ICollection<Patient>? Patients { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,15 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Пациент
     /// </summary>
-    public class Patient
+    public class Patient : Entity
     {
-        /// <summary>
-        /// Первичный ключ
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         /// <summary>
         /// Имя (макс. длина 300)
         /// </summary>
@@ -54,11 +48,6 @@ namespace MedicalStatistician.DAL.Entities
         /// Признак проживания с наркоманом
         /// </summary>
         public bool IsLivesWithAddict { get; set; } = false;
-        /// <summary>
-        /// Коллекция стат. карт этого пациента
-        /// </summary>
-        public ICollection<StatisticalCard> StatisticalCards { get; set; }
-
         /// <summary>
         /// Группа инвалидности пациента
         /// </summary>
@@ -106,7 +95,7 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Семейное положение
         /// </summary>
-        public MaritalStatus MaritalStatus { get; set; }
+        public ResidenceStatus MaritalStatus { get; set; }
         /// <summary>
         /// Код семейного положения
         /// </summary>
@@ -141,18 +130,6 @@ namespace MedicalStatistician.DAL.Entities
         /// </summary>
         public ICollection<Judgment>? Judgments { get; set; }
         /// <summary>
-        /// Коллекция диагнозов данного пациента
-        /// </summary>
-        public ICollection<Diagnosis> Diagnosis { get; set; }
-        /// <summary>
-        /// Случаи госпитализации
-        /// </summary>
-        public ICollection<Hospitalization> Hospitalizations { get; set; }
-        /// <summary>
-        /// Выписки пациента
-        /// </summary>
-        public ICollection<Discharge> Discharges { get; set; }
-        /// <summary>
         /// Листки нетрудоспособности
         /// </summary>
         public ICollection<CertificateOfIncapacityForWork>? CertificateOfIncapacityForWork { get; set; }
@@ -160,13 +137,5 @@ namespace MedicalStatistician.DAL.Entities
         /// Обследования на ВИЧ
         /// </summary>
         public ICollection<HivTest>? HivTests { get; set; }
-        /// <summary>
-        /// Место жительства
-        /// </summary>
-        public Location Location { get; set; }
-        /// <summary>
-        /// Код места жительства
-        /// </summary>
-        public int LocationId { get; set; }
     }
 }

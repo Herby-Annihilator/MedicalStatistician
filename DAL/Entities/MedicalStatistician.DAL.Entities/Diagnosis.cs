@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,17 +12,14 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Диагноз
     /// </summary>
-    public class Diagnosis
+    public class Diagnosis : Entity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         /// <summary>
         /// Дата постановки
         /// </summary>
         DateTime CreationDate { get; set; } = DateTime.Now;
         /// <summary>
-        /// Вид диагноза (заключительный, при поступлении)
+        /// Вид диагноза (заключительный, при поступлении, паталогоанатомический, основная причина сметрит, ...)
         /// </summary>
         public TypeOfDiagnosis TypeOfDiagnosis { get; set; }
         /// <summary>
@@ -29,12 +27,8 @@ namespace MedicalStatistician.DAL.Entities
         /// </summary>
         public int TypeOfDiagnosisId { get; set; }
         /// <summary>
-        /// Пациент с данным диагнозом
+        /// Основное заболевание, сопутствующее заболевание, осложнения основного заболевания
         /// </summary>
-        public Patient Patient { get; set; }
-        /// <summary>
-        /// Код диагноза пациента
-        /// </summary>
-        public int PatientId { get; set; }
+        public ICollection<Disease> Diseases { get; set; }
     }
 }

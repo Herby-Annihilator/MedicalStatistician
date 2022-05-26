@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace MedicalStatistician.DAL.Entities
 {
-    public class Disease
+    /// <summary>
+    /// Заболевание
+    /// </summary>
+    public class Disease : NamedEntity
     {
         /// <summary>
         /// Заболевание по МКБ
@@ -25,7 +29,7 @@ namespace MedicalStatistician.DAL.Entities
         /// </summary>
         public int DiagnosisId { get; set; }
         /// <summary>
-        /// Тип заболевания
+        /// Тип заболевания (основное, сопутствующее, осложнение основного, фоновое, ...)
         /// </summary>
         public TypeOfDisease TypeOfDisease { get; set; }
         /// <summary>

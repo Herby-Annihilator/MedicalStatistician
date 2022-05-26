@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,16 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Вид медицинской помощи
     /// </summary>
-    public class TypeOfMedicalCare
+    public class TypeOfMedicalCare : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        /// <summary>
-        /// Наименование вида мед помощи
-        /// </summary>
-        [MaxLength(255)]
-        public string Name { get; set; } = "";
         /// <summary>
         /// Столбец для сортировки. Он есть в справочнике, с которого будет заполняться база
         /// </summary>

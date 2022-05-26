@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,5 +36,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Код способа обдолбаться
         /// </summary>
         public int MethodOfConsumptionId { get; set; }
+        /// <summary>
+        /// Возраст начала употребления
+        /// </summary>
+        public int StartUseDrugsAge { get; set; }
     }
 }

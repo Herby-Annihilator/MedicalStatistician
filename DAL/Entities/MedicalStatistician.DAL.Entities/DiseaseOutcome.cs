@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,20 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Исход заболевания (улучшение, ухудшение, ...)
     /// </summary>
-    public class DiseaseOutcome
+    public class DiseaseOutcome : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        /// <summary>
-        /// Формулировка
-        /// </summary>
-        [MaxLength(255)]
-        public string Wording { get; set; } = "";
 
-        /// <summary>
-        /// Выписки с данным исходом
-        /// </summary>
-        public ICollection<Discharge>? Discharges { get; set; }
     }
 }

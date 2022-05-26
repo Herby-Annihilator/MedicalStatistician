@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,16 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Страховая мед организация
     /// </summary>
-    public class InsuranceOrganization
+    public class InsuranceOrganization : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        /// <summary>
-        /// Название организации
-        /// </summary>
-        [MaxLength(512)]
-        public string Name { get; set; } = "";
         /// <summary>
         /// Полисы, которые выдала данная организация
         /// </summary>

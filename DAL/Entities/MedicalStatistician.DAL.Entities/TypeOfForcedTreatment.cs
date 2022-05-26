@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,16 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Вид принудительного лечения
     /// </summary>
-    public class TypeOfForcedTreatment
+    public class TypeOfForcedTreatment : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        /// <summary>
-        /// Формулировка
-        /// </summary>
-        [MaxLength(1024)]
-        public string Wording { get; set; } = "";
         /// <summary>
         /// Коллекция решений суда, в которых указан данный вид принудительного лечения
         /// </summary>

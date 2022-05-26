@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,19 +12,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Причина смерти (Несчастный случай, самоубийство, ...)
     /// </summary>
-    public class CauseOfDeath
+    public class CauseOfDeath : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        /// <summary>
-        /// Формулировка
-        /// </summary>
-        [MaxLength(512)]
-        public string Wording { get; set; } = "";
-        /// <summary>
-        /// Выписки с данной причиной смерти
-        /// </summary>
-        public ICollection<Discharge>? Discharges { get; set; }
+
     }
 }

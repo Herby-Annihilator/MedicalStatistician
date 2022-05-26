@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,16 +12,11 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Способ употребления ПАВ
     /// </summary>
-    public class MethodOfConsumption
+    public class MethodOfConsumption : NamedEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         /// <summary>
-        /// Формулировка
+        /// Коллекция расшивочных таблиц - "Пациент упортебляет"
         /// </summary>
-        [MaxLength(100)]
-        [Required]
-        public string Wording { get; set; } = "";
+        public ICollection<PatientUseDrugs>? PatientUseDrugs { get; set; }
     }
 }

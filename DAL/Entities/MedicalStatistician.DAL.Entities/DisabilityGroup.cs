@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,14 +11,8 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// Группа инвалидности
     /// </summary>
-    public class DisabilityGroup
+    public class DisabilityGroup : NamedEntity
     {
-        public int Id { get; set; }
-        /// <summary>
-        /// Название группы
-        /// </summary>
-        [MaxLength(32)]
-        public string Name { get; set; } = "1 группа";
         /// <summary>
         /// Пациенты с данной группой инвалидности
         /// </summary>
