@@ -95,11 +95,11 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Семейное положение
         /// </summary>
-        public ResidenceStatus MaritalStatus { get; set; }
+        public ResidenceStatus ResidenceStatus { get; set; }
         /// <summary>
         /// Код семейного положения
         /// </summary>
-        public int MaritalStatusId { get; set; }
+        public int ResidenceStatusId { get; set; }
         /// <summary>
         /// Участие в войне по ОКИН
         /// </summary>
@@ -117,7 +117,7 @@ namespace MedicalStatistician.DAL.Entities
         /// </summary>
         public int? SourceOfLivelihoodId { get; set; }
         /// <summary>
-        /// Условия проживания
+        /// Условия проживания (статус условий проживания)
         /// </summary>
         public Accommodations Accommodations { get; set; }
         /// <summary>
@@ -137,5 +137,17 @@ namespace MedicalStatistician.DAL.Entities
         /// Обследования на ВИЧ
         /// </summary>
         public ICollection<HivTest>? HivTests { get; set; }
+        /// <summary>
+        /// Число законченных классов
+        /// </summary>
+        public int NumberOfCompletedClasses { get; set; }
+        /// <summary>
+        /// Признак учебы
+        /// </summary>
+        public bool IsStudies { get; set; } = false;
+        /// <summary>
+        /// Дата начала заболевания
+        /// </summary>
+        public DateTime? DateOfOnsetOfIllness { get; set; }
     }
 }

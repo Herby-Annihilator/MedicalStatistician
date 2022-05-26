@@ -136,5 +136,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код вида амбулаторного наблюдения
         /// </summary>
         public int TypeOfOutpatientCareId { get; set; }
+        /// <summary>
+        /// Причина смерти
+        /// </summary>
+        public CauseOfDeath CauseOfDeath { get; set; }
+        /// <summary>
+        /// Код причины смерти
+        /// </summary>
+        public int CauseOfDeathId { get; set; }
     }
 }

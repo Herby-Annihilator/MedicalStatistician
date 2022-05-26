@@ -14,6 +14,9 @@ namespace MedicalStatistician.DAL.Entities
     /// </summary>
     public class CauseOfDeath : NamedEntity
     {
-
+        /// <summary>
+        /// Случаи лечения с данной причиной смерти
+        /// </summary>
+        public ICollection<TreatmentCase>? Treatments { get; set; }
     }
 }
