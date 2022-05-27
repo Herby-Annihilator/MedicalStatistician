@@ -144,5 +144,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Код причины смерти
         /// </summary>
         public int CauseOfDeathId { get; set; }
+        /// <summary>
+        /// Диагнозы
+        /// </summary>
+        public ICollection<Diagnosis> Diagnoses { get; set; }
     }
 }

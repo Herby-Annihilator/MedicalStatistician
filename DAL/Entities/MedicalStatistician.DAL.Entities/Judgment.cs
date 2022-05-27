@@ -38,23 +38,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Тип решения суда о принудительном лечении
         /// </summary>
         public TypeOfJudgment TypeOfJudgment { get; set; }
-    }
-    /// <summary>
-    /// Вид решения суда по принудительному лечению
-    /// </summary>
-    public enum TypeOfJudgment
-    {
         /// <summary>
-        /// Решение суда о начале лечения
+        /// Код типа решения суда о принуд лечении
         /// </summary>
-        Start,
-        /// <summary>
-        /// Решение суда о продолжении лечения
-        /// </summary>
-        Continue,
-        /// <summary>
-        /// Решение суда об окончании решения
-        /// </summary>
-        Stop
+        public int TypeOfJudgmentId { get; set; }
     }
 }

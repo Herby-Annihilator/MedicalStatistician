@@ -68,10 +68,10 @@ namespace MedicalStatistician.DAL.Entities
         /// Полисы пациента
         /// </summary>
         public ICollection<Policy> Policies { get; set; }
-        /// <summary>
-        /// Коллекция наркоты, которой успел обдолбаться пациент (если успел)
-        /// </summary>
-        public ICollection<PsychoactiveSubstance>? PsychoactiveSubstances { get; set; }
+        ///// <summary>
+        ///// Коллекция наркоты, которой успел обдолбаться пациент (если успел)
+        ///// </summary>
+        //public ICollection<PsychoactiveSubstance>? PsychoactiveSubstances { get; set; }
         /// <summary>
         /// Коллекция вариантов обдалбывания со ссылкой на вещество
         /// </summary>
@@ -149,5 +149,9 @@ namespace MedicalStatistician.DAL.Entities
         /// Дата начала заболевания
         /// </summary>
         public DateTime? DateOfOnsetOfIllness { get; set; }
+        /// <summary>
+        /// Случаи лечения
+        /// </summary>
+        public ICollection<TreatmentCase> Treatments { get; set; }
     }
 }

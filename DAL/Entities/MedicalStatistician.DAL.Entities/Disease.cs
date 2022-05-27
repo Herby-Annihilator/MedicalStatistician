@@ -15,11 +15,11 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Заболевание по МКБ
         /// </summary>
-        public MKB10 Mkb10 { get; set; }
+        public MKB10? Mkb10 { get; set; }
         /// <summary>
         /// Код МКБ
         /// </summary>
-        public int Mkb10Id { get; set; }
+        public int? Mkb10Id { get; set; }
         /// <summary>
         /// Диагноз
         /// </summary>

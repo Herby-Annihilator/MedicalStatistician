@@ -30,5 +30,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Основное заболевание, сопутствующее заболевание, осложнения основного заболевания
         /// </summary>
         public ICollection<Disease> Diseases { get; set; }
+        /// <summary>
+        /// Случай лечения
+        /// </summary>
+        public TreatmentCase TreatmentCase { get; set; }
+        /// <summary>
+        /// Код случая лечения
+        /// </summary>
+        public int TreatmentCaseId { get; set; }
     }
 }

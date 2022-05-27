@@ -21,7 +21,7 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Профиль мед помощи, оказываемой в отделении
         /// </summary>
-        public MedicalCareProfile Profile { get; set; }
+        public MedicalCareProfile? Profile { get; set; }
         /// <summary>
         /// Код профиля оказываемой мед помощи
         /// </summary>
@@ -30,5 +30,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Случаи лечения в данном отделении
         /// </summary>
         public ICollection<TreatmentCase>? Treatments { get; set; }
+        /// <summary>
+        /// Медицинская организация
+        /// </summary>
+        public MedicalOrganization MedicalOrganization { get; set; }
+        /// <summary>
+        /// Код медицинской организации
+        /// </summary>
+        public int MedicalOrganizationId { get; set; }
     }
 }

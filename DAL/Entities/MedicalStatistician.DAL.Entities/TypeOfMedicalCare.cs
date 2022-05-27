@@ -26,5 +26,13 @@ namespace MedicalStatistician.DAL.Entities
         /// Код родительской записи
         /// </summary>
         public int? ParentId { get; set; }
+        /// <summary>
+        /// Мед организации, оказывающие данную мед помощь
+        /// </summary>
+        public ICollection<MedicalOrganization> MedicalOrganizations { get; set; }
+        /// <summary>
+        /// Дочерние записи
+        /// </summary>
+        public ICollection<TypeOfMedicalCare>? MedicalCares { get; set; }
     }
 }
