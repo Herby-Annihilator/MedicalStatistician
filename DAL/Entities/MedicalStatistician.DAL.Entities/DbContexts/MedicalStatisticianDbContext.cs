@@ -11,45 +11,161 @@ namespace MedicalStatistician.DAL.Entities.DbContexts
     {
         public MedicalStatisticianDbContext(DbContextOptions options)
             : base(options) { }
-
+        /// <summary>
+        /// Таблица пациентов
+        /// </summary>
         public DbSet<Patient> Patients { get; set; }
+        /// <summary>
+        /// Справочник образований
+        /// </summary>
         public DbSet<Education> Educations { get; set; }
+        /// <summary>
+        /// Таблица листков нетрудоспособности
+        /// </summary>
         public DbSet<CertificateOfIncapacityForWork> CertificateOfIncapacityForWorks { get; set; }
+        /// <summary>
+        /// Справочник полов
+        /// </summary>
         public DbSet<Sex> Sex { get; set; }
+        /// <summary>
+        /// Таблица источков существования
+        /// </summary>
         public DbSet<SourceOfLivelihood> SourcesOfLivelihood { get; set; }
+        /// <summary>
+        /// Таблица условий проживания (статус проживания)
+        /// </summary>
         public DbSet<Accommodations> Accommodations { get; set; }
+        /// <summary>
+        /// Таблица причин инвалидности
+        /// </summary>
         public DbSet<CauseOfDisability> CausesOfDisabilitiy { get; set; }
+        /// <summary>
+        /// Таблица участия в войне
+        /// </summary>
         public DbSet<ParticipationInTheWar> ParticipationInTheWars { get; set; }
+        /// <summary>
+        /// Таблица статусов проживания (семейное положение: один, в семье, ....)
+        /// </summary>
         public DbSet<ResidenceStatus> ResidenceStatuses { get; set; }
+        /// <summary>
+        /// Таблица групп инвалидности
+        /// </summary>
         public DbSet<DisabilityGroup> DisabilityGroups { get; set; }
+        /// <summary>
+        /// Таблица обследований на ВИЧ
+        /// </summary>
         public DbSet<HivTest> HivTests { get; set; }
+        /// <summary>
+        /// Таблица полисов
+        /// </summary>
         public DbSet<Policy> Policies { get; set; }
+        /// <summary>
+        /// Таблица страховых организаций
+        /// </summary>
         public DbSet<InsuranceOrganization> InsuranceOrganizations { get; set; }
+        /// <summary>
+        /// Таблица решений суда о принудительном лечении
+        /// </summary>
         public DbSet<Judgment> Judgments { get; set; }
+        /// <summary>
+        /// Таблица видов принудительного лечения
+        /// </summary>
         public DbSet<TypeOfForcedTreatment> TypesOfForcedTreatment { get; set; }
+        /// <summary>
+        /// Таблица случаев лечения
+        /// </summary>
         public DbSet<TreatmentCase> Treatments { get; set; }
+        /// <summary>
+        /// Таблица видов наркологической помощи
+        /// </summary>
         public DbSet<TypeOfDrugTreatment> TypeOfDrugTreatments { get; set; }
+        /// <summary>
+        /// Таблица источников оплаты мед помощи
+        /// </summary>
         public DbSet<SourcesOfPaymentForMedicalCare> SourcesOfPaymentForMedicalCares { get; set; }
+        /// <summary>
+        /// Таблица порядков поступления
+        /// </summary>
         public DbSet<OrderOfAdmission> OrderOfAdmissions { get; set; }
+        /// <summary>
+        /// Таблица путей поступления
+        /// </summary>
         public DbSet<PatientEntryRoutes> PatientEntryRoutes { get; set; }
+        /// <summary>
+        /// Таблица статусов решения судьи по статье 35
+        /// </summary>
         public DbSet<StatusOfJudgesDecisionUnderArticle35> StatusOfJudgesDecisionUnderArticle35 { get; set; }
+        /// <summary>
+        /// Таблица целей направления на лечение
+        /// </summary>
         public DbSet<PurposeOfReferralForTreatment> PurposeOfReferralForTreatment { get; set; }
+        /// <summary>
+        /// Таблица отправивших на госптализацию
+        /// </summary>
         public DbSet<WhoSentToHospital> WhoSentToHospital { get; set; }
+        /// <summary>
+        /// Таблица видов амбулаторного наблюдения
+        /// </summary>
         public DbSet<TypeOfOutpatientCare> TypeOfOutpatientCare { get; set; }
+        /// <summary>
+        /// Таблица мест выбытия
+        /// </summary>
         public DbSet<PlaceOfDeparture> PlacesOfDeparture { get; set; }
+        /// <summary>
+        /// Таблица исходов заболевания
+        /// </summary>
         public DbSet<DiseaseOutcome> DiseaseOutcomes { get; set; }
+        /// <summary>
+        /// Таблица отделений
+        /// </summary>
         public DbSet<Department> Departments { get; set; }
+        /// <summary>
+        /// Таблица профилей мед помощи
+        /// </summary>
         public DbSet<MedicalCareProfile> MedicalCareProfiles { get; set; }
+        /// <summary>
+        /// Таблица мед организаций
+        /// </summary>
         public DbSet<MedicalOrganization> MedicalOrganizations { get; set; }
+        /// <summary>
+        /// Таблица видов мед помощи
+        /// </summary>
         public DbSet<TypeOfMedicalCare> TypesOfMedicalCare { get; set; }
+        /// <summary>
+        /// Таблица диагнозов
+        /// </summary>
         public DbSet<Diagnosis> Diagnoses { get; set; }
+        /// <summary>
+        /// Таблица видов диагнозов
+        /// </summary>
         public DbSet<TypeOfDiagnosis> TypesOfDiagnosis { get; set; }
+        /// <summary>
+        /// Таблица заболеваний
+        /// </summary>
         public DbSet<Disease> Diseases { get; set; }
+        /// <summary>
+        /// Таблица типов заболеваний
+        /// </summary>
         public DbSet<TypeOfDisease> TypesOfDisease { get; set; }
+        /// <summary>
+        /// Справочник МКБ-10
+        /// </summary>
         public DbSet<MKB10> MKB10 { get; set; }
+        /// <summary>
+        /// Таблица "Пациент употребляет"
+        /// </summary>
         public DbSet<PatientUseDrugs> PatientUseDrugs { get; set; }
+        /// <summary>
+        /// Справочник ПАВ
+        /// </summary>
         public DbSet<PsychoactiveSubstance> PsychoactiveSubstances { get; set; }
+        /// <summary>
+        /// Таблица способов употребления ПАВ
+        /// </summary>
         public DbSet<MethodOfConsumption> MethodsOfConsumption { get; set; }
+        /// <summary>
+        /// Таблица видов решения суда о принуд лечении
+        /// </summary>
         public DbSet<TypeOfJudgment> TypesOfJudgment { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -258,8 +374,6 @@ namespace MedicalStatistician.DAL.Entities.DbContexts
                 .HasOne(d => d.MethodOfConsumption)
                 .WithMany(m => m.PatientUseDrugs)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            
         }
     }
 }
