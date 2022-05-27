@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Entities\MedicalStatistician.DAL.Entities\MedicalStatistician.DAL.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
