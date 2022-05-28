@@ -23,70 +23,153 @@ namespace MedicalStatistician.DAL.Repositories.EfCore
         {
             _context = context;
         }
-        public virtual int Create(T entity)
+        public virtual T Create(T entity)
         {
             if (entity == null)
-                return 0;
+                return null;
             var entry = EntitySet.Add(entity);
             if (entry == null)
-                return 0;
-            return _context.SaveChanges();
+                return null;
+            _context.SaveChanges();
+            return entity;
         }
 
-        public virtual async Task<int> CreateAsync(T entity, CancellationToken cancellationToken = default)
+        public virtual async Task<T> CreateAsync(T entity, CancellationToken cancellationToken = default)
         {
-            int result = 0;
             if (entity != null)
             {
-                var entry = await EntitySet.AddAsync(entity, cancellationToken);
+                var entry = await EntitySet.AddAsync(entity, cancellationToken).ConfigureAwait(false);
                 if (entry != null)
                 {
-                    result = await _context.SaveChangesAsync(cancellationToken);
+                    await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
                 }
             }
-            return result;
+            return entity;
         }
 
-        public virtual int Delete(T entity)
+        public virtual T Delete(T entity)
         {
             if (entity == null)
-                return 0;
+                return null;
             EntitySet.Remove(entity);
-            return _context.SaveChanges();
+            _context.SaveChanges();
+            return entity;
         }
 
-        public virtual async Task<int> DeleteAsync(T entity, CancellationToken cancellationToken = default)
+        public virtual async Task<T> DeleteAsync(T entity, CancellationToken cancellationToken = default)
         {
             if (entity == null)
-                return 0;
+                return null;
             EntitySet.Remove(entity);
-            return await _context.SaveChangesAsync(cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+            return entity;
         }
 
         public virtual IEnumerable<T> GetAll() => EntitySet.ToArray();
 
         public virtual async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default)
-            => await EntitySet.ToArrayAsync(cancellationToken);
+            => await EntitySet.ToArrayAsync(cancellationToken).ConfigureAwait(false);
 
         public virtual T GetById(int id) => EntitySet.FirstOrDefault(entity => entity.Id == id);
 
         public virtual async Task<T> GetByIdAsync(int id, CancellationToken cancellationToken = default)
-            => await EntitySet.FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
+            => await EntitySet.FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken).ConfigureAwait(false);
 
-        public virtual int Update(T entity)
+        public virtual T Update(T entity)
         {
             if (entity == null)
-                return 0;
+                return null;
             EntitySet.Update(entity);
-            return _context.SaveChanges();
+            _context.SaveChanges();
+            return entity;
         }
 
-        public virtual async Task<int> UpdateAsync(T entity, CancellationToken cancellationToken = default)
+        public virtual async Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
             if (entity == null)
-                return 0;
+                return null;
             EntitySet.Update(entity);
-            return await _context.SaveChangesAsync(cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+            return entity;
+        }
+
+        public IEnumerable<T> Get(int skip, int count)
+        {
+            if (count <= 0)
+                return Enumerable.Empty<T>();
+
+            IQueryable<T> query = EntitySet switch
+            {
+                IOrderedQueryable<T> ordered_query => ordered_query,
+                { } q => q.OrderBy(i => i.Id)
+            };
+
+            if (skip > 0)
+                query = query.Skip(skip);
+            return query.Take(count).ToArray();
+        }
+
+        public virtual async Task<IEnumerable<T>> GetAsync(int skip, int count, CancellationToken cancellationToken = default)
+        {
+            if (count <= 0)
+                return Enumerable.Empty<T>();
+
+            IQueryable<T> query = EntitySet switch
+            {
+                IOrderedQueryable<T> ordered_query => ordered_query,
+                { } q => q.OrderBy(i => i.Id)
+            };
+
+            if (skip > 0)
+                query = query.Skip(skip);
+            return await query.Take(count).ToArrayAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        protected record DefaultPage(IEnumerable<T> Items, int TotalCount, int PageIndex, int PageSize) : IPage<T>
+        {
+            public int TotalPagesCount => (int)Math.Ceiling((double)TotalCount / PageSize);
+        }
+
+        public virtual IPage<T> GetPage(int pageIndex, int pageSize)
+        {
+            if (pageSize <= 0) return new DefaultPage(Enumerable.Empty<T>(), pageSize, pageIndex, pageSize);
+
+            var query = EntitySet;
+            var total_count = query.Count();
+            if (total_count == 0)
+                return new DefaultPage(Enumerable.Empty<T>(), 0, pageIndex, pageSize);
+
+            if (query is not IOrderedQueryable<T>)
+                query = (DbSet<T>)query.OrderBy(item => item.Id);
+
+            if (pageIndex > 0)
+                query = (DbSet<T>)query.Skip(pageIndex * pageSize);
+            query = (DbSet<T>)query.Take(pageSize);
+
+            var items = query.ToArray();
+
+            return new DefaultPage(items, total_count, pageIndex, pageSize);
+        }
+
+        public virtual async Task<IPage<T>> GetPageAsync(int pageIndex, int pageSize, CancellationToken cancellationToken = default)
+        {
+            if (pageSize <= 0) return new DefaultPage(Enumerable.Empty<T>(), pageSize, pageIndex, pageSize);
+            
+            var query = EntitySet;
+            var total_count = await query.CountAsync(cancellationToken).ConfigureAwait(false);
+            if (total_count == 0)
+                return new DefaultPage(Enumerable.Empty<T>(), 0, pageIndex, pageSize);
+
+            if (query is not IOrderedQueryable<T>)
+                query = (DbSet<T>)query.OrderBy(item => item.Id);
+
+            if (pageIndex > 0)
+                query = (DbSet<T>)query.Skip(pageIndex * pageSize);
+            query = (DbSet<T>)query.Take(pageSize);
+
+            var items = await query.ToArrayAsync(cancellationToken).ConfigureAwait(false);
+
+            return new DefaultPage(items, total_count, pageIndex, pageSize);
         }
     }
 }

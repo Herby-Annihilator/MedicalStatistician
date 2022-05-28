@@ -34,7 +34,7 @@ namespace MedicalStatistician.DAL.Repositories.Base
         /// <param name="pageIndex">индекс страницы</param>
         /// <param name="pageSize">размер страницы</param>
         /// <returns></returns>
-        IEnumerable<IPage<T>> GetPage(int pageIndex, int pageSize);
+        IPage<T> GetPage(int pageIndex, int pageSize);
         /// <summary>
         /// Асинхронная версия метода <see cref="GetPage(int, int)"/>
         /// </summary>
@@ -42,7 +42,7 @@ namespace MedicalStatistician.DAL.Repositories.Base
         /// <param name="pageSize">размер страницы</param>
         /// <param name="cancellationToken">Токен завершения задачи</param>
         /// <returns></returns>
-        Task<IEnumerable<IPage<T>>> GetPageAsync(int pageIndex, int pageSize, CancellationToken cancellationToken = default);
+        Task<IPage<T>> GetPageAsync(int pageIndex, int pageSize, CancellationToken cancellationToken = default);
         /// <summary>
         /// Получает сущность по ее <paramref name="id"/>
         /// </summary>
