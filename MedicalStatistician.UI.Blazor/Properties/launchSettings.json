@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "MedicalStatistician.UI.Blazer": {
+    "MedicalStatistician.UI.Blazor": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

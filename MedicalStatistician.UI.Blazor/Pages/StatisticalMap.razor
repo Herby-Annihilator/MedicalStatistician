@@ -43,10 +43,10 @@
                     <option value="">села</option>
                 </select>
             </p>
-            <p>
+            @*<p>
                 <label style="width:36%">Код места жительства по ОКАТО</label>
                 <input style="width:62%">
-            </p>
+            </p>*@
             <p>
                 <label  style="width:36%">Дата рождения</label>
                 <input type="date" style="width:62%">
@@ -73,15 +73,14 @@
                 </select>*@
                 <!--Конец сего мракобесия-->
             </p>
-            <p>
+            @*<p>
                 <label style="width:36%">Название страховой компании</label>
-                @*<select style="width:62%"></select>*@
                 <select style="width:62%">
                     <option value="">(не выбрано)</option>
                     <option value="">СМК РЕСО-МЕД</option>
                     <option value="">КАПИТАЛ МС</option>
                 </select>
-            </p>
+            </p>*@
             <p>Страховой полис:</p>
             <p>серия <input style="width: 20%"/> номер <input  style="width: 30%"/></p>
             <p>
@@ -297,7 +296,6 @@
                     <tr style="width:100%; height:100%;">
                         <td><input type="date" class=object-table/></td>
                         <td>
-                            @*<select class=object-table></select>*@
                             <select class=object-table>
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
@@ -309,7 +307,6 @@
 
                         <td><input type="date" class=object-table/></td>
                         <td>
-                            @*<select class=object-table></select>*@
                             <select class=object-table>
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
@@ -320,7 +317,6 @@
                         </td>
                         <td><input type="date" class=object-table/></td>
                         <td>
-                            @*<select class=object-table></select>*@
                             <select class=object-table>
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
@@ -331,7 +327,6 @@
                         </td>
                         <td><input type="date" class=object-table/></td>
                         <td>
-                            @*<select class=object-table></select>*@
                             <select class=object-table>
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
@@ -345,20 +340,6 @@
             
                     </tr>
                 }
-               @* @foreach (var item in collection)
-                {
-                    <tr class="stat-card-head fw-normal">
-                        <th ></th>
-                        <th>@item.Str2</th>
-                        <th>@item.Str3</th>
-                        <th>@item.Str1</th>
-                        <th>@item.Str2</th>
-                        <th>@item.Str3</th>
-                        <th>@item.Str1</th>
-                        <th>@item.Str2</th>
-                        <th>@item.Str3</th>
-                    </tr>
-                } *@
             </tbody>
         
         </table>
@@ -368,7 +349,6 @@
 <!--Пункты 29 и 30-->
 <p>
     <label style="width:22%">В случае окончания принудительного лечения</label>
-    @*<select style="width:18%"></select>*@
     <select style="width:18%">
         <option value="">(не выбрано)</option>
         <option value="">выбыл из стационара</option>
@@ -395,7 +375,6 @@
             </p>
             <p>
                 <label style="width:36%">Вид амбулаторного наблюдения</label>
-                @*<select style="width:62%"></select>*@
                 <select style="width:62%">
                     <option value="">(не выбрано)</option>
                     <option value="">профилактивное наблюдение</option>
@@ -432,7 +411,6 @@
             </p>
             <p>
                 <label style="width:36%">Инвалидность по общему заболеванию</label>
-                @*<select style="width:62%"></select>*@
                 <select style="width:62%">
                     <option value="">(не выбрано)</option>
                     <option value="">1 группа инвалидности</option>
@@ -451,8 +429,11 @@
                 <input type="checkbox">
             </p>
             <p>
+                <label style="width:36%">Число законченных классов</label>
+                <input style="width:62%">
+            </p>
+            <p>
                 <label style="width:36%">Образование</label>
-                @*<select style="width:62%"></select>*@
                 <select style="width:62%">
                     <option value="">(не выбрано)</option>
                     <option value="">спец корр. учреждение</option>
@@ -462,7 +443,7 @@
                     <option value="">высшее профессионалшьное</option>
                     <option value="">прочее</option>
                 </select>
-            </p>
+            </p>          
         </div>
         <div class="col-4 border" style="padding:1%;">
             <p>
@@ -471,7 +452,6 @@
             </p>
             <p>
                 <label style="width:36%">Источник средств существования</label>
-                @*<select style="width:62%"></select>*@
                 <select style="width:62%">
                     <option value="">(не выбрано)</option>
                     <option value="">рабочий</option>
@@ -487,7 +467,6 @@
             </p>
             <p>
                 <label style="width:36%">Проживает</label>
-                @*<select style="width:62%"></select>*@
                 <select style="width:62%">
                     <option value="">(не выбрано)</option>
                     <option value="">в семье</option>
@@ -496,7 +475,6 @@
             </p>
             <p>
                 <label style="width:36%">Условия проживания</label>
-                @*<select style="width:62%"></select>*@
                 <select style="width:62%">
                     <option value="">(не выбрано)</option>
                     <option value="">собственный дом</option>
@@ -509,7 +487,6 @@
             </p>
             <p>
                 <label style="width:36%">Исход заболевания</label>
-                @*<select style="width:62%"></select>*@
                 <select style="width:62%">
                     <option value="">(не выбрано)</option>
                     <option value="">выздоровление</option>
@@ -523,7 +500,7 @@
 </section>
 
 
-<div style="height: 30px;"></div>
+@*<div style="height: 30px;"></div>
 <h5 style="text-align:center">Сведения об употреблении психоактивных веществ</h5>
 <div class="table-responsive">
     <p class="fw-bolder">Возраст начала употребления психоактивных веществ</p>
@@ -545,7 +522,6 @@
             {
                 <tr style="text-align:center">
                     <td>
-                        @*<select class=object-table/>*@
                         <select class=object-table>
                             <option value="">(не выбрано)</option>
                             <option value="">вещество 1</option>
@@ -582,7 +558,6 @@
             {
                 <tr style="text-align:center">
                     <td>
-                        @*<select class=object-table/>*@
                         <select class=object-table>
                             <option value="">(не выбрано)</option>
                             <option value="">последующее 1</option>
@@ -592,7 +567,6 @@
                         </select>
                     </td>
                     <td>
-                        @*<select class=object-table/>*@
                         <select class=object-table>
                             <option value="">(не выбрано)</option>
                             <option value="">вещество 1</option>
@@ -621,7 +595,6 @@
 </p>
 <p>
     <label style="width:32%">Полученный вид наркологической помощи в данном учреждении</label>
-    @*<select style="width:28%"></select>*@
     <select style="width:28%">
         <option value="">(не выбрано)</option>
         <option value="">детоксикация</option>
@@ -632,8 +605,9 @@
         <option value="">детокс., долг. медик. терапия и реабилитация</option>
         <option value="">другие виды лечения</option>
     </select>
-</p>
+</p>*@
 
+<div style="height: 10px;"></div>
 <!--Кнопка сохранить-->
 <div style="text-align:right;">
     <button class="btn btn-primary" @onclick="Save">Сохранить</button>
