@@ -14,6 +14,36 @@ namespace MedicalStatistician.DAL.Repositories.Base
     public interface ICrudRepository<T> where T : Entity
     {
         /// <summary>
+        /// Получает заданное число <paramref name="count"/> сущностей пропустив <paramref name="skip"/> сущностей
+        /// </summary>
+        /// <param name="skip">Сколько сущностей необходимо пропустить</param>
+        /// <param name="count">Сколко сущностей необхдимо получить</param>
+        /// <returns></returns>
+        IEnumerable<T> Get(int skip, int count);
+        /// <summary>
+        /// Асинхронная версия метода <see cref="Get(int, int)"/>
+        /// </summary>
+        /// <param name="skip">Сколько сущностей необходимо пропустить</param>
+        /// <param name="count">Сколко сущностей необхдимо получить</param>
+        /// <param name="cancellationToken">Токен завершения задачи</param>
+        /// <returns></returns>
+        Task<IEnumerable<T>> GetAsync(int skip, int count, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Получает страницу сущностей заданного размера с указанным индексом
+        /// </summary>
+        /// <param name="pageIndex">индекс страницы</param>
+        /// <param name="pageSize">размер страницы</param>
+        /// <returns></returns>
+        IEnumerable<IPage<T>> GetPage(int pageIndex, int pageSize);
+        /// <summary>
+        /// Асинхронная версия метода <see cref="GetPage(int, int)"/>
+        /// </summary>
+        /// <param name="pageIndex">индекс страницы</param>
+        /// <param name="pageSize">размер страницы</param>
+        /// <param name="cancellationToken">Токен завершения задачи</param>
+        /// <returns></returns>
+        Task<IEnumerable<IPage<T>>> GetPageAsync(int pageIndex, int pageSize, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Получает сущность по ее <paramref name="id"/>
         /// </summary>
         /// <param name="id">Идентификатор сущности</param>
@@ -41,40 +71,40 @@ namespace MedicalStatistician.DAL.Repositories.Base
         /// Создает сущность типа <typeparamref name="T"/> в хранилище данных
         /// </summary>
         /// <param name="entity">Сущность, которую необходимо поместить в хранилище</param>
-        /// <returns>Число созданных сущностей</returns>
-        int Create(T entity);
+        /// <returns>Созданная в репозитории сущность с проставленным id</returns>
+        T Create(T entity);
         /// <summary>
         /// Асинхорнная версия метода <see cref="Create(T)"/>
         /// </summary>
         /// <param name="entity">Сущность, которую необходимо поместить в хранилище</param>
         /// <param name="cancellationToken">Токен прерывания задачи</param>
-        /// <returns>Задача, итогом завершения которой является число созданных сущностей</returns>
-        Task<int> CreateAsync(T entity, CancellationToken cancellationToken = default);
+        /// <returns>Задача, итогом завершения которой является созданная в репозитории сущность с проставленным id</returns>
+        Task<T> CreateAsync(T entity, CancellationToken cancellationToken = default);
         /// <summary>
         /// Обновляет сущность типа <typeparamref name="T"/> в хранилище данных
         /// </summary>
         /// <param name="entity">Сущность, которую необходимо обновить в хранилище</param>
-        /// <returns>Число обновленных сущностей</returns>
-        int Update(T entity);
+        /// <returns>Сама обновленная сущность</returns>
+        T Update(T entity);
         /// <summary>
         /// Асинхорнная версия метода <see cref="Update(T)"/>
         /// </summary>
         /// <param name="entity">Сущность, которую необходимо обновить в хранилище</param>
         /// <param name="cancellationToken">Токен прерывания задачи</param>
-        /// <returns>Задача, итогом завершения которой является число обновленных сущностей</returns>
-        Task<int> UpdateAsync(T entity, CancellationToken cancellationToken = default);
+        /// <returns>Задача, итогом завершения которой является сама обновленная сущность</returns>
+        Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default);
         /// <summary>
         /// Удаляет сущность типа <typeparamref name="T"/> в хранилище данных
         /// </summary>
         /// <param name="entity">Сущность, которую необходимо удалить в хранилище</param>
-        /// <returns>Число удаленных сущностей</returns>
-        int Delete(T entity);
+        /// <returns>Сама уадаленная сущность</returns>
+        T Delete(T entity);
         /// <summary>
         /// Асинхорнная версия метода <see cref="Delete(T)"/>
         /// </summary>
         /// <param name="entity">Сущность, которую необходимо удалить в хранилище</param>
         /// <param name="cancellationToken">Токен прерывания задачи</param>
-        /// <returns>Задача, итогом завершения которой является число удаленных сущностей</returns>
-        Task<int> DeleteAsync(T entity, CancellationToken cancellationToken = default);
+        /// <returns>Задача, итогом завершения которой является сама уадаленная сущность</returns>
+        Task<T> DeleteAsync(T entity, CancellationToken cancellationToken = default);
     }
 }
