@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\DAL\Entities\MedicalStatistician.DAL.Entities\MedicalStatistician.DAL.Entities.csproj" />
+    <ProjectReference Include="..\..\DAL\Repositories\MedicalStatistician.DAL.Repositories\MedicalStatistician.DAL.Repositories.csproj" />
     <ProjectReference Include="..\..\MedicalStatistician.DAL.Postrgres\MedicalStatistician.DAL.Postrgres.csproj" />
   </ItemGroup>
 
