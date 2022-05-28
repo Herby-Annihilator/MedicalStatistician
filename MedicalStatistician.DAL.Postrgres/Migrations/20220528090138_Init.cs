@@ -4,9 +4,9 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace MedicalStatistician.DAL.Entities.Migrations
+namespace MedicalStatistician.DAL.Postrgres.Migrations
 {
-    public partial class _initial : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -167,7 +167,7 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                     ParentId = table.Column<int>(type: "integer", nullable: true),
                     AdditionalCode = table.Column<int>(type: "integer", nullable: true),
                     Actual = table.Column<int>(type: "integer", nullable: false),
-                    Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    Date = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -472,8 +472,8 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                     FirstName = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false),
                     LastName = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false),
                     Patronymic = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: true),
-                    Birthday = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    FirstConyactWithNarcologist = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Birthday = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    FirstConyactWithNarcologist = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     IsUsedOthersSyringes = table.Column<bool>(type: "boolean", nullable: false),
                     IsLivesWithAddict = table.Column<bool>(type: "boolean", nullable: false),
                     DisabilityGroupId = table.Column<int>(type: "integer", nullable: true),
@@ -486,7 +486,7 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                     AccommodationsId = table.Column<int>(type: "integer", nullable: false),
                     NumberOfCompletedClasses = table.Column<int>(type: "integer", nullable: false),
                     IsStudies = table.Column<bool>(type: "boolean", nullable: false),
-                    DateOfOnsetOfIllness = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    DateOfOnsetOfIllness = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -571,8 +571,8 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CreationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ClosingDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CreationDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    ClosingDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     PatientId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -592,7 +592,7 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Date = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     IsPositive = table.Column<bool>(type: "boolean", nullable: false),
                     PatientId = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -613,7 +613,7 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Date = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     TypeOfForcedTreatmentId = table.Column<int>(type: "integer", nullable: false),
                     PatientId = table.Column<int>(type: "integer", nullable: false),
                     TypeOfJudgmentId = table.Column<int>(type: "integer", nullable: false)
@@ -714,8 +714,8 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                     NumberOfMedicalLeaveDays = table.Column<int>(type: "integer", nullable: false),
                     StatisticalCardNumber = table.Column<string>(type: "text", nullable: false),
                     MedicalCardNumber = table.Column<string>(type: "text", nullable: false),
-                    ReceiptDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    RetirementDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ReceiptDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    RetirementDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     TypeOfDrugTreatmentId = table.Column<int>(type: "integer", nullable: false),
                     SourcesOfPaymentForMedicalCareId = table.Column<int>(type: "integer", nullable: false),
                     OrderOfAdmissionId = table.Column<int>(type: "integer", nullable: false),

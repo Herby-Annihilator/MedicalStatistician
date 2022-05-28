@@ -9,19 +9,9 @@ namespace MedicalStatistician.DAL.Entities.DbContexts
 {
     public class MedicalStatisticianDbContext : DbContext
     {
-        //public MedicalStatisticianDbContext(DbContextOptions options)
-        //    : base(options) { }
+        public MedicalStatisticianDbContext(DbContextOptions options)
+            : base(options) { }
 
-        public MedicalStatisticianDbContext()
-        {
-
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("Host=192.168.1.133;Port=5432;Database=MiserlyMiser;Username=postgres;Password=qwerty123@");
-            base.OnConfiguring(optionsBuilder);
-        }
         /// <summary>
         /// Таблица пациентов
         /// </summary>

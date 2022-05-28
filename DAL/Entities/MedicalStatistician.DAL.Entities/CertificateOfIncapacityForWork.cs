@@ -17,11 +17,11 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Дата открытия
         /// </summary>
-        public DateTime CreationDate { get; set; } = DateTime.Now;
+        public DateTimeOffset CreationDate { get; set; } = DateTimeOffset.Now;
         /// <summary>
         /// Дата закрытия
         /// </summary>
-        public DateTime ClosingDate { get; set; } = DateTime.Now;
+        public DateTimeOffset ClosingDate { get; set; } = DateTimeOffset.Now;
         /// <summary>
         /// Пациент, которому принадлежит листок
         /// </summary>

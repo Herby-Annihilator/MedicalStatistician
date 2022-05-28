@@ -17,7 +17,7 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Дата принятия решения
         /// </summary>
-        public DateTime Date { get; set; } = DateTime.Now;
+        public DateTimeOffset Date { get; set; } = DateTimeOffset.Now;
         /// <summary>
         /// Вид принудительного лечения
         /// </summary>

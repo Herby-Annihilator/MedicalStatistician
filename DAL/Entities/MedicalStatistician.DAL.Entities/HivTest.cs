@@ -17,7 +17,7 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Дата обследования
         /// </summary>
-        public DateTime Date { get; set; } = DateTime.Now;
+        public DateTimeOffset Date { get; set; } = DateTimeOffset.Now;
         /// <summary>
         /// Результат обследования
         /// </summary>

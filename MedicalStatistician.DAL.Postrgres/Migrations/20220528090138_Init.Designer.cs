@@ -3,21 +3,23 @@ using System;
 using MedicalStatistician.DAL.Entities.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace MedicalStatistician.DAL.Entities.Migrations
+namespace MedicalStatistician.DAL.Postrgres.Migrations
 {
     [DbContext(typeof(MedicalStatisticianDbContext))]
-    partial class MedicalStatisticianDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220528090138_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.4")
+                .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -96,10 +98,10 @@ namespace MedicalStatistician.DAL.Entities.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("ClosingDate")
+                    b.Property<DateTimeOffset>("ClosingDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("CreationDate")
+                    b.Property<DateTimeOffset>("CreationDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("PatientId")
@@ -264,7 +266,7 @@ namespace MedicalStatistician.DAL.Entities.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTimeOffset>("Date")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsPositive")
@@ -305,7 +307,7 @@ namespace MedicalStatistician.DAL.Entities.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTimeOffset>("Date")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("PatientId")
@@ -421,7 +423,7 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                     b.Property<int?>("AdditionalCode")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime?>("Date")
+                    b.Property<DateTimeOffset?>("Date")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("MkbCode")
@@ -494,13 +496,13 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                     b.Property<int>("AccommodationsId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("Birthday")
+                    b.Property<DateTimeOffset>("Birthday")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("CauseOfDisabilityId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime?>("DateOfOnsetOfIllness")
+                    b.Property<DateTimeOffset?>("DateOfOnsetOfIllness")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("DisabilityGroupId")
@@ -509,7 +511,7 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                     b.Property<int>("EducationId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime?>("FirstConyactWithNarcologist")
+                    b.Property<DateTimeOffset?>("FirstConyactWithNarcologist")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("FirstName")
@@ -828,10 +830,10 @@ namespace MedicalStatistician.DAL.Entities.Migrations
                     b.Property<int>("PurposeOfReferralForTreatmentId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("ReceiptDate")
+                    b.Property<DateTimeOffset>("ReceiptDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("RetirementDate")
+                    b.Property<DateTimeOffset>("RetirementDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("SourcesOfPaymentForMedicalCareId")

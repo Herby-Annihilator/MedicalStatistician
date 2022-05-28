@@ -17,7 +17,7 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Дата постановки
         /// </summary>
-        DateTime CreationDate { get; set; } = DateTime.Now;
+        DateTimeOffset CreationDate { get; set; } = DateTimeOffset.Now;
         /// <summary>
         /// Вид диагноза (заключительный, при поступлении, паталогоанатомический, основная причина сметрит, ...)
         /// </summary>

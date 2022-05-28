@@ -57,7 +57,7 @@ namespace MedicalStatistician.DAL.Entities
         /// актуализаций справочника. Для записей МКБ, существовавших ранее в версии справочника 1.1 ,
         /// поле DATE остается пустым;
         /// </summary>
-        public DateTime? Date { get; set; }
+        public DateTimeOffset? Date { get; set; }
         /// <summary>
         /// Коллекция заболеваний пациентов с данным МКБ кодом
         /// </summary>

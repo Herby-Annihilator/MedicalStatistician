@@ -35,11 +35,11 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// День рождения
         /// </summary>
-        public DateTime Birthday { get; set; } = DateTime.Now;
+        public DateTimeOffset Birthday { get; set; } = DateTimeOffset.Now;
         /// <summary>
         /// Дата первого обращения к наркологу (в жизни)
         /// </summary>
-        public DateTime? FirstConyactWithNarcologist { get; set; }
+        public DateTimeOffset? FirstConyactWithNarcologist { get; set; }
         /// <summary>
         /// Признак использования чужих шприцов
         /// </summary>
@@ -148,7 +148,7 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Дата начала заболевания
         /// </summary>
-        public DateTime? DateOfOnsetOfIllness { get; set; }
+        public DateTimeOffset? DateOfOnsetOfIllness { get; set; }
         /// <summary>
         /// Случаи лечения
         /// </summary>

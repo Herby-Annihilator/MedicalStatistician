@@ -43,11 +43,11 @@ namespace MedicalStatistician.DAL.Entities
         /// <summary>
         /// Дата поступления
         /// </summary>
-        public DateTime ReceiptDate { get; set; } = DateTime.Now;
+        public DateTimeOffset ReceiptDate { get; set; } = DateTimeOffset.Now;
         /// <summary>
         /// Дата выбытия
         /// </summary>
-        public DateTime RetirementDate { get; set; } = DateTime.Now;
+        public DateTimeOffset RetirementDate { get; set; } = DateTimeOffset.Now;
         /// <summary>
         /// Вид полученной наркологической помощи
         /// </summary>
