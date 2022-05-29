@@ -1,4 +1,6 @@
 using MedicalStatistician.DAL.Entities.DbContexts;
+using MedicalStatistician.DAL.Repositories.Base;
+using MedicalStatistician.DAL.Repositories.EfCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +35,7 @@ namespace MedicalStatistician.API
                     Configuration.GetConnectionString("Postgres"),
                     b => b.MigrationsAssembly("MedicalStatistician.DAL.Postrgres"))
             );
+            services.AddTransient(typeof(ICrudRepository<>), typeof(DefaultCrudRepository<>));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
