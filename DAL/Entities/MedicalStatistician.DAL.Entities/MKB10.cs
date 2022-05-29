@@ -13,7 +13,6 @@ namespace MedicalStatistician.DAL.Entities
     /// </summary>
     public class MKB10 : Entity
     {
-        public int Id { get; set; }
         /// <summary>
         /// Поле сортировки. Макс. длина 20
         /// </summary>
