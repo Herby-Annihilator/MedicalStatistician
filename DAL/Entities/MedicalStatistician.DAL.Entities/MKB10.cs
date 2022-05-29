@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalStatistician.DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace MedicalStatistician.DAL.Entities
     /// <summary>
     /// МКБ - 10
     /// </summary>
-    public class MKB10
+    public class MKB10 : Entity
     {
         public int Id { get; set; }
         /// <summary>

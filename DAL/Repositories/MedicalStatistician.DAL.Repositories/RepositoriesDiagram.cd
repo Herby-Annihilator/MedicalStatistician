@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MedicalStatistician.DAL.Repositories.EfCore.DefaultCrudRepository&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAAAAAABABAAAAAEAAAAAEQAFgAAgAAIIAAIIA=</HashCode>
+      <FileName>EfCore\DefaultCrudRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="MedicalStatistician.DAL.Repositories.Base.ICrudRepository&lt;T&gt;">
+    <Position X="1.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAAAAAAAABAAAAAAAAAAAEQAFgAAgAAIIAAIIA=</HashCode>
+      <FileName>Base\ICrudRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MedicalStatistician.DAL.Repositories.Base.IPage&lt;T&gt;">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAADAAAAAAAEAAAAAAAAAgAAAAAEAAAAAA=</HashCode>
+      <FileName>Base\IPage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

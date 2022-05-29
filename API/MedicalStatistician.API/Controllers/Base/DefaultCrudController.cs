@@ -2,6 +2,8 @@
 using MedicalStatistician.DAL.Repositories.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MedicalStatistician.API.Controllers.Base
@@ -62,6 +64,26 @@ namespace MedicalStatistician.API.Controllers.Base
                 return NotFound(entity);
             else
                 return Ok(result);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll() => Ok(await _repository.GetAllAsync());
+
+        [HttpGet("items/{skip:int}/{count:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<IEnumerable<T>>> Get(int skip, int count) =>
+            Ok(await _repository.GetAsync(skip, count));
+
+        [HttpGet("page/{pageIndex:int}/{pageSize:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<IPage<T>>> GetPage(int pageIndex, int pageSize)
+        {
+            var result = await _repository.GetPageAsync(pageIndex, pageSize);
+            return result.Items.Any()
+                ? Ok(result)
+                : NotFound(result);
         }
     }
 }
