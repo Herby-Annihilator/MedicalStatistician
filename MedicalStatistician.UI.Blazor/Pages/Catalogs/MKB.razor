@@ -1,0 +1,73 @@
+﻿@page "/catalogue/MKB"
+
+<PageTitle>Справочник МКБ</PageTitle>
+
+<h3 style="text-align:center;">Справочник МКБ</h3>
+<p style="height:20px"></p>
+<p style="text-align:end">
+    <button class="btn btn-primary">Сохранить</button>
+</p> 
+<div style="text-align:end">
+    <button class="btn btn-primary oi oi-plus" @onclick=Add></button>
+    <button class="btn btn-primary oi oi-minus" @onclick=Sub></button>
+</div>  
+
+<div class="table-responsive">
+    <table class="table table-bordered" border="1">
+        <thead class="thead-light">
+            <tr>
+                <th>Признак актуальности</th>
+                <th>Дата измен. актуальности</th>
+                <th>Код МКБ</th>
+                <th>Название заболевания</th>
+                <th>Родительская запись</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < size; i++)
+            {
+                 <tr>
+                    <td style="text-align:center"><input type="checkbox"/> <!--bind-value=dir.collection1[i]--></td>
+                    <td><input type="date" style="width:100%; border:0; background-color:transparent"/> <!--bind-value=dir.collection1[i]--></td>
+                    <td><input type="search" style="width:100%; border:0; background-color:transparent"/> <!--bind-value=dir.collection1[i]--></td>
+                    <td><input type="search" style="width:100%; border:0; background-color:transparent"/> <!--bind-value=dir.collection1[i]--></td>
+                    <td><input type="search" style="width:100%; border:0; background-color:transparent"/> <!--bind-value=dir.collection1[i]--></td>
+                 </tr>
+            }
+           
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+@code
+{
+    class SimpleDir
+    {
+        public List<String> collection1 = new List<string>();
+        public List<DateTime> collection2 = new List<DateTime>();
+        public List<int> collection3 = new List<int>();
+        public List<String> collection4 = new List<string>();
+        public List<int> collection5 = new List<int>();
+        public List<String> collection6 = new List<string>();
+
+        public void Add()
+        {
+
+        }
+
+        public void Remove()
+        {
+            
+        }
+    }
+
+    SimpleDir dir = new SimpleDir();
+    int size = 1;
+    void Add() { size++; dir.Add(); }
+    void Sub() { size--; dir.Remove(); }
+}
+

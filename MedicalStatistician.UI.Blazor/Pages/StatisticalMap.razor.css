@@ -2,7 +2,6 @@
     transform: scale(1.5);
 }
 
-
 .object-table {
     height:100%;
     width:100%;
@@ -11,4 +10,49 @@
 
 .divider {
     height: 30px;
+}
+
+.name-text {
+    width: 12%;
+}
+
+.name-input {
+    width: 21%;
+}
+
+.document-text {
+    width: 36%;
+}
+
+.document-input {
+    width: 62%;
+}
+
+.insurance-serie {
+    width: 20%;
+}
+
+.insurance-number {
+    width: 30%;
+}
+
+.diagnosis-text {
+    width: 98%;
+}
+
+textarea {
+    width: 98%;
+}
+
+.table-type-head {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.indent {
+    height: 30px;
+}
+
+.form-padding {
+    padding: 1%;
 }

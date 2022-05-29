@@ -1,11 +1,12 @@
 ﻿@inherits LayoutComponentBase
 @inject NavigationManager MyNavigationManager
+<MedicalStatistician.UI.Blazor.Modal.ModalChangePassword @ref=ChangePassword></MedicalStatistician.UI.Blazor.Modal.ModalChangePassword>
 
 <div class="page">
-    @if (MyNavigationManager.Uri != MyNavigationManager.BaseUri)
+    @if (MyNavigationManager.Uri != MyNavigationManager.BaseUri) // стартовая страница - это логинка
     {
         <div class="sidebar">
-            <NavMenu />
+            <NavMenuAdmin />
         </div>
     }
 
@@ -13,7 +14,8 @@
         @if (MyNavigationManager.Uri != MyNavigationManager.BaseUri)
         {
             <div class="top-row px-4">
-                <a href="/" target="_blank">Выйти</a>
+                <a @onclick="() => ChangePassword.Open()">Сменить пароль</a>
+                <a href="/">Выйти</a>
             </div>
         }
 
@@ -23,4 +25,6 @@
     </main>
 </div>
 
-
+@code {
+    MedicalStatistician.UI.Blazor.Modal.ModalChangePassword ChangePassword { get; set; }
+}

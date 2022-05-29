@@ -7,15 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\Catalogs\MKB.razor.css" />
     <None Remove="Pages\Catalogue.razor.css" />
     <None Remove="Pages\Login.razor.css" />
     <None Remove="Pages\StatisticalMap.razor.css" />
+    <None Remove="Pages\Users.razor.css" />
+    <None Remove="Shared\NavMenuAdmin.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Pages\Catalogs\MKB.razor.css" />
     <Content Include="Pages\Catalogue.razor.css" />
     <Content Include="Pages\Login.razor.css" />
     <Content Include="Pages\StatisticalMap.razor.css" />
+    <Content Include="Pages\Users.razor.css" />
+    <Content Include="Shared\NavMenuAdmin.razor.css" />
   </ItemGroup>
 
   <ItemGroup>

@@ -31,7 +31,7 @@
     </table>
 </div>
 <div style="text-align:right">
-    <button class="btn btn-primary" style="width:150px; height:57px;" @onclick=Save>Сохранить изменения</button>
+    <button class="btn btn-primary" @onclick=Save>Сохранить</button>
 </div> 
 
 
@@ -44,14 +44,18 @@
 
         public SimpleDir()
         {
-            Name = "Пол";
-            collection.Add("мужской");
-            collection.Add("женский");
+            Name = "Условия проживания";
+            collection.Add("собственный дом");
+            collection.Add("отдельная квартира");
+            collection.Add("коммунальная квартира");
+            collection.Add("общежитие");
+            collection.Add("БОМЖ");
+            collection.Add("прочее");
         }
     }
 
     SimpleDir dir = new SimpleDir();
-    int size = 2;
+    int size = 6;
     //!!! todo вылетает с ошибками
     void Add() { size++; dir.collection.Add(""); }
     void Sub() { size--; dir.collection.RemoveAt(size); }
