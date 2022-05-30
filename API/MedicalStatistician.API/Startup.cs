@@ -35,7 +35,8 @@ namespace MedicalStatistician.API
                     Configuration.GetConnectionString("Postgres"),
                     b => b.MigrationsAssembly("MedicalStatistician.DAL.Postrgres"))
             );
-            services.AddTransient(typeof(ICrudRepository<>), typeof(DefaultCrudRepository<>));
+            services.AddScoped(typeof(ICrudRepository<>), typeof(DefaultCrudRepository<>));
+            //services.AddTransient(typeof(ICrudRepository<>), typeof(DefaultCrudRepository<>));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
