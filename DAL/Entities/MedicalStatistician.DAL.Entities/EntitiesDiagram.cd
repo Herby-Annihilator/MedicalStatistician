@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MedicalStatistician.DAL.Entities.Base.Entity" Collapsed="true">
+    <Position X="35.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Base\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Base.NamedEntity" Collapsed="true">
+    <Position X="34.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Base\NamedEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.DbContexts.MedicalStatisticianDbContext" Collapsed="true">
+    <Position X="30.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAEAYBQAAQiDCAEAK6ACEAAFAAQAAAABJBLBkCACBA=</HashCode>
+      <FileName>DbContexts\MedicalStatisticianDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Accommodations" Collapsed="true">
+    <Position X="33" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Accommodations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.CauseOfDeath" Collapsed="true">
+    <Position X="35.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>CauseOfDeath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.CauseOfDisability" Collapsed="true">
+    <Position X="40.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>CauseOfDisability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.CertificateOfIncapacityForWork" Collapsed="true">
+    <Position X="37.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAgAAAACAA=</HashCode>
+      <FileName>CertificateOfIncapacityForWork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Department" Collapsed="true">
+    <Position X="33" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAMAAAAAAAAAAEAAAABAAAgAAgAA=</HashCode>
+      <FileName>Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Diagnosis" Collapsed="true">
+    <Position X="41.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAMgA=</HashCode>
+      <FileName>Diagnosis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.DisabilityGroup" Collapsed="true">
+    <Position X="31" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>DisabilityGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Disease" Collapsed="true">
+    <Position X="33" Y="8" Width="1.5" />
+    <InheritanceLine Type="MedicalStatistician.DAL.Entities.Base.NamedEntity" FixedToPoint="true">
+      <Path>
+        <Point X="35" Y="2.441" />
+        <Point X="35" Y="7.846" />
+        <Point X="33.688" Y="7.846" />
+        <Point X="33.688" Y="8" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAJACAAAAAAAACAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Disease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.DiseaseOutcome" Collapsed="true">
+    <Position X="35.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>DiseaseOutcome.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Education" Collapsed="true">
+    <Position X="38" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAQAAAAAAAAAAABgAAAAAAABA=</HashCode>
+      <FileName>Education.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.HivTest" Collapsed="true">
+    <Position X="39.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAQAABAAAAAAAACAA=</HashCode>
+      <FileName>HivTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.InsuranceOrganization" Collapsed="true">
+    <Position X="29" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InsuranceOrganization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Judgment" Collapsed="true">
+    <Position X="41.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAQAAAAAAAAAEAAAABgAAAAABAAAAAAAACAA=</HashCode>
+      <FileName>Judgment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.MedicalCareProfile" Collapsed="true">
+    <Position X="31" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MedicalCareProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.MedicalOrganization" Collapsed="true">
+    <Position X="35.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAgAiBAAAACAAAAAAAAAAAAACBAAAAAAAAAA=</HashCode>
+      <FileName>MedicalOrganization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.MethodOfConsumption" Collapsed="true">
+    <Position X="38" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MethodOfConsumption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.MKB10">
+    <Position X="43.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAQAAAAACEUAAAAAAAAAABIjAAAAAAAAA=</HashCode>
+      <FileName>MKB10.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.OrderOfAdmission" Collapsed="true">
+    <Position X="40.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>OrderOfAdmission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.ParticipationInTheWar" Collapsed="true">
+    <Position X="29" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>ParticipationInTheWar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Patient" Collapsed="true">
+    <Position X="43.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAOABASAgpKAAAIAAABgAAgAIASAEAAAhggAALAw=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.PatientEntryRoutes" Collapsed="true">
+    <Position X="31" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>PatientEntryRoutes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.PatientUseDrugs" Collapsed="true">
+    <Position X="30.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAYAAAgAAAAAAAAAAAAAEAAAAAAAAAgAQCAA=</HashCode>
+      <FileName>PatientUseDrugs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.PlaceOfDeparture" Collapsed="true">
+    <Position X="38" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>PlaceOfDeparture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Policy" Collapsed="true">
+    <Position X="39.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAABAAAEAAAAAAAAAAAAAAAgAAAAAACAE=</HashCode>
+      <FileName>Policy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.PsychoactiveSubstance" Collapsed="true">
+    <Position X="42" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PsychoactiveSubstance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.PurposeOfReferralForTreatment" Collapsed="true">
+    <Position X="29" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>PurposeOfReferralForTreatment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.ResidenceStatus" Collapsed="true">
+    <Position X="31" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>ResidenceStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.Sex" Collapsed="true">
+    <Position X="33" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Sex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.SourceOfLivelihood" Collapsed="true">
+    <Position X="35.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>SourceOfLivelihood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.SourcesOfPaymentForMedicalCare" Collapsed="true">
+    <Position X="38" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>SourcesOfPaymentForMedicalCare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.StatusOfJudgesDecisionUnderArticle35" Collapsed="true">
+    <Position X="40.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>StatusOfJudgesDecisionUnderArticle35.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.TreatmentCase" Collapsed="true">
+    <Position X="37.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAUUhABQQAsAAEQAgABIAIUAQDAABACBBBAAAACCA=</HashCode>
+      <FileName>TreatmentCase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.TypeOfDiagnosis" Collapsed="true">
+    <Position X="29" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeOfDiagnosis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.TypeOfDisease" Collapsed="true">
+    <Position X="31" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeOfDisease.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.TypeOfDrugTreatment" Collapsed="true">
+    <Position X="33" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>TypeOfDrugTreatment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.TypeOfForcedTreatment" Collapsed="true">
+    <Position X="35.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>TypeOfForcedTreatment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.TypeOfJudgment" Collapsed="true">
+    <Position X="38" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>TypeOfJudgment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.TypeOfMedicalCare" Collapsed="true">
+    <Position X="40.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAQAAAAAAAABAAAgAAAEAAAAA=</HashCode>
+      <FileName>TypeOfMedicalCare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.TypeOfOutpatientCare" Collapsed="true">
+    <Position X="40.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>TypeOfOutpatientCare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalStatistician.DAL.Entities.WhoSentToHospital" Collapsed="true">
+    <Position X="29" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>WhoSentToHospital.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
