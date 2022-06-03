@@ -11,7 +11,7 @@ namespace MedicalStatistician.DAL.Repositories.Base
     /// CRUD репозиторий
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface ICrudRepository<T> where T : Entity
+    public interface ICrudRepository<T> : IDisposable where T : Entity
     {
         /// <summary>
         /// Получает заданное число <paramref name="count"/> сущностей пропустив <paramref name="skip"/> сущностей

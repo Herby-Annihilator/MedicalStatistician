@@ -155,5 +155,23 @@ namespace MedicalStatistician.WebApiClients.Repositories
                .ConfigureAwait(false);
             return result;
         }
+
+        protected bool _disposed = false;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _client.Dispose();
+                }
+            }
+            _disposed = true;
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
     }
 }

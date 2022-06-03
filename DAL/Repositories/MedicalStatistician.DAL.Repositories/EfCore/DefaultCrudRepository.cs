@@ -171,5 +171,22 @@ namespace MedicalStatistician.DAL.Repositories.EfCore
 
             return new DefaultPage(items, total_count, pageIndex, pageSize);
         }
+        protected bool _disposed = false;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+            }
+            _disposed = true;
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
     }
 }
