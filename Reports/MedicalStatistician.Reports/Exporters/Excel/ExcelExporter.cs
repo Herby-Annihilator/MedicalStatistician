@@ -1,5 +1,4 @@
 ﻿using MedicalStatistician.Reports.Exporters.Base;
-using MedicalStatistician.Reports.Exporters.Excel.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
