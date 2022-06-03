@@ -3,7 +3,11 @@
 @using MedicalStatistician.DAL.Repositories.Base
 
 @inject NavigationManager NavigationManager
+
 @inject ICrudRepository<Sex> sexCatalog
+@*@inject ICrudRepository<DisabilityGroup> invalidCatalog
+@inject ICrudRepository<PurposeOfReferralForTreatment> purposeTreatmentCatalog
+@inject ICrudRepository<WhoSentToHospital> whoSentToHospitalCatalog*@
 
 <PageTitle>Справочники</PageTitle>
 
@@ -22,7 +26,7 @@
                 <button class="item">Источники оплаты медицинской помощи (Виды оплаты)</button>
         </div>
         <div class=col>
-                <button class="item">Кем направлен</button>
+                <button class="item" @*@onclick="WhoSentToHospitalCatalogPage"*@>Кем направлен</button>
         </div>
 
 
@@ -36,7 +40,7 @@
                 <button class="item">Откуда поступил</button>
         </div>
         <div class=col>
-                <button class="item">Цель направления</button>
+                <button class="item" @*@onclick="PurposeTreatmentCatalogPage"*@>Цель направления</button>
         </div>
 
 
@@ -44,7 +48,7 @@
                 <button class="item" onclick="location.href='catalogue/MKB'">МКБ</button>
         </div>
         <div class=col>
-                <button class="item">Группы инвалидности</button>
+                <button class="item"  @*@onclick="InvalidCatalogPage"*@>Группы инвалидности </button>
         </div>
 
         <div class=col>
@@ -97,14 +101,38 @@
 @code {
     ICollection<NamedEntity> repository;
 
-    //
-    //
-    //
+    /// <summary>
+    /// Пол
+    /// </summary>
     async void SexCatalogPage()
     {
-        repository = (ICollection<NamedEntity>)(await sexCatalog.GetAllAsync()).ToList();
+        //repository = (ICollection<NamedEntity>)(await sexCatalog.GetAllAsync()).ToList();
+        NavigationManager.NavigateTo("catalogue/simple");
+    }
+    /// <summary>
+    /// Группы инвалидновси
+    /// </summary>
+    /*async void InvalidCatalogPage()
+    {
+        repository = (ICollection<NamedEntity>)(await invalidCatalog.GetAllAsync()).ToList();
         NavigationManager.NavigateTo("catalogue/simple/repository");
     }
+    /// <summary>
+    /// Цель направления
+    /// </summary>
+    async void PurposeTreatmentCatalogPage()
+    {
+        repository = (ICollection<NamedEntity>)(await purposeTreatmentCatalog.GetAllAsync()).ToList();
+        NavigationManager.NavigateTo("catalogue/simple/repository");
+    }
+    /// <summary>
+    /// Кем направлен
+    /// </summary>
+    async void WhoSentToHospitalCatalogPage()
+    {
+        repository = (ICollection<NamedEntity>)(await whoSentToHospitalCatalog.GetAllAsync()).ToList();
+        NavigationManager.NavigateTo("catalogue/simple/repository");
+    }*/
 
 
 }

@@ -1,5 +1,8 @@
-﻿@page "/catalogue/simple/{CatalogEntity}"
+﻿@page "/catalogue/simple"
+
 @using MedicalStatistician.DAL.Entities.Base
+@using MedicalStatistician.DAL.Repositories.Base
+@inject ICrudRepository<Sex> sexEntity
 
 <PageTitle>Справочник</PageTitle>
 
@@ -9,27 +12,34 @@
     <button class="btn btn-primary oi oi-plus" ></button>
     <button class="btn btn-primary oi oi-minus" ></button>
 </div>  
+@if (CatalogEntity is { } sources)
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in sources)
+                {
+                    <tr>
+                        <td>
+                           @* <input type="search" style="width:100%; border:0; background-color:transparent" @item.Name/>*@
+                           @item.Name
+                        </td>           
+                    </tr>
+                }          
+            </tbody>
 
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead class="thead-light">
-            <tr>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in CatalogEntity)
-           {
-               <tr>
-                    <td>
-                        <input type="search" style="width:100%; border:0; background-color:transparent" @bind="item.Name"/>
-                    </td>           
-                 </tr>
-           }          
-        </tbody>
-
-    </table>
-</div>
+        </table>
+    </div>
+}
+else
+{
+    <p>Загрузка...</p>
+}
 <div style="text-align:right">
     <button class="btn btn-primary" >Сохранить</button>
 </div> 
@@ -37,8 +47,17 @@
 
 @code
 {
-    [Parameter]
-    public ICollection<NamedEntity> CatalogEntity { get; set; }
+    ICollection<Sex> CatalogEntity;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CatalogEntity =  
+        (await sexEntity
+            .GetAllAsync())
+        .ToList();
+
+
+    }
 
 }
 
