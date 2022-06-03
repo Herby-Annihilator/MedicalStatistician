@@ -1,4 +1,9 @@
 ﻿@page "/catalogue"
+@using MedicalStatistician.DAL.Entities.Base
+@using MedicalStatistician.DAL.Repositories.Base
+
+@inject NavigationManager NavigationManager
+@inject ICrudRepository<Sex> sexCatalog
 
 <PageTitle>Справочники</PageTitle>
 
@@ -8,7 +13,7 @@
 <section>
     <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4">
         <div class=col>
-                <button class="item" onclick="location.href='catalogue/simple'">Пол</button>
+                <button class="item" @onclick="SexCatalogPage">Пол</button>
         </div>
         <div class=col>
                 <button class="item">Житель</button>
@@ -89,4 +94,17 @@
 
 <Footer></Footer>
 
+@code {
+    ICollection<NamedEntity> repository;
 
+    //
+    //
+    //
+    async void SexCatalogPage()
+    {
+        repository = (ICollection<NamedEntity>)(await sexCatalog.GetAllAsync()).ToList();
+        NavigationManager.NavigateTo("catalogue/simple/repository");
+    }
+
+
+}

@@ -1,12 +1,13 @@
-﻿@page "/catalogue/simple"
+﻿@page "/catalogue/simple/{CatalogEntity}"
+@using MedicalStatistician.DAL.Entities.Base
 
 <PageTitle>Справочник</PageTitle>
 
-<h3 style="text-align:center;">@dir.Name</h3>
+<h3 style="text-align:center;">Пол</h3>
 <p style="height:20px"></p>
 <div style="text-align:right">
-    <button class="btn btn-primary oi oi-plus" @onclick=Add></button>
-    <button class="btn btn-primary oi oi-minus" @onclick=Sub></button>
+    <button class="btn btn-primary oi oi-plus" ></button>
+    <button class="btn btn-primary oi oi-minus" ></button>
 </div>  
 
 <div class="table-responsive">
@@ -17,48 +18,27 @@
             </tr>
         </thead>
         <tbody>
-            @for (var i = 0; i < size; i++)
-            {
-                 <tr>
+            @foreach (var item in CatalogEntity)
+           {
+               <tr>
                     <td>
-                        <input type="search" style="width:100%; border:0; background-color:transparent" @bind-value=dir.collection[i]/>
+                        <input type="search" style="width:100%; border:0; background-color:transparent" @bind="item.Name"/>
                     </td>           
                  </tr>
-            }
-           
+           }          
         </tbody>
 
     </table>
 </div>
 <div style="text-align:right">
-    <button class="btn btn-primary" @onclick=Save>Сохранить</button>
+    <button class="btn btn-primary" >Сохранить</button>
 </div> 
 
 
 @code
 {
-    class SimpleDir
-    {
-        public String Name;
-        public List<String> collection = new List<string>();
+    [Parameter]
+    public ICollection<NamedEntity> CatalogEntity { get; set; }
 
-        public SimpleDir()
-        {
-            Name = "Условия проживания";
-            collection.Add("собственный дом");
-            collection.Add("отдельная квартира");
-            collection.Add("коммунальная квартира");
-            collection.Add("общежитие");
-            collection.Add("БОМЖ");
-            collection.Add("прочее");
-        }
-    }
-
-    SimpleDir dir = new SimpleDir();
-    int size = 6;
-    //!!! todo вылетает с ошибками
-    void Add() { size++; dir.collection.Add(""); }
-    void Sub() { size--; dir.collection.RemoveAt(size); }
-    void Save() => dir.Name = "Пол)";
 }
 
