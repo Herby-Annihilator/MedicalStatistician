@@ -2,6 +2,8 @@
 
 using MedicalStatistician.DAL.Entities;
 using MedicalStatistician.DAL.Repositories.Base;
+using MedicalStatistician.Reports;
+using MedicalStatistician.Reports.Exporters.Excel;
 using MedicalStatistician.WebApiClients.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,12 +31,17 @@ public class Program
         using var host = Hosting;
         await host.StartAsync();
 
-        ICrudRepository<Accommodations> repository = Services.GetRequiredService<ICrudRepository<Accommodations>>();
-        IEnumerable<Accommodations> collection = await repository.GetAllAsync();
-        foreach (var item in collection)
-        {
-            Console.WriteLine(item.Name);
-        }
+        //ICrudRepository<Accommodations> repository = Services.GetRequiredService<ICrudRepository<Accommodations>>();
+        //IEnumerable<Accommodations> collection = await repository.GetAllAsync();
+        //foreach (var item in collection)
+        //{
+        //    Console.WriteLine(item.Name);
+        //}
+        //Console.Read();
+        Console.WriteLine("Создание файла excel...");
+        Report36pl report = new Report36pl() { Year = 22 };
+        report.Export("", new ExcelExporter());
+        Console.WriteLine("Файл создан");
         Console.Read();
         await host.StopAsync();
     }

@@ -18,5 +18,10 @@ namespace MedicalStatistician.Reports.Exporters.Word
         {
             throw new NotImplementedException();
         }
+
+        public void Export(string path, ActiveDispensaryObservation activeDispensaryObservation)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

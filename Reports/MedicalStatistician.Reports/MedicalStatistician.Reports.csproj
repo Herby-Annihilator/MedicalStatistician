@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Builders\" />
+    <PackageReference Include="EPPlus" Version="6.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DAL\Entities\MedicalStatistician.DAL.Entities\MedicalStatistician.DAL.Entities.csproj" />
+    <ProjectReference Include="..\..\DAL\Repositories\MedicalStatistician.DAL.Repositories\MedicalStatistician.DAL.Repositories.csproj" />
   </ItemGroup>
 
 </Project>
