@@ -2,7 +2,7 @@
 
 @using MedicalStatistician.DAL.Entities.Base
 @using MedicalStatistician.DAL.Repositories.Base
-@inject ICrudRepository<Sex> sexEntity
+@inject ICrudRepository<DisabilityGroup> sexEntity
 
 <PageTitle>Справочник</PageTitle>
 
@@ -47,16 +47,11 @@ else
 
 @code
 {
-    ICollection<Sex> CatalogEntity;
+    private IList<DisabilityGroup> CatalogEntity;
 
     protected override async Task OnInitializedAsync()
     {
-        CatalogEntity =  
-        (await sexEntity
-            .GetAllAsync())
-        .ToList();
-
-
+        CatalogEntity = (await sexEntity.GetAllAsync()).ToList();
     }
 
 }
