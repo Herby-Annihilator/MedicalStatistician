@@ -39,7 +39,21 @@ public class Program
         //}
         //Console.Read();
         Console.WriteLine("Создание файла excel...");
-        Report36pl report = new Report36pl() { Year = 22 };
+        Report36pl report = new Report36pl()
+        {
+            Year = 22,
+            OrganizationAddress = "Какой-нибудь адрес",
+            OrganizationName = "КГБУЗ АККПБ им. Эрдмана Юрия Карловича",
+            Table2100 = new List<ActiveDispensaryObservation>() 
+            { 
+                new ActiveDispensaryObservation(),
+                new ActiveDispensaryObservation(),
+                new ActiveDispensaryObservation(),
+                new ActiveDispensaryObservation(),
+                new ActiveDispensaryObservation(),
+                new ActiveDispensaryObservation(),
+            },
+        };
         report.Export("", new ExcelExporter());
         Console.WriteLine("Файл создан");
         Console.Read();

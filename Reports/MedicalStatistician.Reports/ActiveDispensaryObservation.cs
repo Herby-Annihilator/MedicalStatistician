@@ -14,9 +14,9 @@ namespace MedicalStatistician.Reports
         /// </summary>
         public string DeseaseName { get; set; } = "";
         /// <summary>
-        /// Шифры по МКБ
+        /// Индекс строки в отчете. Начало с 1.
         /// </summary>
-        public IEnumerable<MKB10> MkbCodes { get; set; } = Enumerable.Empty<MKB10>();
+        public int RowIndex { get; set; } = 1;
         /// <summary>
         /// Всего взято под АДН в отчетном году
         /// </summary>

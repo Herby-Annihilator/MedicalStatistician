@@ -19,6 +19,70 @@ namespace MedicalStatistician.Reports.Exporters.Excel
             using (var package = new ExcelPackage(template))
             {
                 package.Workbook.Worksheets[0].Cells["BZ10"].Value = report36pl.Year;
+                package.Workbook.Worksheets[0].Cells["AV25"].Value = report36pl.OrganizationName;
+                package.Workbook.Worksheets[0].Cells["S27"].Value = report36pl.OrganizationAddress;
+                //
+                // 2100
+                //
+                report36pl.Table2100.OrderBy(t => t.RowIndex);
+                var table = report36pl.Table2100.ToArray();
+                int j = 0;
+                for (int i = 0; i < table.Length; i++)
+                {
+                    package.Workbook.Worksheets[1].Cells[$"BN{8 + j}"].Value =
+                    table[i].TotalTakenUnderActiveDispensaryObservation;
+                    package.Workbook.Worksheets[1].Cells[$"BX{8 + j}"].Value =
+                        table[i].ChildrenTakenUnderActiveDispensaryObservation;
+                    package.Workbook.Worksheets[1].Cells[$"CH{8 + j}"].Value =
+                        table[i].TotalRemovedFromActiveDispensaryObservation;
+                    package.Workbook.Worksheets[1].Cells[$"CR{8 + j}"].Value =
+                        table[i].WithdrawnFromActiveDispensaryObservationDueToADecreaseInPublicDanger;
+                    package.Workbook.Worksheets[1].Cells[$"DG{8 + j}"].Value =
+                        table[i].TotalCountOfPeopleOnAdnAtTheEndOfTheReportingYear;
+                    package.Workbook.Worksheets[1].Cells[$"DQ{8 + j}"].Value =
+                        table[i].ChildrenOnAdnAtTheEndOfTheReportingYear;
+                    package.Workbook.Worksheets[1].Cells[$"EA{8 + j}"].Value =
+                        table[i].AreOnAdnAtTheEndOfTheReportingYearAndHaveCommittedOodDuringTheirLifetime;
+                    package.Workbook.Worksheets[1].Cells[$"EK{8 + j}"].Value =
+                        table[i].AreOnAdnAtTheEndOfTheReportingYearAndHaveCommittedOodDuringTheirLifetimeAndAtTheReportingYear;
+                    package.Workbook.Worksheets[1].Cells[$"EX{8 + j}"].Value =
+                        table[i].AreOnAdnAtTheEndOfTheReportingYearAndHaveCommittedOodDuringTheirLifetimeButWereNotOnAdn;
+                    j++;
+                    if (i == 1)
+                    {
+                        j++;
+                    }
+                }
+                
+                //
+                // 2110
+                //
+                package.Workbook.Worksheets[1].Cells["DI17"].Value =
+                    report36pl.ReportTable2110.RemovedFromAdnInReportingYearWithChangingOfLivingPlace;
+                package.Workbook.Worksheets[1].Cells["EF17"].Value =
+                    report36pl.ReportTable2110.RemovedFromAdnInReportingYearBecauseOfDeath;
+                package.Workbook.Worksheets[1].Cells["AU18"].Value =
+                    report36pl.ReportTable2110.RemovedFromAdnInReportingYearBecauseOfThereIsNoInformation;
+                package.Workbook.Worksheets[1].Cells["CA18"].Value =
+                    report36pl.ReportTable2110.RemovedFromAdnInReportingYearBecauseOfAnotherReasons;
+                //
+                // 2120
+                //
+                package.Workbook.Worksheets[1].Cells["O20"].Value =
+                    report36pl.ReportTable2120.TakenUnderAdnInReportingYearHasOodInReportingYear;
+                package.Workbook.Worksheets[1].Cells["BW20"].Value =
+                    report36pl.ReportTable2120.TakenUnderAdnInReportingYearHasOodInReportingYearButWereNotOnDispensaryObservation;
+                package.Workbook.Worksheets[1].Cells["DC20"].Value =
+                    report36pl.ReportTable2120.TakenUnderAdnInReportingYearHasOodInReportingYearAfterPl;
+                package.Workbook.Worksheets[1].Cells["W21"].Value =
+                    report36pl.ReportTable2120.TakenUnderAdnInReportingYearHasOodInReportingYearAfterChangingApnlOnPl;
+                //
+                // 2130
+                //
+                package.Workbook.Worksheets[2].Cells["AL3"].Value =
+                    report36pl.ReportTable2130.AreOnAdnOnTheEndOfTheReportingYearAreInPsychiatricHospital;
+                package.Workbook.Worksheets[2].Cells["BJ3"].Value =
+                    report36pl.ReportTable2130.AreOnAdnOnTheEndOfTheReportingYearAreInPsychiatricHospitalOnpl;
                 package.SaveAs(result);
             }
         }
@@ -29,6 +93,21 @@ namespace MedicalStatistician.Reports.Exporters.Excel
         }
 
         public void Export(string path, ActiveDispensaryObservation activeDispensaryObservation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Export(string path, ReportTable2110 reportTable2110)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Export(string path, ReportTable2120 reportTable2120)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Export(string path, ReportTable2130 reportTable2130)
         {
             throw new NotImplementedException();
         }

@@ -23,5 +23,20 @@ namespace MedicalStatistician.Reports.Exporters.Word
         {
             throw new NotImplementedException();
         }
+
+        public void Export(string path, ReportTable2110 reportTable2110)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Export(string path, ReportTable2120 reportTable2120)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Export(string path, ReportTable2130 reportTable2130)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
