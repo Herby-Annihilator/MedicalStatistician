@@ -22,44 +22,86 @@ namespace MedicalStatistician.Reports.Exporters.Excel
                 package.Workbook.Worksheets[0].Cells["AV25"].Value = report36pl.OrganizationName;
                 package.Workbook.Worksheets[0].Cells["S27"].Value = report36pl.OrganizationAddress;
                 //
+                // 2200
+                //
+                var table = report36pl.ReportTable2200.ToArray();
+                int tableFirstPartCellIndex = 19;
+                int j = 0;
+                int tableSecondPartCellIndex = 6;
+                for (int i = 0; i < table.Length; i++)
+                {
+                    tableFirstPartCellIndex += j;
+                    tableSecondPartCellIndex += j;
+                    package.Workbook.Worksheets[3].Cells[$"CC{tableFirstPartCellIndex}"].Value = 
+                        table[i].AllAddmittedPatientsInReportingYear;
+                    package.Workbook.Worksheets[3].Cells[$"CQ{tableFirstPartCellIndex}"].Value =
+                        table[i].CountOfChildrenAddmittedInReportingYear;
+                    package.Workbook.Worksheets[3].Cells[$"DB{tableFirstPartCellIndex}"].Value =
+                        table[i].ReceivedPatientsForTheFirstTimeInTheirLives;
+                    package.Workbook.Worksheets[3].Cells[$"DP{tableFirstPartCellIndex}"].Value =
+                        table[i].AdmittedPatientsForTheFirstTimeAccordingToThisUD;
+                    package.Workbook.Worksheets[3].Cells[$"EB{tableFirstPartCellIndex}"].Value =
+                        table[i].AdmittedPatientsAccordingToThisUDBecauseOfChangingTypeOfPl;
+                    package.Workbook.Worksheets[3].Cells[$"EN{tableFirstPartCellIndex}"].Value =
+                        table[i].AdmittedPatientsAccordingToThisUDBecauseOfChangingTypeOfPlAfterApnl;
+                    package.Workbook.Worksheets[3].Cells[$"EX{tableFirstPartCellIndex}"].Value =
+                        table[i].CountOfDroppedOutPatients;
+
+                    package.Workbook.Worksheets[4].Cells[$"CD{tableSecondPartCellIndex}"].Value =
+                        table[i].CountOfBedDaysOfDroppedOutPatients;
+                    package.Workbook.Worksheets[4].Cells[$"CT{tableSecondPartCellIndex}"].Value =
+                        table[i].CountOfDroppedOutPatientsBecauseOfChangingOfPlType;
+                    package.Workbook.Worksheets[4].Cells[$"DK{tableSecondPartCellIndex}"].Value =
+                        table[i].CountOfDroppedOutPatientsBecauseOfTransferringOnApnl;
+                    package.Workbook.Worksheets[4].Cells[$"EB{tableSecondPartCellIndex}"].Value =
+                        table[i].ConsistsOfPatientsAtTheEndOfTheYear;
+                    package.Workbook.Worksheets[4].Cells[$"ET{tableSecondPartCellIndex}"].Value =
+                        table[i].ConsistsOfChildrensAtTheEndOfTheYear;
+
+                    if (i == 1 || i == 5)
+                    {
+                        j++;
+                    }
+                }
+                //
                 // 2210
                 //
-                package.Workbook.Worksheets[4].Cells["A28"].Value =
+                package.Workbook.Worksheets[4].Cells["A27"].Value =
                     report36pl.ReportTable2210.CountOfPatientsWhoWerePreviouslyInCompulsoryTreatment;
-                package.Workbook.Worksheets[4].Cells["AD28"].Value =
+                package.Workbook.Worksheets[4].Cells["AD27"].Value =
                     report36pl.ReportTable2210.OodForUpToAYear;
-                package.Workbook.Worksheets[4].Cells["AX28"].Value =
+                package.Workbook.Worksheets[4].Cells["AX27"].Value =
                     report36pl.ReportTable2210.OodInOneOrTwoYears;
-                package.Workbook.Worksheets[4].Cells["BN28"].Value =
+                package.Workbook.Worksheets[4].Cells["BN27"].Value =
                     report36pl.ReportTable2210.OodInTwoOrThreeYears;
-                package.Workbook.Worksheets[4].Cells["CD28"].Value =
+                package.Workbook.Worksheets[4].Cells["CD27"].Value =
                     report36pl.ReportTable2210.OodInThreeOrFiveYears;
-                package.Workbook.Worksheets[4].Cells["CT28"].Value =
+                package.Workbook.Worksheets[4].Cells["CT27"].Value =
                     report36pl.ReportTable2210.OodInFiveOrMoreYears;
-                package.Workbook.Worksheets[4].Cells["DM28"].Value =
+                package.Workbook.Worksheets[4].Cells["DM27"].Value =
                     report36pl.ReportTable2210.AfterOodWereUnderDispensaryObservation;
-                package.Workbook.Worksheets[4].Cells["EQ28"].Value =
+                package.Workbook.Worksheets[4].Cells["EQ27"].Value =
                     report36pl.ReportTable2210.CountOfFirstTimeApplicantsInAGivenYear;
                 //
                 // 2220
                 //
-                package.Workbook.Worksheets[4].Cells["A36"].Value =
+                package.Workbook.Worksheets[4].Cells["A35"].Value =
                     report36pl.ReportTable2220.Died;
-                package.Workbook.Worksheets[4].Cells["K36"].Value =
+                package.Workbook.Worksheets[4].Cells["K35"].Value =
                     report36pl.ReportTable2220.DiedBecauseOfAccident;
-                package.Workbook.Worksheets[4].Cells["Z36"].Value =
+                package.Workbook.Worksheets[4].Cells["Z35"].Value =
                     report36pl.ReportTable2220.CountOfTransferredToOtherPsychiatricHospitals;
-                package.Workbook.Worksheets[4].Cells["AQ36"].Value =
+                package.Workbook.Worksheets[4].Cells["AQ35"].Value =
                     report36pl.ReportTable2220.CountOfTransferredToOtherGeneralPsychiatricHospitals;
-                package.Workbook.Worksheets[4].Cells["BC36"].Value =
+                package.Workbook.Worksheets[4].Cells["BC35"].Value =
                     report36pl.ReportTable2220.CountOfTransferredToOtherSpecialPsychiatricHospitals;
-                package.Workbook.Worksheets[4].Cells["BU36"].Value =
+                package.Workbook.Worksheets[4].Cells["BU35"].Value =
                     report36pl.ReportTable2220.CountOfTransferredToOtherIntensivelyMonitoredSpecialPsychiatricHospitals;
-                package.Workbook.Worksheets[4].Cells["CQ36"].Value =
+                package.Workbook.Worksheets[4].Cells["CQ35"].Value =
                     report36pl.ReportTable2220.CountOfTransferredToOtherPsychiatricHospitalsWithoutOfChangingTypeOfPl;
-                package.Workbook.Worksheets[4].Cells["DS36"].Value =
+                package.Workbook.Worksheets[4].Cells["DS35"].Value =
                     report36pl.ReportTable2220.CountOfThoseWhoLeftDueToTheTerminationOfCompulsoryTreatment;
-                package.Workbook.Worksheets[4].Cells["EO36"].Value =
+                package.Workbook.Worksheets[4].Cells["EO35"].Value =
                     report36pl.ReportTable2220.CountOfDaysPatientsSpentOnPlFromStartToFinish;
                 //
                 // 2230
@@ -102,8 +144,6 @@ namespace MedicalStatistician.Reports.Exporters.Excel
         public void Export(string path, Report16vn report16vn)
         {
             throw new NotImplementedException();
-        }
-
-       
+        } 
     }
 }
