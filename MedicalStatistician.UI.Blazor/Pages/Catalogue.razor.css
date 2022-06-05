@@ -8,3 +8,11 @@
 button:hover {
  background-color: gainsboro; 
 }
+
+.title {
+    text-align: center;
+}
+
+.divider {
+    height: 30px;
+}

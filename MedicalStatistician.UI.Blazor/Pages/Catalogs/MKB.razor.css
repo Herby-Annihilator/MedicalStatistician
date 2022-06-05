@@ -1,3 +1,11 @@
 ﻿input[type=checkbox] {
     transform: scale(1.5);
 }
+
+.divider {
+    height: 20px;
+}
+
+.object-right {
+    text-align: right;
+}

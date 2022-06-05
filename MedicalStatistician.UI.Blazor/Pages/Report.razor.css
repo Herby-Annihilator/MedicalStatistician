@@ -1,0 +1,19 @@
+﻿.object-center {
+    text-align:center;
+}
+
+.divider {
+    height: 30px;
+}
+
+.divider-50px {
+    height: 50px;
+}
+
+.object-right {
+    text-align:right;
+}
+
+input[type=date] {
+    width:200px;
+}

@@ -36,8 +36,8 @@
     width: 30%;
 }
 
-.diagnosis-text {
-    width: 98%;
+.vacation-days {
+    width: 20%;
 }
 
 textarea {
@@ -49,10 +49,22 @@ textarea {
     padding-right: 80px;
 }
 
-.indent {
-    height: 30px;
-}
-
 .form-padding {
     padding: 1%;
+}
+
+.divider-save {
+    height: 10px;
+}
+
+.object-right {
+    text-align: right;
+}
+
+.compulsory-treatment-text {
+    width: 22%;
+}
+
+.compulsory-treatment-input {
+    width: 18%;
 }

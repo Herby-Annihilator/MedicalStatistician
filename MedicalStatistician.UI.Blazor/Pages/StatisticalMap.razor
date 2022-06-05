@@ -4,53 +4,50 @@
 
 
 
-<div style="text-align:center">
+<div class="text-center">
     <h3>Статистическая карта</h3>
     <h4>выбывшего из психиатрического (наркологического) стационара</h4>
 </div>
 
 <p>
-    <label style="width:12%">Фамилия</label>
-    <input style="width:21%" @bind=@str />
+    <label class="name-text">Фамилия</label>
+    <input class="name-input" />
 </p>
 <p>
-    <label style="width:12%">Имя</label>
-    <input style="width:21%" />
+    <label class="name-text">Имя</label>
+    <input class="name-input" />
 </p>
 <p>
-    <label style="width:12%">Отчество</label>
-    <input style="width:21%" />
+    <label class="name-text">Отчество</label>
+    <input class="name-input" />
 </p>
 
 <section>
     <div class="row">
-        <div class="col-4 border" style="padding:1%;">
+        <div class="col-4 border form-padding">
             <p>
-                <label style="width:36%">Пол</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Пол</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">мужской</option>
                     <option value="">женский</option>
                 </select>
             </p>
             <p>
-                <label style="width:36%">Житель</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Житель</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">города</option>
                     <option value="">села</option>
                 </select>
             </p>           
             <p>
-                <label  style="width:36%">Дата рождения</label>
-                <input type="date" style="width:62%">
+                <label  class="document-text">Дата рождения</label>
+                <input type="date" class="document-input">
             </p>
             <p>
-                <label style="width:36%">Вид оплаты</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Вид оплаты</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">бюджеты всех уровней</option>
                     <option value="">обязательное мед. страхование</option>
@@ -69,46 +66,37 @@
                 </select>*@
                 <!--Конец сего мракобесия-->
             </p>
-            @*<p>
-                <label style="width:36%">Название страховой компании</label>
-                <select style="width:62%">
-                    <option value="">(не выбрано)</option>
-                    <option value="">СМК РЕСО-МЕД</option>
-                    <option value="">КАПИТАЛ МС</option>
-                </select>
-            </p>*@
             <p>Страховой полис:</p>
-            <p>серия <input style="width: 20%"/> номер <input  style="width: 30%"/></p>
+            <p>серия <input class="insurance-serie"/> номер <input  class="insurance-number"/></p>
             <p>
-                <label style="width:36%">Номер стат. карты</label>
-                <input style="width:62%"/>
+                <label class="document-text">Номер стат. карты</label>
+                <input class="document-input"/>
             </p>
             <p>
-                <label style="width:36%">Мед.карта стац. б-го</label>
-                <input style="width:62%"/>
+                <label class="document-text">Мед.карта стац. б-го</label>
+                <input class="document-input"/>
             </p>
             <p>
-                <label style="width:36%">Номер отделения</label>
-                <input style="width:62%">
+                <label class="document-text">Номер отделения</label>
+                <input class="document-input">
             </p>
             <p>
-                <label style="width:36%">Дата поступления</label>
-                <input type="date" style="width:62%">
+                <label class="document-text">Дата поступления</label>
+                <input type="date" class="document-input">
             </p>
             <p>
-                <label style="width:36%">Дата открытия бол-го листа</label>
-                <input type="date" style="width:62%">
+                <label class="document-text">Дата открытия бол-го листа</label>
+                <input type="date" class="document-input">
             </p>
             <p>
-                <label style="width:36%">Дата закрытия бол-го листа</label>
-                <input type="date" style="width:62%">
+                <label class="document-text">Дата закрытия бол-го листа</label>
+                <input type="date" class="document-input">
             </p>
         </div>
-        <div class="col-4 border" style="padding:1%;">
+        <div class="col-4 border form-padding">
             <p>
-                <label style="width:36%">Кем направлен</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Кем направлен</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">псих. дисп. (отд. кабинетом)</option>
                     <option value="">наркол. дисп. (отд. кабинетом)</option>
@@ -123,9 +111,8 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Порядок поступления</label> 
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Порядок поступления</label> 
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">добровольное</option>
                     <option value="">недобр. в соотв. со ст.29</option>
@@ -133,9 +120,8 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Решение судьи по ст.35</label> 
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Решение судьи по ст.35</label> 
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">получено</option>
                     <option value="">отказано</option>
@@ -144,9 +130,8 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Откуда поступил</label> 
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Откуда поступил</label> 
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">из дома</option>
                     <option value="">переведен из псих. стационара</option>
@@ -157,9 +142,8 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Цель направления</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Цель направления</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">лечение</option>
                     <option value="">реабилитация</option>
@@ -173,27 +157,26 @@
                 </select>
             </p>
             <p>Диагноз направившего учреждения </p>
-                <textarea style="width:98%"></textarea>
+                <textarea></textarea>
              <p>
-                <label style="width:36%">Код по МКБ-10</label>
-                <input style="width:62%"/>
+                <label class="document-text">Код по МКБ-10</label>
+                <input class="document-input"/>
             </p>
         </div>
-        <div class="col-4 border" style="padding:1%;">
+        <div class="col-4 border form-padding">
             <p>Заключительный диагноз</p>
-                 <textarea style="width:98%"></textarea>
+                 <textarea></textarea>
             <p>
-                <label style="width:36%">Код по МКБ-10</label>
-                <input style="width:62%"/>
+                <label class="document-text">Код по МКБ-10</label>
+                <input class="document-input"/>
             </p>
             <p>
-                <label style="width:36%">Основной код (+) по МКБ-10</label> 
-                <input style="width:62%"/>
+                <label class="document-text">Основной код (+) по МКБ-10</label> 
+                <input class="document-input"/>
             </p>
             <p>
-                <label style="width:36%">Инвалидность при выписке по псих. заболеванию</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Инвалидность при выписке по псих. заболеванию</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">1 группа инвалидности</option>
                     <option value="">2 группа инвалидности</option>
@@ -203,9 +186,8 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Обследование больного на ВИЧ</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Обследование больного на ВИЧ</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">выявлен впервые в жизни</option>
                     <option value="">выявлен ранее</option>
@@ -214,9 +196,8 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Выбыл</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Выбыл</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">домой</option>
                     <option value="">в психиатрический стационар</option>
@@ -231,9 +212,8 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Смерть наступила</label>
-                @*<select style="width:62%"></select>*@
-                <select style="width:62%">
+                <label class="document-text">Смерть наступила</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">от психического заболевания</option>
                     <option value="">от соматического заболевания</option>
@@ -243,21 +223,21 @@
                 </select>
             </p>
             <p>Основная причина смерти</p>
-                 <textarea style="width:98%"></textarea>
+                 <textarea></textarea>
              <p>
-                <label style="width:36%">Код по МКБ-10</label>
-                <input style="width:62%"/>
+                <label class="document-text">Код по МКБ-10</label>
+                <input class="document-input"/>
             </p>
         </div>
     </div>
 </section>
 
 
-<p style="text-align:center">Заполняется на больного, находившегося на принудитеьлном лечении в данном стационаре</p>
+<p class="text-center">Заполняется на больного, находившегося на принудитеьлном лечении в данном стационаре</p>
 <div class="table-responsive">
 
         <label class="fw-bolder">Отметки о начале, окончании и изменении вида принудительного лечения </label>
-        <div style="text-align:right">
+        <div class="object-right">
             <button class="btn btn-primary oi oi-plus" @onclick=Add></button>
             <button class="btn btn-primary oi oi-minus" @onclick=Sub></button>
         </div>   
@@ -265,7 +245,7 @@
     <section>
         <table class="table table-bordered" border="1">
         
-            <thead class="thead-light" style="text-align:center">
+            <thead class="thead-light text-center">
                 <tr>
                     <th colspan="2" class="col-2">Решение суда о начале принудительного лечения</th>
                     <th colspan="6" class="col-8">Решение суда об изменении (продлении) принудительного лечения</th>
@@ -273,26 +253,25 @@
                 </tr>
                 <tr>
                     <th class="col-1">Дата</th>
-                    <th class="col-1" style="padding-left:80px; padding-right:80px;">Вид</th>
+                    <th class="col-1 table-type-head">Вид</th>
 
                     <th class="col-1">Дата</th>
-                    <th class="col-1" style="padding-left:80px; padding-right:80px;">Вид</th>
+                    <th class="col-1 table-type-head">Вид</th>
                     <th class="col-1">Дата</th>
-                    <th class="col-1" style="padding-left:80px; padding-right:80px;">Вид</th>
+                    <th class="col-1 table-type-head">Вид</th>
                     <th class="col-1">Дата</th>
-                    <th class="col-1" style="padding-left:80px; padding-right:80px;">Вид</th>
+                    <th class="col-1 table-type-head">Вид</th>
 
                     <th class="col-2">Дата</th>
                 </tr>           
             </thead>
             <tbody>
-                <!--Вставил style т.к. импорт из css не работает-->
                 @for (int i = 0; i < size; i++)
                 {
-                    <tr style="width:100%; height:100%;">
-                        <td><input type="date" class=object-table/></td>
+                    <tr class="object-table">
+                        <td><input type="date"/></td>
                         <td>
-                            <select class=object-table>
+                            <select>
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
@@ -301,9 +280,9 @@
                             </select>
                         </td>
 
-                        <td><input type="date" class=object-table/></td>
+                        <td><input type="date"/></td>
                         <td>
-                            <select class=object-table>
+                            <select>
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
@@ -311,9 +290,9 @@
                                 <option value="">спец типа с интенсивным наблюдением</option>                          
                             </select>
                         </td>
-                        <td><input type="date" class=object-table/></td>
+                        <td><input type="date"/></td>
                         <td>
-                            <select class=object-table>
+                            <select>
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
@@ -321,9 +300,9 @@
                                 <option value="">спец типа с интенсивным наблюдением</option>                          
                             </select>
                         </td>
-                        <td><input type="date" class=object-table/></td>
+                        <td><input type="date"/></td>
                         <td>
-                            <select class=object-table>
+                            <select>
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
@@ -332,7 +311,7 @@
                             </select>
                         </td>
 
-                        <td><input type="date" class=object-table/></td>
+                        <td><input type="date"/></td>
             
                     </tr>
                 }
@@ -344,34 +323,34 @@
 
 <!--Пункты 29 и 30-->
 <p>
-    <label style="width:22%">В случае окончания принудительного лечения</label>
-    <select style="width:18%">
+    <label class="compulsory-treatment-text">В случае окончания принудительного лечения</label>
+    <select class="compulsory-treatment-input">
         <option value="">(не выбрано)</option>
         <option value="">выбыл из стационара</option>
         <option value="">остался на долечивании в стационаре</option>                         
     </select>
 </p>
 <p>
-    <label style="width:22%">Дата окончания принудительного лечения</label>
-    <input type="date" style="width:18%">
+    <label class="compulsory-treatment-text">Дата окончания принудительного лечения</label>
+    <input type="date" class="compulsory-treatment-input">
 </p>
 
-<div style="height: 30px;"></div>
-<h5 style="text-align:center">Дополнительные сведения о больном</h5>
+<div class="divider"></div>
+<h5 class="text-center">Дополнительные сведения о больном</h5>
 <section>
     <div class="row">
-        <div class="col-4 border" style="padding:1%;">
+        <div class="col-4 border form-padding">
             <p>
-                <label style="width:36%">Дата начала заболевания</label>
-                <input type="date" style="width:62%">
+                <label class="document-text">Дата начала заболевания</label>
+                <input type="date" class="document-input">
             </p>
             <p>
-                <label style="width:36%">Дата обращения к психиатру (наркологу) впервые в жизни</label>
-                <input type="date" style="width:62%">
+                <label class="document-text">Дата обращения к психиатру (наркологу) впервые в жизни</label>
+                <input type="date" class="document-input">
             </p>
             <p>
-                <label style="width:36%">Вид амбулаторного наблюдения</label>
-                <select style="width:62%">
+                <label class="document-text">Вид амбулаторного наблюдения</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">профилактивное наблюдение</option>
                     <option value="">диспансерное наблюдение</option>
@@ -384,30 +363,30 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Дата предыдущей выписки из психиатрич. или наркологич. стац.</label>
-                <input type="date" style="width:62%">
+                <label class="document-text">Дата предыдущей выписки из психиатрич. или наркологич. стац.</label>
+                <input type="date" class="document-input">
             </p>
             <p>
-                <label style="width:36%">Число дней работы в ЛТМ</label>
-                <input style="width:62%"/></p>
+                <label class="document-text">Число дней работы в ЛТМ</label>
+                <input class="document-input"/></p>
             <p>Число дней лечебных отпусков (за период госпитализации)</p>
             <p>
-                <label>дней <input style="width: 20%"/> отпусков <input style="width: 20%"/></label>
+                <label>дней <input class="vacation-days"/> отпусков <input class="vacation-days"/></label>
             </p>
         </div>
-        <div class="col-4 border" style="padding:1%;">
+        <div class="col-4 border form-padding">
             <p>Сопутствующее психическое (наркологическое) заболевание</p>
-                <textarea style="width:98%"></textarea>
+                <textarea></textarea>
             <p>
-                <label style="width:36%">Код по МКБ-10 F</label>
-                <input style="width:62%"/></p>
+                <label class="document-text">Код по МКБ-10 F</label>
+                <input class="document-input"/></p>
             <p>Сопутствующее соматическое заболевание</p>
-            <p> <label style="width:36%">Код по МКБ-10</label>
-                <input style="width:62%"/>
+            <p> <label class="document-text">Код по МКБ-10</label>
+                <input class="document-input"/>
             </p>
             <p>
-                <label style="width:36%">Инвалидность по общему заболеванию</label>
-                <select style="width:62%">
+                <label class="document-text">Инвалидность по общему заболеванию</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">1 группа инвалидности</option>
                     <option value="">2 группа инвалидности</option>
@@ -417,20 +396,20 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Инвалид ВОВ</label>
+                <label class="document-text">Инвалид ВОВ</label>
                 <input type="checkbox">
             </p>
             <p>
-                <label style="width:36%">Участник ВОВ</label>
+                <label class="document-text">Участник ВОВ</label>
                 <input type="checkbox">
             </p>
             <p>
-                <label style="width:36%">Число законченных классов</label>
-                <input style="width:62%">
+                <label class="document-text">Число законченных классов</label>
+                <input class="document-input">
             </p>
             <p>
-                <label style="width:36%">Образование</label>
-                <select style="width:62%">
+                <label class="document-text">Образование</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">спец корр. учреждение</option>
                     <option value="">начальное профессиональное</option>
@@ -441,14 +420,14 @@
                 </select>
             </p>          
         </div>
-        <div class="col-4 border" style="padding:1%;">
+        <div class="col-4 border form-padding">
             <p>
-                <label style="width:36%">Учится</label>
+                <label class="document-text">Учится</label>
                 <input type="checkbox">
             </p>
             <p>
-                <label style="width:36%">Источник средств существования</label>
-                <select style="width:62%">
+                <label class="document-text">Источник средств существования</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">рабочий</option>
                     <option value="">служащий</option>
@@ -462,16 +441,16 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Проживает</label>
-                <select style="width:62%">
+                <label class="document-text">Проживает</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">в семье</option>
                     <option value="">один</option>
                 </select>
             </p>
             <p>
-                <label style="width:36%">Условия проживания</label>
-                <select style="width:62%">
+                <label class="document-text">Условия проживания</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">собственный дом</option>
                     <option value="">отдельная квартира</option>
@@ -482,8 +461,8 @@
                 </select>
             </p>
             <p>
-                <label style="width:36%">Исход заболевания</label>
-                <select style="width:62%">
+                <label class="document-text">Исход заболевания</label>
+                <select class="document-input">
                     <option value="">(не выбрано)</option>
                     <option value="">выздоровление</option>
                     <option value="">улучшение</option>
@@ -495,9 +474,9 @@
     </div>
 </section>
 
-<div style="height: 10px;"></div>
+<div class="divider-save"></div>
 <!--Кнопка сохранить-->
-<div style="text-align:right;">
+<div class="object-right">
     <button class="btn btn-primary" @onclick="Save">Сохранить</button>
 </div>
 
@@ -506,43 +485,8 @@
 
 
 @code {
-
-    List<SmthClass> collection = new List<SmthClass>();
-    class SmthClass
-    {
-        public string Str1 { get; set; }
-        public string Str2 { get; set; }
-        public string Str3 { get; set; }
-
-        public SmthClass(string str1, string str2, string str3)
-        {
-            Str1 = str1;
-            Str2 = str2;
-            Str3 = str3;
-        }
-    }
-
-    int size = 3;
-
-    double testcount = 0;
-
+    int size = 0;
     void Add() => size++;
     void Sub() => size--;
-
-    void Save() => testcount = Math.Cos(testcount);
-
-    /// <summary>
-    /// Инициализация до отрисовки
-    /// </summary>
-    /// <returns></returns>
-    protected async override Task OnInitializedAsync()
-    {
-        collection.Add(new SmthClass("1", "2", "3"));
-        collection.Add(new SmthClass("4", "5", "6"));
-        collection.Add(new SmthClass("7", "8", "9"));
-    }
-
-    // временные данные
-    string str = "";
-
+    void Save() => size += 2;   
 }

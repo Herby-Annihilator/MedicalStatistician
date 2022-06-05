@@ -11,13 +11,13 @@
 
 <PageTitle>Справочник</PageTitle>
 
-<h3 style="text-align:center;">@Name</h3>
-<p style="height:20px"></p>
-<div style="text-align:right">
+<h3 class="title">@Name</h3>
+<p class="divider"></p>
+<div class="object-right">
     <button class="btn btn-primary oi oi-plus" ></button>
     <button class="btn btn-primary oi oi-minus" ></button>
 </div>  
-@if (Collection is { } sources)
+@if (Collection != null)
 {
     <div class="table-responsive">
         <table class="table table-striped">
@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in sources)
+                @foreach (var item in Collection)
                 {
                     <tr>
                         <td>
@@ -45,7 +45,7 @@ else
 {
     <p>Загрузка...</p>
 }
-<div style="text-align:right">
+<div class="object-right">
     <button class="btn btn-primary" >Сохранить</button>
 </div> 
 
