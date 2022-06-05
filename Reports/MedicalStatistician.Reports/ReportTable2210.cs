@@ -25,6 +25,10 @@ namespace MedicalStatistician.Reports
         /// </summary>
         public int OodInOneOrTwoYears { get; set; }
         /// <summary>
+        /// Из них последнее ООД совершили после прекращения предыдущего ПЛ через 2 - 3 года
+        /// </summary>
+        public int OodInTwoOrThreeYears { get; set; }
+        /// <summary>
         /// Из них последнее ООД совершили после прекращения предыдущего ПЛ через 3 - 5 лет
         /// </summary>
         public int OodInThreeOrFiveYears { get; set; }
