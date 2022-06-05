@@ -18,52 +18,27 @@ namespace MedicalStatistician.UI.Blazor
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-           // builder.RootComponents.Add<HeadOutlet>("head::after");
+            //builder.RootComponents.Add<HeadOutlet>("head::after");
 
             var services = builder.Services;
             services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 
+           /* services.AddHttpClient<ICrudRepository<MKB10>, WebRepository<MKB10>>(
+                (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/MKB10"));*/
+
             services.AddHttpClient<ICrudRepository<Sex>, WebRepository<Sex>>(
                 (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/Sex"));
             services.AddHttpClient<ICrudRepository<DisabilityGroup>, WebRepository<DisabilityGroup>>(
-                (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/DisabilityGroup"));
-           /* services.AddHttpClient<ICrudRepository<NamedEntity>, WebRepository<NamedEntity>>(
-                (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/PurposeOfReferralForTreatment"));
-            services.AddHttpClient<ICrudRepository<NamedEntity>, WebRepository<NamedEntity>>(
-                (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/WhoSentToHospital"));*/
-            
+                (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/DisabilityGroup"));           
+            services.AddHttpClient<ICrudRepository<PurposeOfReferralForTreatment>, WebRepository<PurposeOfReferralForTreatment>>(
+                 (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/PurposeOfReferralForTreatment"));
+             services.AddHttpClient<ICrudRepository<WhoSentToHospital>, WebRepository<WhoSentToHospital>>(
+                 (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/WhoSentToHospital"));
+
 
             await builder.Build().RunAsync();
         }
     }
 }
-
-/*services.AddHttpClient<ICrudRepository<NamedEntity>, WebRepository<NamedEntity>>(
-    (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/DisabilityGroup"));
-services.AddHttpClient<ICrudRepository<NamedEntity>, WebRepository<NamedEntity>>(
-    (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/PurposeOfReferralForTreatment"));
-services.AddHttpClient<ICrudRepository<NamedEntity>, WebRepository<NamedEntity>>(
-    (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/WhoSentToHospital"));*/
-//var http = new HttpClient()
-//{
-//    BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
-//};
-
-//builder.Services.AddScoped(sp => http);
-
-//var response = await http.GetAsync("appsettings.json");
-//var stream = await response.Content.ReadAsStreamAsync();
-
-//builder.Configuration.AddJsonStream(stream);
-
-////
-//builder.Services.AddDbContext<MedicalStatisticianDbContext>(
-//    opt => opt
-//    .UseNpgsql(
-//        builder.Configuration.GetConnectionString("Postgres"),
-//        b => b.MigrationsAssembly("MedicalStatistician.DAL.Postrgres"))
-//);
-
-//services.AddScoped(typeof(ICrudRepository<>), typeof(DefaultCrudRepository<>));
 

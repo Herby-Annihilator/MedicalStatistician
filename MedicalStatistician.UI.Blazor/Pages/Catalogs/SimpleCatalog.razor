@@ -1,18 +1,23 @@
-﻿@page "/catalogue/simple"
-
+﻿@page "/catalogue/simple/{Name}"
 @using MedicalStatistician.DAL.Entities.Base
 @using MedicalStatistician.DAL.Repositories.Base
-@inject ICrudRepository<DisabilityGroup> sexEntity
+
+@inject ICrudRepository<Sex> sexCatalog
+@inject ICrudRepository<DisabilityGroup> invalidGroupCatalog
+@inject ICrudRepository<PurposeOfReferralForTreatment> purposeTreatmentCatalog
+@inject ICrudRepository<WhoSentToHospital> whoSentToHospitalCatalog
+
+
 
 <PageTitle>Справочник</PageTitle>
 
-<h3 style="text-align:center;">Пол</h3>
+<h3 style="text-align:center;">@Name</h3>
 <p style="height:20px"></p>
 <div style="text-align:right">
     <button class="btn btn-primary oi oi-plus" ></button>
     <button class="btn btn-primary oi oi-minus" ></button>
 </div>  
-@if (CatalogEntity is { } sources)
+@if (Collection is { } sources)
 {
     <div class="table-responsive">
         <table class="table table-striped">
@@ -47,11 +52,27 @@ else
 
 @code
 {
-    private IList<DisabilityGroup> CatalogEntity;
+    [Parameter]
+    public string Name { get; set; }
+
+    dynamic Collection;
 
     protected override async Task OnInitializedAsync()
-    {
-        CatalogEntity = (await sexEntity.GetAllAsync()).ToList();
+            {
+            switch (Name)
+            {
+            case "Пол": Collection = (await sexCatalog.GetAllAsync()).ToList();
+                break;
+            case "Группы инвалидности": Collection = (await invalidGroupCatalog.GetAllAsync()).ToList();
+                break;
+            case "Цель направления": Collection = (await purposeTreatmentCatalog.GetAllAsync()).ToList();
+                break;
+            case "Кем направлен": Collection = (await whoSentToHospitalCatalog.GetAllAsync()).ToList();
+                break;
+
+            default:
+                break;
+            }
     }
 
 }
