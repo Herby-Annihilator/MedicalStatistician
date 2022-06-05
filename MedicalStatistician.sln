@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalStatistician.DAL.Pos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalStatistician.WebApiClients", "MedicalStatistician.WebApiClients\MedicalStatistician.WebApiClients.csproj", "{783AABB6-22F5-479B-A459-2EDFD4253F75}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalStatistician.UI.Blazor", "MedicalStatistician.UI.Blazor\MedicalStatistician.UI.Blazor.csproj", "{4F090E88-A91C-4F24-A5EB-3189523AAD02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalStatistician.Reports", "Reports\MedicalStatistician.Reports\MedicalStatistician.Reports.csproj", "{49F70E86-2A22-4DC0-AC39-835772DEB05A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalStatistician.Tests.Console", "Tests\MedicalStatistician.Tests.Console\MedicalStatistician.Tests.Console.csproj", "{98D1F78A-E352-48F1-93E3-CF6F569F7F4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +43,14 @@ Global
 		{783AABB6-22F5-479B-A459-2EDFD4253F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{783AABB6-22F5-479B-A459-2EDFD4253F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{783AABB6-22F5-479B-A459-2EDFD4253F75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F090E88-A91C-4F24-A5EB-3189523AAD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F090E88-A91C-4F24-A5EB-3189523AAD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F090E88-A91C-4F24-A5EB-3189523AAD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F090E88-A91C-4F24-A5EB-3189523AAD02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F70E86-2A22-4DC0-AC39-835772DEB05A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F70E86-2A22-4DC0-AC39-835772DEB05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F70E86-2A22-4DC0-AC39-835772DEB05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F70E86-2A22-4DC0-AC39-835772DEB05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D1F78A-E352-48F1-93E3-CF6F569F7F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D1F78A-E352-48F1-93E3-CF6F569F7F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D1F78A-E352-48F1-93E3-CF6F569F7F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D1F78A-E352-48F1-93E3-CF6F569F7F4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
