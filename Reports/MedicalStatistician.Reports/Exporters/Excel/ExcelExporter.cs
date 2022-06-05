@@ -25,6 +25,7 @@ namespace MedicalStatistician.Reports.Exporters.Excel
                 // 2200
                 //
                 var table = report36pl.ReportTable2200.ToArray();
+                table.OrderBy(item => item.RowIndex);
                 int tableFirstPartCellIndex = 19;
                 int j = 0;
                 int tableSecondPartCellIndex = 6;
