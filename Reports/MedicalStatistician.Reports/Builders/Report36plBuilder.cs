@@ -30,9 +30,9 @@ namespace MedicalStatistician.Reports.Builders
             report.OkpoCode = result.OkopfCode; // TODO: проверить соответсвтие кодов ОКПО и ОКОПФ
         }
         /// <summary>
-        /// Добавляет таблицу 2100
+        /// Добавляет таблицу 2200
         /// </summary>
-        public async Task AddTable2100()
+        public async Task AddTable2200()
         {
 
         }

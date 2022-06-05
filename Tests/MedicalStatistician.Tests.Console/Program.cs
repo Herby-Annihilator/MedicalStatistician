@@ -20,10 +20,10 @@ public class Program
 
     private static void ConfigureServices(HostBuilderContext hostBuilderContext, IServiceCollection services)
     {
-        services.AddHttpClient<ICrudRepository<Accommodations>, WebRepository<Accommodations>>(
+        services.AddHttpClient<ICrudRepository<MKB10>, WebRepository<MKB10>>(
             client =>
             {
-                client.BaseAddress = new Uri($"{hostBuilderContext.Configuration["WebApi"]}/api/Accommodations/");
+                client.BaseAddress = new Uri($"{hostBuilderContext.Configuration["WebApi"]}/api/Mkb10/");
             });
     }
     public static async Task Main()
@@ -31,31 +31,17 @@ public class Program
         using var host = Hosting;
         await host.StartAsync();
 
-        //ICrudRepository<Accommodations> repository = Services.GetRequiredService<ICrudRepository<Accommodations>>();
-        //IEnumerable<Accommodations> collection = await repository.GetAllAsync();
-        //foreach (var item in collection)
-        //{
-        //    Console.WriteLine(item.Name);
-        //}
-        //Console.Read();
-        Console.WriteLine("Создание файла excel...");
-        Report36pl report = new Report36pl()
+        ICrudRepository<MKB10> repository = Services.GetRequiredService<ICrudRepository<MKB10>>();
+        IEnumerable<MKB10> collection = await repository.GetAsync(10, 8);
+        foreach (var item in collection)
         {
-            Year = 22,
-            OrganizationAddress = "Какой-нибудь адрес",
-            OrganizationName = "КГБУЗ АККПБ им. Эрдмана Юрия Карловича",
-            Table2100 = new List<ActiveDispensaryObservation>() 
-            { 
-                new ActiveDispensaryObservation(),
-                new ActiveDispensaryObservation(),
-                new ActiveDispensaryObservation(),
-                new ActiveDispensaryObservation(),
-                new ActiveDispensaryObservation(),
-                new ActiveDispensaryObservation(),
-            },
-        };
-        report.Export("", new ExcelExporter());
-        Console.WriteLine("Файл создан");
+            Console.WriteLine(item.MkbName);
+        }
+        Console.Read();
+        //Console.WriteLine("Создание файла excel...");
+        //Report36pl report = new Report36pl();
+        //report.Export("", new ExcelExporter());
+        //Console.WriteLine("Файл создан");
         Console.Read();
         await host.StopAsync();
     }
