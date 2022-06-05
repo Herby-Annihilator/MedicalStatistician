@@ -6,7 +6,20 @@
 @inject ICrudRepository<DisabilityGroup> invalidGroupCatalog
 @inject ICrudRepository<PurposeOfReferralForTreatment> purposeTreatmentCatalog
 @inject ICrudRepository<WhoSentToHospital> whoSentToHospitalCatalog
-
+@inject ICrudRepository<SourceOfLivelihood> sourceOfLivelihoodCatalog
+@inject ICrudRepository<DiseaseOutcome> diseaseOutcomeCatalog
+@inject ICrudRepository<CauseOfDeath> causeOfDeathCatalog
+@inject ICrudRepository<Education> educationCatalog
+@inject ICrudRepository<ResidenceStatus> residenceStatusCatalog
+@inject ICrudRepository<TypeOfForcedTreatment> typeOfForcedTreatmentCatalog
+@inject ICrudRepository<PlaceOfDeparture> placeOfDepartureCatalog
+@inject ICrudRepository<TypeOfOutpatientCare> typeOfOutpatientCareCatalog
+@inject ICrudRepository<OrderOfAdmission> orderOfAdmissionCatalog
+@inject ICrudRepository<StatusOfJudgesDecisionUnderArticle35> statusOfJudgesDecisionUnderArticle35Catalog
+@inject ICrudRepository<TypeOfJudgment> typeOfJudgmentCatalog
+@inject ICrudRepository<PatientEntryRoutes> patientEntryRoutesCatalog
+@inject ICrudRepository<Accommodations> accommodationsCatalog
+@inject ICrudRepository<SourcesOfPaymentForMedicalCare> sourcesOfPaymentForMedicalCareCatalog
 
 
 <PageTitle>Справочник</PageTitle>
@@ -69,7 +82,35 @@ else
                 break;
             case "Кем направлен": Collection = (await whoSentToHospitalCatalog.GetAllAsync()).ToList();
                 break;
-
+            case "Источник средств существования": Collection = (await whoSentToHospitalCatalog.GetAllAsync()).ToList();
+                break;
+            case "Исход заболевания": Collection = (await diseaseOutcomeCatalog.GetAllAsync()).ToList();
+                break;
+            case "Причина смерти": Collection = (await causeOfDeathCatalog.GetAllAsync()).ToList();
+                break;
+            case "Образование": Collection = (await educationCatalog.GetAllAsync()).ToList();
+                break;
+            case "Статус проживания": Collection = (await residenceStatusCatalog.GetAllAsync()).ToList();
+                break;
+            case "Виды принудительного лечения": Collection = (await typeOfForcedTreatmentCatalog.GetAllAsync()).ToList();
+                break;
+            case "Место выбытия": Collection = (await placeOfDepartureCatalog.GetAllAsync()).ToList();
+                break;
+            case "Вид амбулаторного наблюдения": Collection = (await typeOfOutpatientCareCatalog.GetAllAsync()).ToList();
+                break;
+            case "Порядок поступления": Collection = (await orderOfAdmissionCatalog.GetAllAsync()).ToList();
+                break;
+            case "Решение судьи по ст 35": Collection = (await statusOfJudgesDecisionUnderArticle35Catalog.GetAllAsync()).ToList();
+                break;
+            case "В случае окончания принуд лечения": Collection = (await typeOfJudgmentCatalog.GetAllAsync()).ToList();
+                break;
+            case "Откуда поступил": Collection = (await patientEntryRoutesCatalog.GetAllAsync()).ToList();
+                break;
+            case "Условия проживания": Collection = (await accommodationsCatalog.GetAllAsync()).ToList();
+                break;
+            case "Источники оплаты медицинской помощи": Collection = (await sourcesOfPaymentForMedicalCareCatalog.GetAllAsync()).ToList();
+                break;
+            
             default:
                 break;
             }
