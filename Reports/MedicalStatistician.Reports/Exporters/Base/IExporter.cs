@@ -10,6 +10,5 @@ namespace MedicalStatistician.Reports.Exporters.Base
     {
         void Export(string path, Report36pl report36pl);
         void Export(string path, Report16vn report16vn);
-        void Export(string path, ReportTable2200 reportTable2200);
     }
 }

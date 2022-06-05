@@ -11,9 +11,8 @@ namespace MedicalStatistician.Reports
     /// <summary>
     /// Таблица 2200 "Состав больных, находящихся на принудительном лечении (ПЛ) в психиатрических стационарах"
     /// </summary>
-    public class ReportTable2200 : IReport
+    internal class ReportTable2200
     {
-        public void Export(string path, IExporter exporter) => exporter.Export(path, this);
         public int RowIndex { get; set; }
         /// <summary>
         /// Поступило больных в отчетом году на ПЛ (всего)
