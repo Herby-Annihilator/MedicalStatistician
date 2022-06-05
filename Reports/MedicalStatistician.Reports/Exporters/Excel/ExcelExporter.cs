@@ -27,33 +27,34 @@ namespace MedicalStatistician.Reports.Exporters.Excel
                 report36pl.Table2100.OrderBy(t => t.RowIndex);
                 var table = report36pl.Table2100.ToArray();
                 int j = 0;
+                int cellIndex = 8;  // в шаблоне 8
                 for (int i = 0; i < table.Length; i++)
                 {
-                    package.Workbook.Worksheets[1].Cells[$"BN{8 + j}"].Value =
+                    cellIndex += j;
+                    package.Workbook.Worksheets[1].Cells[$"BN{cellIndex}"].Value =
                     table[i].TotalTakenUnderActiveDispensaryObservation;
-                    package.Workbook.Worksheets[1].Cells[$"BX{8 + j}"].Value =
+                    package.Workbook.Worksheets[1].Cells[$"BX{cellIndex}"].Value =
                         table[i].ChildrenTakenUnderActiveDispensaryObservation;
-                    package.Workbook.Worksheets[1].Cells[$"CH{8 + j}"].Value =
+                    package.Workbook.Worksheets[1].Cells[$"CH{cellIndex}"].Value =
                         table[i].TotalRemovedFromActiveDispensaryObservation;
-                    package.Workbook.Worksheets[1].Cells[$"CR{8 + j}"].Value =
+                    package.Workbook.Worksheets[1].Cells[$"CR{cellIndex}"].Value =
                         table[i].WithdrawnFromActiveDispensaryObservationDueToADecreaseInPublicDanger;
-                    package.Workbook.Worksheets[1].Cells[$"DG{8 + j}"].Value =
+                    package.Workbook.Worksheets[1].Cells[$"DG{cellIndex}"].Value =
                         table[i].TotalCountOfPeopleOnAdnAtTheEndOfTheReportingYear;
-                    package.Workbook.Worksheets[1].Cells[$"DQ{8 + j}"].Value =
+                    package.Workbook.Worksheets[1].Cells[$"DQ{cellIndex}"].Value =
                         table[i].ChildrenOnAdnAtTheEndOfTheReportingYear;
-                    package.Workbook.Worksheets[1].Cells[$"EA{8 + j}"].Value =
+                    package.Workbook.Worksheets[1].Cells[$"EA{cellIndex}"].Value =
                         table[i].AreOnAdnAtTheEndOfTheReportingYearAndHaveCommittedOodDuringTheirLifetime;
-                    package.Workbook.Worksheets[1].Cells[$"EK{8 + j}"].Value =
+                    package.Workbook.Worksheets[1].Cells[$"EK{cellIndex}"].Value =
                         table[i].AreOnAdnAtTheEndOfTheReportingYearAndHaveCommittedOodDuringTheirLifetimeAndAtTheReportingYear;
-                    package.Workbook.Worksheets[1].Cells[$"EX{8 + j}"].Value =
+                    package.Workbook.Worksheets[1].Cells[$"EX{cellIndex}"].Value =
                         table[i].AreOnAdnAtTheEndOfTheReportingYearAndHaveCommittedOodDuringTheirLifetimeButWereNotOnAdn;
                     j++;
                     if (i == 1)
                     {
                         j++;
                     }
-                }
-                
+                }               
                 //
                 // 2110
                 //
@@ -92,24 +93,6 @@ namespace MedicalStatistician.Reports.Exporters.Excel
             throw new NotImplementedException();
         }
 
-        public void Export(string path, ActiveDispensaryObservation activeDispensaryObservation)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Export(string path, ReportTable2110 reportTable2110)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Export(string path, ReportTable2120 reportTable2120)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Export(string path, ReportTable2130 reportTable2130)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
