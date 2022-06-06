@@ -9,9 +9,21 @@
 
 <h3 class="text-center">Справочник МКБ</h3>
 <p class="divider"></p>
-<p class="object-right">
-    <button class="btn btn-primary">Сохранить</button>
-</p> 
+
+<div class="row">
+    <div class="col-5">
+        <input placeholder="Код МКБ" class="form-control rounded-3"/>
+        
+    </div>
+    <div class="col-2">
+        <button class="btn btn-primary" style="width:150px;">Поиск</button>
+    </div>
+    <div class="col-5 object-right">
+        <button class="btn btn-primary" style="width:150px;">Сохранить</button>
+    </div>
+    
+</div>
+ 
 <div class="object-right">
     <button class="btn btn-primary oi oi-plus"></button>
     <button class="btn btn-primary oi oi-minus"></button>
@@ -57,7 +69,7 @@
                             @item.MkbName
                         </td>
                         <td>
-                            @item.Parent
+                            @item.Parent?.MkbName
                         </td>
                     </tr>
                 }

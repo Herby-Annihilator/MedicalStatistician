@@ -243,7 +243,7 @@
         </div>   
 
     <section>
-        <table class="table table-bordered" border="1">
+        <table class="table table-bordered">
         
             <thead class="thead-light text-center">
                 <tr>
@@ -268,10 +268,10 @@
             <tbody>
                 @for (int i = 0; i < size; i++)
                 {
-                    <tr class="object-table">
-                        <td><input type="date"/></td>
+                    <tr>
+                        <td><input type="date" class="object-table"/></td>
                         <td>
-                            <select>
+                            <select class="object-table">
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
@@ -280,9 +280,9 @@
                             </select>
                         </td>
 
-                        <td><input type="date"/></td>
+                        <td><input type="date" class="object-table"/></td>
                         <td>
-                            <select>
+                            <select class="object-table">
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
@@ -290,9 +290,9 @@
                                 <option value="">спец типа с интенсивным наблюдением</option>                          
                             </select>
                         </td>
-                        <td><input type="date"/></td>
+                        <td><input type="date" class="object-table"/></td>
                         <td>
-                            <select>
+                            <select class="object-table">
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
@@ -300,9 +300,9 @@
                                 <option value="">спец типа с интенсивным наблюдением</option>                          
                             </select>
                         </td>
-                        <td><input type="date"/></td>
+                        <td><input type="date" class="object-table"/></td>
                         <td>
-                            <select>
+                            <select class="object-table">
                                 <option value="">(не выбрано)</option>
                                 <option value="">амбулаторное</option>
                                 <option value="">в псих.стац. общего типа</option>
@@ -311,7 +311,7 @@
                             </select>
                         </td>
 
-                        <td><input type="date"/></td>
+                        <td><input type="date" class="object-table"/></td>
             
                     </tr>
                 }
