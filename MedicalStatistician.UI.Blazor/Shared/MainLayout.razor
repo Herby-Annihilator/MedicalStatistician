@@ -6,7 +6,7 @@
     @if (MyNavigationManager.Uri != MyNavigationManager.BaseUri) // стартовая страница - это логинка
     {
         <div class="sidebar">
-            <NavMenu />
+            <NavMenuAdmin />
         </div>
     }
 
@@ -14,7 +14,7 @@
         @if (MyNavigationManager.Uri != MyNavigationManager.BaseUri)
         {
             <div class="top-row px-4">
-                <a @onclick="() => ChangePassword.Open()">Сменить пароль</a>
+                <a style="color:#0071c1" @onclick="() => ChangePassword.Open()">Сменить пароль</a>
                 <a href="/">Выйти</a>
             </div>
         }
