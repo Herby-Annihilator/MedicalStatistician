@@ -13,6 +13,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MedicalStatistician.API
@@ -37,7 +38,12 @@ namespace MedicalStatistician.API
             );
             services.AddScoped(typeof(ICrudRepository<>), typeof(DefaultCrudRepository<>));
             //services.AddTransient(typeof(ICrudRepository<>), typeof(DefaultCrudRepository<>));
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(opt =>
+                {
+                    opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                    opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+                });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalStatistician.API", Version = "v1" });

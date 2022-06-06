@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MedicalStatistician.WebApiClients.Repositories
@@ -13,27 +15,37 @@ namespace MedicalStatistician.WebApiClients.Repositories
     public class WebRepository<T> : ICrudRepository<T> where T : Entity
     {
         private readonly HttpClient _client;
+        private readonly JsonSerializerOptions _jsonSerializerOptions;
 
-        public WebRepository(HttpClient client) => _client = client;
+        public WebRepository(HttpClient client)
+        {
+            _client = client;
+            _jsonSerializerOptions = new JsonSerializerOptions()
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+                PropertyNamingPolicy = null
+            };
+        }
 
         public T Create(T entity)
         {
-            var response = _client.PostAsJsonAsync("", entity).Result;
+            var response = _client.PostAsJsonAsync("", entity, _jsonSerializerOptions).Result;
             var result = response
                .EnsureSuccessStatusCode()
                .Content
-               .ReadFromJsonAsync<T>()
+               .ReadFromJsonAsync<T>(options: _jsonSerializerOptions)
                .Result;
             return result;
         }
 
         public async Task<T> CreateAsync(T entity, CancellationToken cancellationToken = default)
         {
-            var response = await _client.PostAsJsonAsync("", entity, cancellationToken).ConfigureAwait(false);
+            var response = await _client.PostAsJsonAsync("", entity, _jsonSerializerOptions, cancellationToken)
+                .ConfigureAwait(false);
             var result = await response
                .EnsureSuccessStatusCode()
                .Content
-               .ReadFromJsonAsync<T>(cancellationToken: cancellationToken)
+               .ReadFromJsonAsync<T>(cancellationToken: cancellationToken, options: _jsonSerializerOptions)
                .ConfigureAwait(false);
             return result;
         }
@@ -42,7 +54,7 @@ namespace MedicalStatistician.WebApiClients.Repositories
         {
             var request = new HttpRequestMessage(HttpMethod.Delete, "")
             {
-                Content = JsonContent.Create(entity)
+                Content = JsonContent.Create(entity, options: _jsonSerializerOptions)
             };
             var response = _client.SendAsync(request).Result;
             if (response.StatusCode == HttpStatusCode.NotFound)
@@ -50,7 +62,7 @@ namespace MedicalStatistician.WebApiClients.Repositories
             var result = response
                .EnsureSuccessStatusCode()
                .Content
-               .ReadFromJsonAsync<T>()
+               .ReadFromJsonAsync<T>(options: _jsonSerializerOptions)
                .Result;
             return result;
         }
@@ -59,7 +71,7 @@ namespace MedicalStatistician.WebApiClients.Repositories
         {
             var request = new HttpRequestMessage(HttpMethod.Delete, "")
             {
-                Content = JsonContent.Create(entity)
+                Content = JsonContent.Create(entity, options: _jsonSerializerOptions)
             };
             var response = await _client.SendAsync(request, cancellationToken).ConfigureAwait(false);
             if (response.StatusCode == HttpStatusCode.NotFound)
@@ -67,27 +79,29 @@ namespace MedicalStatistician.WebApiClients.Repositories
             var result = await response
                .EnsureSuccessStatusCode()
                .Content
-               .ReadFromJsonAsync<T>(cancellationToken: cancellationToken)
+               .ReadFromJsonAsync<T>(cancellationToken: cancellationToken, options: _jsonSerializerOptions)
                .ConfigureAwait(false);
             return result;
         }
 
         public IEnumerable<T> Get(int skip, int count)
-            => _client.GetFromJsonAsync<IEnumerable<T>>($"items/{skip}/{count}").Result;
+            => _client.GetFromJsonAsync<IEnumerable<T>>($"items/{skip}/{count}", _jsonSerializerOptions).Result;
 
-        public IEnumerable<T> GetAll() => _client.GetFromJsonAsync<IEnumerable<T>>("").Result;
+        public IEnumerable<T> GetAll() => _client.GetFromJsonAsync<IEnumerable<T>>("", _jsonSerializerOptions).Result;
 
         public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default)
-            => await _client.GetFromJsonAsync<IEnumerable<T>>("", cancellationToken).ConfigureAwait(false);
-
-        public async Task<IEnumerable<T>> GetAsync(int skip, int count, CancellationToken cancellationToken = default)
-            => await _client.GetFromJsonAsync<IEnumerable<T>>($"items/{skip}/{count}", cancellationToken)
+            => await _client.GetFromJsonAsync<IEnumerable<T>>("", _jsonSerializerOptions, cancellationToken)
             .ConfigureAwait(false);
 
-        public T GetById(int id) => _client.GetFromJsonAsync<T>($"{id}").Result;
+        public async Task<IEnumerable<T>> GetAsync(int skip, int count, CancellationToken cancellationToken = default)
+            => await _client.GetFromJsonAsync<IEnumerable<T>>($"items/{skip}/{count}", _jsonSerializerOptions, cancellationToken)
+            .ConfigureAwait(false);
+
+        public T GetById(int id) => _client.GetFromJsonAsync<T>($"{id}", _jsonSerializerOptions).Result;
 
         public async Task<T> GetByIdAsync(int id, CancellationToken cancellationToken = default)
-            => await _client.GetFromJsonAsync<T>($"{id}", cancellationToken).ConfigureAwait(false);
+            => await _client.GetFromJsonAsync<T>($"{id}", _jsonSerializerOptions, cancellationToken)
+            .ConfigureAwait(false);
 
         public IPage<T> GetPage(int pageIndex, int pageSize)
         {
@@ -103,7 +117,7 @@ namespace MedicalStatistician.WebApiClients.Repositories
             return response
                .EnsureSuccessStatusCode()
                .Content
-               .ReadFromJsonAsync<PageItems>()
+               .ReadFromJsonAsync<PageItems>(options: _jsonSerializerOptions)
                .Result;
         }
 
@@ -121,7 +135,7 @@ namespace MedicalStatistician.WebApiClients.Repositories
             return await response
                .EnsureSuccessStatusCode()
                .Content
-               .ReadFromJsonAsync<PageItems>(cancellationToken: cancellationToken)
+               .ReadFromJsonAsync<PageItems>(cancellationToken: cancellationToken, options: _jsonSerializerOptions)
                .ConfigureAwait(false);
         }
 
@@ -136,22 +150,23 @@ namespace MedicalStatistician.WebApiClients.Repositories
 
         public T Update(T entity)
         {
-            var response = _client.PutAsJsonAsync("", entity).Result;
+            var response = _client.PutAsJsonAsync("", entity, _jsonSerializerOptions).Result;
             var result = response
                .EnsureSuccessStatusCode()
                .Content
-               .ReadFromJsonAsync<T>()
+               .ReadFromJsonAsync<T>(options: _jsonSerializerOptions)
                .Result;
             return result;
         }
 
         public async Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
-            var response = await _client.PutAsJsonAsync("", entity, cancellationToken).ConfigureAwait(false);
+            var response = await _client.PutAsJsonAsync("", entity, _jsonSerializerOptions, cancellationToken)
+                .ConfigureAwait(false);
             var result = await response
                .EnsureSuccessStatusCode()
                .Content
-               .ReadFromJsonAsync<T>(cancellationToken: cancellationToken)
+               .ReadFromJsonAsync<T>(cancellationToken: cancellationToken, options: _jsonSerializerOptions)
                .ConfigureAwait(false);
             return result;
         }
