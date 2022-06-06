@@ -61,7 +61,7 @@
                             </button>
 
                             <!--Кнопка удалить-->
-                             <button class="btn btn-outline-danger" @*@onclick="() => Remove(item)"*@>
+                             <button class="btn btn-outline-danger" @onclick="() => Remove(item)">
                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
                                   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
@@ -87,47 +87,65 @@ else
     [Parameter]
     public string Name { get; set; }
 
-    dynamic Collection;
+    dynamic Collection, Repository;
 
     protected override async Task OnInitializedAsync()
     {
         switch (Name)
         {
             case "Пол": Collection = (await sexCatalog.GetAllAsync()).ToList();
+                Repository = sexCatalog;
                 break;
             case "Группы инвалидности": Collection = (await invalidGroupCatalog.GetAllAsync()).ToList();
+                Repository = invalidGroupCatalog;
                 break;
             case "Цель направления": Collection = (await purposeTreatmentCatalog.GetAllAsync()).ToList();
+                Repository = purposeTreatmentCatalog;
                 break;
             case "Кем направлен": Collection = (await whoSentToHospitalCatalog.GetAllAsync()).ToList();
+                Repository = whoSentToHospitalCatalog;
                 break;
-            case "Источник средств существования": Collection = (await whoSentToHospitalCatalog.GetAllAsync()).ToList();
+            case "Источник средств существования": Collection = (await sourceOfLivelihoodCatalog.GetAllAsync()).ToList();
+                Repository = sourceOfLivelihoodCatalog;
                 break;
             case "Исход заболевания": Collection = (await diseaseOutcomeCatalog.GetAllAsync()).ToList();
+                Repository = diseaseOutcomeCatalog;
                 break;
             case "Причина смерти": Collection = (await causeOfDeathCatalog.GetAllAsync()).ToList();
+                Repository = causeOfDeathCatalog;
                 break;
             case "Образование": Collection = (await educationCatalog.GetAllAsync()).ToList();
+                Repository = educationCatalog;
                 break;
             case "Статус проживания": Collection = (await residenceStatusCatalog.GetAllAsync()).ToList();
+                Repository = residenceStatusCatalog;
                 break;
             case "Виды принудительного лечения": Collection = (await typeOfForcedTreatmentCatalog.GetAllAsync()).ToList();
+                Repository = typeOfForcedTreatmentCatalog;
                 break;
             case "Место выбытия": Collection = (await placeOfDepartureCatalog.GetAllAsync()).ToList();
+                Repository = placeOfDepartureCatalog;
                 break;
             case "Вид амбулаторного наблюдения": Collection = (await typeOfOutpatientCareCatalog.GetAllAsync()).ToList();
+                Repository = typeOfOutpatientCareCatalog;
                 break;
             case "Порядок поступления": Collection = (await orderOfAdmissionCatalog.GetAllAsync()).ToList();
+                Repository = orderOfAdmissionCatalog;
                 break;
             case "Решение судьи по ст 35": Collection = (await statusOfJudgesDecisionUnderArticle35Catalog.GetAllAsync()).ToList();
+                Repository = statusOfJudgesDecisionUnderArticle35Catalog;
                 break;
             case "В случае окончания принуд лечения": Collection = (await typeOfJudgmentCatalog.GetAllAsync()).ToList();
+                Repository = typeOfJudgmentCatalog;
                 break;
             case "Откуда поступил": Collection = (await patientEntryRoutesCatalog.GetAllAsync()).ToList();
+                Repository = patientEntryRoutesCatalog;
                 break;
             case "Условия проживания": Collection = (await accommodationsCatalog.GetAllAsync()).ToList();
+                Repository = accommodationsCatalog;
                 break;
             case "Источники оплаты медицинской помощи": Collection = (await sourcesOfPaymentForMedicalCareCatalog.GetAllAsync()).ToList();
+                Repository = sourcesOfPaymentForMedicalCareCatalog;
                 break;
 
             default:
@@ -135,10 +153,13 @@ else
         }
     }
 
-    private void Remove(object? item)
+    private async Task Remove<T>(T item) where T: Entity
     {
-        if (Collection != null)
-            Collection.Remove(item);
+            if (Collection == null)
+                return;           
+            var removed = await Repository.DeleteAsync(item);
+            if (removed is not null)
+                Collection.Remove(removed);               
     }
 
 }
