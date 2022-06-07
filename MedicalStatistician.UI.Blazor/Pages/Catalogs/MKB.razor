@@ -6,6 +6,7 @@
 
 
 <PageTitle>Справочник МКБ</PageTitle>
+<MedicalStatistician.UI.Blazor.Modal.ModalMKB @ref=Modal OnSave="OnSave"></MedicalStatistician.UI.Blazor.Modal.ModalMKB>
 
 <h3 class="text-center">Справочник МКБ</h3>
 <p class="divider"></p>
@@ -19,7 +20,7 @@
         <button class="btn btn-primary" style="width:150px;">Поиск</button>
     </div>
     <div class="col-5 object-right">
-        <button class="btn btn-primary" style="width:150px;">Добавить</button>
+        <button class="btn btn-primary" style="width:150px;" @onclick="Create">Добавить</button>
     </div>
     
 </div>
@@ -45,16 +46,6 @@
                 </tr>
             </thead>
             <tbody>
-                @* @for (var i = 0; i < size; i++)
-            {
-                 <tr>
-                    <td style="text-align:center"><input type="checkbox"/> @item.Name</td>
-                    <td><input type="date" style="width:100%; border:0; background-color:transparent"/> <!--bind-value=dir.collection1[i]--></td>
-                    <td><input type="search" style="width:100%; border:0; background-color:transparent"/> <!--bind-value=dir.collection1[i]--></td>
-                    <td><input type="search" style="width:100%; border:0; background-color:transparent"/> <!--bind-value=dir.collection1[i]--></td>
-                    <td><input type="search" style="width:100%; border:0; background-color:transparent"/> <!--bind-value=dir.collection1[i]--></td>
-                 </tr>
-            }*@
                 @foreach (var item in mkbCatalog)
                 {
                     <tr>
@@ -108,6 +99,8 @@ else
 @code
 {
     private IList<MKB10> _MKB;
+    private MKB10 _ObjectToCreate = new();
+    private MKB10 _ObjectToUpdate;
 
     protected override async Task OnInitializedAsync()
     {
@@ -121,7 +114,58 @@ else
             _MKB.Remove(item);
             MKBEntity.DeleteAsync(item);
         }
-        
+
+    }
+
+    private async Task Create()
+    {
+        Modal.Title = "Добавление данных";
+        Modal.SaveButtonName = "Добавить";
+        Modal.Open();
+    }
+
+    private async Task Update(MKB10 item)
+    {
+        Modal.Title = "Изменение данных";
+        Modal.SaveButtonName = "Изменить";
+        _ObjectToUpdate = item;
+        Modal.Open();
+    }
+
+    private async Task OnCreate()
+    {
+        _ObjectToCreate.Actual = Modal.Actual;
+        _ObjectToCreate.Date = Modal.Date;
+        _ObjectToCreate.MkbCode = Modal.Code;
+        _ObjectToCreate.MkbName = Modal.Name;
+        _ObjectToCreate.Parent.MkbName = Modal.Parent;
+        await MKBEntity.CreateAsync(_ObjectToCreate);
+        _ObjectToCreate = new();
+    }
+
+    private async Task OnUpdate()
+    {
+        _ObjectToUpdate.Actual = Modal.Actual;
+        _ObjectToUpdate.Date = Modal.Date;
+        _ObjectToUpdate.MkbCode = Modal.Code;
+        _ObjectToUpdate.MkbName = Modal.Name;
+        _ObjectToUpdate.Parent.MkbName = Modal.Parent;
+        await MKBEntity.UpdateAsync(_ObjectToUpdate);
+    }
+
+    //
+    // Работа с модальным окном
+    //
+    MedicalStatistician.UI.Blazor.Modal.ModalMKB Modal;
+
+    private async Task OnSave()
+    {
+        if (Modal.Name != "")         
+            if (Modal.SaveButtonName == "Добавить")
+                await OnCreate();
+            else
+                await OnUpdate();
+        Modal.Close();
     }
 
    /* bool isActual(MKB10 mkb)

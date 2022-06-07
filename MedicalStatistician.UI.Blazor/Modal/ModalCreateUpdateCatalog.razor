@@ -1,0 +1,61 @@
+﻿@using MedicalStatistician.DAL.Entities.Base
+<div class="modal @ModalClass" tabindex="-1" role="dialog" style="display:@ModalDisplay">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => Close()"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <input class="form-control rounded-3" id="newItem" @bind=ItemName>
+                    <label for="newItem">Название</label>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" @onclick="OnSave">@SaveButtonName</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="() => Close()">Отменить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (ShowBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
+
+
+@code {
+    [Parameter] 
+    public string Title { get; set; } = "Добавление данных";
+
+    [Parameter]
+    public string SaveButtonName { get; set; } = "Добавить";
+
+    [Parameter]
+    public string ItemName { get; set; } = "";
+
+    [Parameter]
+    public EventCallback OnSave { get; set; }
+
+    public string ModalDisplay = "none;";
+    public string ModalClass = "";
+    public bool ShowBackdrop = false;
+
+    public void Open()
+    {
+        ModalDisplay = "block;";
+        ModalClass = "Show";
+        ShowBackdrop = true;
+    }
+
+    public void Close()
+    {
+        ModalDisplay = "none";
+        ModalClass = "";
+        ShowBackdrop = false;
+    }
+}
