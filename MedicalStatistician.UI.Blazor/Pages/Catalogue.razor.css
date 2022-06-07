@@ -3,6 +3,7 @@
     height:130px;
     background-color: revert;
     border:0px;
+    border-radius:10px;
 }
 
 button:hover {

@@ -88,6 +88,7 @@ else
     public string Name { get; set; }
 
     dynamic Collection, Repository;
+    Type type;
 
     protected override async Task OnInitializedAsync()
     {
@@ -95,57 +96,75 @@ else
         {
             case "Пол": Collection = (await sexCatalog.GetAllAsync()).ToList();
                 Repository = sexCatalog;
+                type = typeof(Sex);
                 break;
             case "Группы инвалидности": Collection = (await invalidGroupCatalog.GetAllAsync()).ToList();
                 Repository = invalidGroupCatalog;
+                type = typeof(DisabilityGroup);
                 break;
             case "Цель направления": Collection = (await purposeTreatmentCatalog.GetAllAsync()).ToList();
                 Repository = purposeTreatmentCatalog;
+                type = typeof(PurposeOfReferralForTreatment);
                 break;
             case "Кем направлен": Collection = (await whoSentToHospitalCatalog.GetAllAsync()).ToList();
                 Repository = whoSentToHospitalCatalog;
+                type = typeof(WhoSentToHospital);
                 break;
             case "Источник средств существования": Collection = (await sourceOfLivelihoodCatalog.GetAllAsync()).ToList();
                 Repository = sourceOfLivelihoodCatalog;
+                type = typeof(SourceOfLivelihood);
                 break;
             case "Исход заболевания": Collection = (await diseaseOutcomeCatalog.GetAllAsync()).ToList();
                 Repository = diseaseOutcomeCatalog;
+                type = typeof(DiseaseOutcome);
                 break;
             case "Причина смерти": Collection = (await causeOfDeathCatalog.GetAllAsync()).ToList();
                 Repository = causeOfDeathCatalog;
+                type = typeof(CauseOfDeath);
                 break;
             case "Образование": Collection = (await educationCatalog.GetAllAsync()).ToList();
                 Repository = educationCatalog;
+                type = typeof(Education);
                 break;
             case "Статус проживания": Collection = (await residenceStatusCatalog.GetAllAsync()).ToList();
                 Repository = residenceStatusCatalog;
+                type = typeof(ResidenceStatus);
                 break;
             case "Виды принудительного лечения": Collection = (await typeOfForcedTreatmentCatalog.GetAllAsync()).ToList();
                 Repository = typeOfForcedTreatmentCatalog;
+                type = typeof(TypeOfForcedTreatment);
                 break;
             case "Место выбытия": Collection = (await placeOfDepartureCatalog.GetAllAsync()).ToList();
                 Repository = placeOfDepartureCatalog;
+                type = typeof(PlaceOfDeparture);
                 break;
             case "Вид амбулаторного наблюдения": Collection = (await typeOfOutpatientCareCatalog.GetAllAsync()).ToList();
                 Repository = typeOfOutpatientCareCatalog;
+                type = typeof(TypeOfOutpatientCare);
                 break;
             case "Порядок поступления": Collection = (await orderOfAdmissionCatalog.GetAllAsync()).ToList();
                 Repository = orderOfAdmissionCatalog;
+                type = typeof(OrderOfAdmission);
                 break;
             case "Решение судьи по ст 35": Collection = (await statusOfJudgesDecisionUnderArticle35Catalog.GetAllAsync()).ToList();
                 Repository = statusOfJudgesDecisionUnderArticle35Catalog;
+                type = typeof(StatusOfJudgesDecisionUnderArticle35);
                 break;
             case "В случае окончания принуд лечения": Collection = (await typeOfJudgmentCatalog.GetAllAsync()).ToList();
                 Repository = typeOfJudgmentCatalog;
+                type = typeof(TypeOfJudgment);
                 break;
             case "Откуда поступил": Collection = (await patientEntryRoutesCatalog.GetAllAsync()).ToList();
                 Repository = patientEntryRoutesCatalog;
+                type = typeof(PatientEntryRoutes);
                 break;
             case "Условия проживания": Collection = (await accommodationsCatalog.GetAllAsync()).ToList();
                 Repository = accommodationsCatalog;
+                type = typeof(Accommodations);
                 break;
             case "Источники оплаты медицинской помощи": Collection = (await sourcesOfPaymentForMedicalCareCatalog.GetAllAsync()).ToList();
                 Repository = sourcesOfPaymentForMedicalCareCatalog;
+                type = typeof(SourcesOfPaymentForMedicalCare);
                 break;
 
             default:
@@ -157,9 +176,8 @@ else
     {
         if (Collection == null)
             return;           
-        var removed = await Repository.DeleteAsync(item);
-        if (removed is not null)
-            Collection.Remove(removed);  
+        await Repository.DeleteAsync(item);
+        Collection.Remove(item);  
     }
 
 
@@ -180,10 +198,10 @@ else
 
     private async Task OnCreate()
     {
-
-        /*var entity = new typeof
+        dynamic entity = type.GetConstructor(new Type[] { }).Invoke(new dynamic[] { });
         entity.Name = Modal.ItemName;
-        await Repository.CreateAsync(entity);*/
+        await Repository.CreateAsync(entity);
+        Collection.Add(entity);
     }
 
     private async Task OnUpdate()
