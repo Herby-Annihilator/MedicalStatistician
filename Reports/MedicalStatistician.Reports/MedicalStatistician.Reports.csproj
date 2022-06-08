@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\DAL\Entities\MedicalStatistician.DAL.Entities\MedicalStatistician.DAL.Entities.csproj" />
     <ProjectReference Include="..\..\DAL\Repositories\MedicalStatistician.DAL.Repositories\MedicalStatistician.DAL.Repositories.csproj" />
+    <ProjectReference Include="..\..\Extensions\MedicalStatistician.Extensions\MedicalStatistician.Extensions.csproj" />
   </ItemGroup>
 
 </Project>
