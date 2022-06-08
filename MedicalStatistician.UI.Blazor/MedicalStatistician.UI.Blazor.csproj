@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <None Remove="Pages\Catalogs\MKB.razor.css" />
-    <None Remove="Pages\Catalogs\SimpleCatalog.razor.css" />
     <None Remove="Pages\Catalogue.razor.css" />
     <None Remove="Pages\Login.razor.css" />
     <None Remove="Pages\Report.razor.css" />
@@ -19,7 +18,6 @@
 
   <ItemGroup>
     <Content Include="Pages\Catalogs\MKB.razor.css" />
-    <Content Include="Pages\Catalogs\SimpleCatalog.razor.css" />
     <Content Include="Pages\Catalogue.razor.css" />
     <Content Include="Pages\Login.razor.css" />
     <Content Include="Pages\Report.razor.css" />
