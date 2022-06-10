@@ -1,6 +1,26 @@
 ﻿@page "/statisticalMap"
+@using MedicalStatistician.DAL.Entities.Base
+@using MedicalStatistician.DAL.Repositories.Base
+@using System.Diagnostics
 
-
+@inject ICrudRepository<Sex> sexCatalog
+@inject ICrudRepository<DisabilityGroup> invalidGroupCatalog
+@inject ICrudRepository<PurposeOfReferralForTreatment> purposeTreatmentCatalog
+@inject ICrudRepository<WhoSentToHospital> whoSentToHospitalCatalog
+@inject ICrudRepository<SourceOfLivelihood> sourceOfLivelihoodCatalog
+@inject ICrudRepository<DiseaseOutcome> diseaseOutcomeCatalog
+@inject ICrudRepository<CauseOfDeath> causeOfDeathCatalog
+@inject ICrudRepository<Education> educationCatalog
+@inject ICrudRepository<ResidenceStatus> residenceStatusCatalog
+@inject ICrudRepository<TypeOfForcedTreatment> typeOfForcedTreatmentCatalog
+@inject ICrudRepository<PlaceOfDeparture> placeOfDepartureCatalog
+@inject ICrudRepository<TypeOfOutpatientCare> typeOfOutpatientCareCatalog
+@inject ICrudRepository<OrderOfAdmission> orderOfAdmissionCatalog
+@inject ICrudRepository<StatusOfJudgesDecisionUnderArticle35> statusOfJudgesDecisionUnderArticle35Catalog
+@inject ICrudRepository<TypeOfJudgment> typeOfJudgmentCatalog
+@inject ICrudRepository<PatientEntryRoutes> patientEntryRoutesCatalog
+@inject ICrudRepository<Accommodations> accommodationsCatalog
+@inject ICrudRepository<SourcesOfPaymentForMedicalCare> sourcesOfPaymentForMedicalCareCatalog
 
 <PageTitle>Стат. карта</PageTitle>
 
@@ -11,15 +31,15 @@
 
 <p>
     <label class="name-text">Фамилия</label>
-    <input class="name-input" />
+    <input class="name-input" @bind="model.Family"/>
 </p>
 <p>
     <label class="name-text">Имя</label>
-    <input class="name-input" />
+    <input class="name-input" @bind="model.Name"/>
 </p>
 <p>
     <label class="name-text">Отчество</label>
-    <input class="name-input" />
+    <input class="name-input" @bind="model.Patronymic"/>
 </p>
 
 <section>
@@ -27,15 +47,20 @@
         <div class="col-4 border form-padding">
             <p>
                 <label class="document-text">Пол</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">мужской</option>
-                    <option value="">женский</option>
+                <select class="document-input" @bind="model.Sex">
+                    @if (sexCollection != null)
+                    {
+                        @foreach (var item in sexCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Житель</label>
-                <select class="document-input">
+                <select class="document-input" @bind="model.PlaceOfResidence">
+                    <!--Не реализовано-->
                     <option value="">(не выбрано)</option>
                     <option value="">города</option>
                     <option value="">села</option>
@@ -43,151 +68,148 @@
             </p>           
             <p>
                 <label  class="document-text">Дата рождения</label>
-                <input type="date" class="document-input">
+                <input type="date" class="document-input" @bind="model.Birtthdate">
             </p>
             <p>
                 <label class="document-text">Вид оплаты</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">бюджеты всех уровней</option>
-                    <option value="">обязательное мед. страхование</option>
-                    <option value="">добровольное мед. страхование</option>
-                    <option value="">платные мед. услуги</option>
-                    <option value="">прочее</option>
+                <select class="document-input" @bind="model.TypesOfPayment">
+                    @if (typesOfPaymentCollection != null)
+                    {
+                        @foreach (var item in typesOfPaymentCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
-                <!--Типа справочник (нет)-->
-                @*<select @bind=@str>
-                    <option value="">Select a car</option>
-                    <option value="audi">Audi</option>
-                    <option value="jeep">Jeep</option>
-                    <option value="opel">Opel</option>
-                    <option value="saab">Saab</option>
-                    <option value="volvo">Volvo</option>
-                </select>*@
-                <!--Конец сего мракобесия-->
             </p>
             <p>Страховой полис:</p>
-            <p>серия <input class="insurance-serie"/> номер <input  class="insurance-number"/></p>
+            <p>серия <input class="insurance-serie" @bind="model.InsurancePolicySeries"/> номер <input  class="insurance-number" @bind="model.InsurancePolicyNumber"/></p>
             <p>
                 <label class="document-text">Номер стат. карты</label>
-                <input class="document-input"/>
+                <input class="document-input" @bind="model.StatisticalCardNumber"/>
             </p>
             <p>
                 <label class="document-text">Мед.карта стац. б-го</label>
-                <input class="document-input"/>
+                <input class="document-input" @bind="model.MedicalCardNumber"/>
             </p>
             <p>
                 <label class="document-text">Номер отделения</label>
-                <input class="document-input">
+                <input class="document-input" @bind="model.DepartmentNumber">
             </p>
             <p>
                 <label class="document-text">Дата поступления</label>
-                <input type="date" class="document-input">
+                <input type="date" class="document-input" @bind="model.DateOfReceipt">
             </p>
             <p>
                 <label class="document-text">Дата открытия бол-го листа</label>
-                <input type="date" class="document-input">
+                <input type="date" class="document-input" @bind="model.DateOfOpeningOfTheSickLeave">
             </p>
             <p>
                 <label class="document-text">Дата закрытия бол-го листа</label>
-                <input type="date" class="document-input">
+                <input type="date" class="document-input" @bind="model.SickLeaveClosingDate">
             </p>
         </div>
         <div class="col-4 border form-padding">
             <p>
                 <label class="document-text">Кем направлен</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">псих. дисп. (отд. кабинетом)</option>
-                    <option value="">наркол. дисп. (отд. кабинетом)</option>
-                    <option value="">психотерапевтом</option>
-                    <option value="">врачом поликлиники</option>
-                    <option value="">врачом скорой мед. помощи</option>
-                    <option value="">психиатром (наркологом)</option>
-                    <option value="">другими врачами</option>
-                    <option value="">судом</option>
-                    <option value="">самостоятельно</option>
-                    <option value="">прочее</option>
+                <select class="document-input" @bind="model.SentByWhom">                   
+                    @if (sentByWhomCollection != null)
+                    {
+                        @foreach (var item in sentByWhomCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Порядок поступления</label> 
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">добровольное</option>
-                    <option value="">недобр. в соотв. со ст.29</option>
-                    <option value="">согласия не требуется</option>
+                <select class="document-input" @bind="model.AdmissionProcedure">                   
+                    @if (admissionProcedureCollection != null)
+                    {
+                        @foreach (var item in admissionProcedureCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Решение судьи по ст.35</label> 
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">получено</option>
-                    <option value="">отказано</option>
-                    <option value="">не требуется</option>
-                    <option value="">прочее</option>
+                <select class="document-input" @bind="model.JudgesDecisionOnArticle35">
+                    @if (judgesDecisionOnArticle35Collection != null)
+                    {
+                        @foreach (var item in judgesDecisionOnArticle35Collection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Откуда поступил</label> 
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">из дома</option>
-                    <option value="">переведен из псих. стационара</option>
-                    <option value="">переведен из нарк. стационара</option>
-                    <option value="">переведен из стац. другого профиля</option>
-                    <option value="">из дневного псих.(нарк.) стац.</option>
-                    <option value="">прочее</option>
+                <select class="document-input" @bind="model.WhereDidHeComeFrom">                   
+                    @if (whereDidHeComeFromCollection != null)
+                    {
+                        @foreach (var item in whereDidHeComeFromCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Цель направления</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">лечение</option>
-                    <option value="">реабилитация</option>
-                    <option value="">принудительное лечение</option>
-                    <option value="">судебная экспертиза</option>
-                    <option value="">военная экспертиза</option>
-                    <option value="">трудовая экспертиза</option>
-                    <option value="">наркологическая экспертиза</option>
-                    <option value="">др. виды экспертиз</option>
-                    <option value="">др. цели направления</option>
+                <select class="document-input" @bind="model.PurposeOfTheDirection">
+                    @if (purposeOfTheDirectionCollection != null)
+                    {
+                        @foreach (var item in purposeOfTheDirectionCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
+            <!---->
+            <!--На подумать, привязка МКБ-->
+            <!---->
             <p>Диагноз направившего учреждения </p>
-                <textarea></textarea>
+                <textarea @bind="model.DiagnosisOfTheSendingInstitution"></textarea>
              <p>
                 <label class="document-text">Код по МКБ-10</label>
-                <input class="document-input"/>
+                <input class="document-input" @bind="model.DiagnosisOfTheSendingInstitutionMKB"/>
             </p>
         </div>
         <div class="col-4 border form-padding">
+            <!---->
+            <!--На подумать, привязка МКБ-->
+            <!---->
             <p>Заключительный диагноз</p>
-                 <textarea></textarea>
+                 <textarea @bind="model.FinalDiagnosis"></textarea>
             <p>
                 <label class="document-text">Код по МКБ-10</label>
-                <input class="document-input"/>
+                <input class="document-input" @bind="model.FinalDiagnosisMKB"/>
             </p>
             <p>
                 <label class="document-text">Основной код (+) по МКБ-10</label> 
-                <input class="document-input"/>
+                <input class="document-input" @bind="model.MainCodeMKB"/>
             </p>
             <p>
                 <label class="document-text">Инвалидность при выписке по псих. заболеванию</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">1 группа инвалидности</option>
-                    <option value="">2 группа инвалидности</option>
-                    <option value="">3 группа инвалидности</option>
-                    <option value="">ребенок инвалид</option>
-                    <option value="">не инвалид</option>
+                <select class="document-input" @bind="model.DisabilityAtDischargeDueToIllness">
+                    @if (disabilityGroupCollection != null)
+                    {
+                        @foreach (var item in disabilityGroupCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
+                <!--Не реализовано-->
                 <label class="document-text">Обследование больного на ВИЧ</label>
-                <select class="document-input">
+                <select class="document-input" @bind="model.ExaminationOfPatientForHIV">
                     <option value="">(не выбрано)</option>
                     <option value="">выявлен впервые в жизни</option>
                     <option value="">выявлен ранее</option>
@@ -197,31 +219,31 @@
             </p>
             <p>
                 <label class="document-text">Выбыл</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">домой</option>
-                    <option value="">в психиатрический стационар</option>
-                    <option value="">в наркологический стационар</option>
-                    <option value="">в непсихиатрический стационар</option>
-                    <option value="">в дневной псих. стационар</option>
-                    <option value="">в стац.учр.соц.обслуживания для взрослых</option>
-                    <option value="">в стац.учр.соц.обслуживания для детей</option>
-                    <option value="">не выбывал на конец года</option>
-                    <option value="">умер</option>
-                    <option value="">прочее</option>
+                <select class="document-input" @bind="model.Leave">
+                    @if (leaveCollection != null)
+                    {
+                        @foreach (var item in leaveCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Смерть наступила</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">от психического заболевания</option>
-                    <option value="">от соматического заболевания</option>
-                    <option value="">самоубийство</option>
-                    <option value="">несчастный случай</option>
-                    <option value="">прочие причины</option>
+                <select class="document-input" @bind="model.DeathHasOccurred">                    
+                    @if (deathHasOccurredCollection != null)
+                    {
+                        @foreach (var item in deathHasOccurredCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
+            <!---->
+            <!--На подумать, привязка МКБ-->
+            <!---->
             <p>Основная причина смерти</p>
                  <textarea></textarea>
              <p>
@@ -266,54 +288,57 @@
                 </tr>           
             </thead>
             <tbody>
-                @for (int i = 0; i < size; i++)
+                @if (model.HistoryOfCompulsoryTreatments != null)
                 {
-                    <tr>
-                        <td><input type="date" class="object-table"/></td>
-                        <td>
-                            <select class="object-table">
-                                <option value="">(не выбрано)</option>
-                                <option value="">амбулаторное</option>
-                                <option value="">в псих.стац. общего типа</option>
-                                <option value="">в псих.стац. спец. типа</option>
-                                <option value="">спец типа с интенсивным наблюдением</option>                          
-                            </select>
-                        </td>
+                    @for (int i = 0; i < model.HistoryOfCompulsoryTreatments.Count; i++)
+                    {
+                        <tr>
+                            <td><input type="date" class="object-table"/></td>
+                            <td>
+                                <select class="object-table">
+                                    <option value="">(не выбрано)</option>
+                                    <option value="">амбулаторное</option>
+                                    <option value="">в псих.стац. общего типа</option>
+                                    <option value="">в псих.стац. спец. типа</option>
+                                    <option value="">спец типа с интенсивным наблюдением</option>                          
+                                </select>
+                            </td>
 
-                        <td><input type="date" class="object-table"/></td>
-                        <td>
-                            <select class="object-table">
-                                <option value="">(не выбрано)</option>
-                                <option value="">амбулаторное</option>
-                                <option value="">в псих.стац. общего типа</option>
-                                <option value="">в псих.стац. спец. типа</option>
-                                <option value="">спец типа с интенсивным наблюдением</option>                          
-                            </select>
-                        </td>
-                        <td><input type="date" class="object-table"/></td>
-                        <td>
-                            <select class="object-table">
-                                <option value="">(не выбрано)</option>
-                                <option value="">амбулаторное</option>
-                                <option value="">в псих.стац. общего типа</option>
-                                <option value="">в псих.стац. спец. типа</option>
-                                <option value="">спец типа с интенсивным наблюдением</option>                          
-                            </select>
-                        </td>
-                        <td><input type="date" class="object-table"/></td>
-                        <td>
-                            <select class="object-table">
-                                <option value="">(не выбрано)</option>
-                                <option value="">амбулаторное</option>
-                                <option value="">в псих.стац. общего типа</option>
-                                <option value="">в псих.стац. спец. типа</option>
-                                <option value="">спец типа с интенсивным наблюдением</option>                          
-                            </select>
-                        </td>
+                            <td><input type="date" class="object-table"/></td>
+                            <td>
+                                <select class="object-table">
+                                    <option value="">(не выбрано)</option>
+                                    <option value="">амбулаторное</option>
+                                    <option value="">в псих.стац. общего типа</option>
+                                    <option value="">в псих.стац. спец. типа</option>
+                                    <option value="">спец типа с интенсивным наблюдением</option>                          
+                                </select>
+                            </td>
+                            <td><input type="date" class="object-table"/></td>
+                            <td>
+                                <select class="object-table">
+                                    <option value="">(не выбрано)</option>
+                                    <option value="">амбулаторное</option>
+                                    <option value="">в псих.стац. общего типа</option>
+                                    <option value="">в псих.стац. спец. типа</option>
+                                    <option value="">спец типа с интенсивным наблюдением</option>                          
+                                </select>
+                            </td>
+                            <td><input type="date" class="object-table"/></td>
+                            <td>
+                                <select class="object-table">
+                                    <option value="">(не выбрано)</option>
+                                    <option value="">амбулаторное</option>
+                                    <option value="">в псих.стац. общего типа</option>
+                                    <option value="">в псих.стац. спец. типа</option>
+                                    <option value="">спец типа с интенсивным наблюдением</option>                          
+                                </select>
+                            </td>
 
-                        <td><input type="date" class="object-table"/></td>
-            
-                    </tr>
+                            <td><input type="date" class="object-table"/></td>
+
+                        </tr>
+                    }
                 }
             </tbody>
         
@@ -324,7 +349,8 @@
 <!--Пункты 29 и 30-->
 <p>
     <label class="compulsory-treatment-text">В случае окончания принудительного лечения</label>
-    <select class="compulsory-treatment-input">
+    <!--Не реализовано-->
+    <select class="compulsory-treatment-input" @bind="model.InCaseOfTerminationOfCompulsoryTreatment">
         <option value="">(не выбрано)</option>
         <option value="">выбыл из стационара</option>
         <option value="">остался на долечивании в стационаре</option>                         
@@ -332,7 +358,7 @@
 </p>
 <p>
     <label class="compulsory-treatment-text">Дата окончания принудительного лечения</label>
-    <input type="date" class="compulsory-treatment-input">
+    <input type="date" class="compulsory-treatment-input" @bind="model.EndDateOfPreviousCompulsoryTreatment">
 </p>
 
 <div class="divider"></div>
@@ -342,132 +368,142 @@
         <div class="col-4 border form-padding">
             <p>
                 <label class="document-text">Дата начала заболевания</label>
-                <input type="date" class="document-input">
+                <input type="date" class="document-input" @bind="model.DateOfOnsetOfTheDisease">
             </p>
             <p>
                 <label class="document-text">Дата обращения к психиатру (наркологу) впервые в жизни</label>
-                <input type="date" class="document-input">
+                <input type="date" class="document-input" @bind="model.DateOfReferralToPsychiatristForTheFirstTimeInLife">
             </p>
             <p>
                 <label class="document-text">Вид амбулаторного наблюдения</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">профилактивное наблюдение</option>
-                    <option value="">диспансерное наблюдение</option>
-                    <option value="">активное диспансерное набл.</option>
-                    <option value="">амбулаторное принуд. лечение</option>
-                    <option value="">обязательное лечение</option>
-                    <option value="">прочие виды амбул. помощи</option>
-                    <option value="">не оказывается</option>
-                    <option value="">не известно</option>
+                <select class="document-input" @bind="model.TypeOfOutpatientObservation">                   
+                    @if (typeOfOutpatientObservationCollection != null)
+                    {
+                        @foreach (var item in typeOfOutpatientObservationCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Дата предыдущей выписки из психиатрич. или наркологич. стац.</label>
-                <input type="date" class="document-input">
+                <input type="date" class="document-input" @bind="model.DateOfPreviousDischargeFromTheHospital">
             </p>
             <p>
                 <label class="document-text">Число дней работы в ЛТМ</label>
-                <input class="document-input"/></p>
+                <input class="document-input" @bind="model.NumberOfWorkingDaysInLTM"/>
+            </p>
             <p>Число дней лечебных отпусков (за период госпитализации)</p>
             <p>
-                <label>дней <input class="vacation-days"/> отпусков <input class="vacation-days"/></label>
+                <label>дней 
+                    <input class="vacation-days" @bind="model.NumberOfDaysOfMedicalVacations"/> 
+                    отпусков 
+                    <input class="vacation-days" @bind="model.NumberOfMedicalVacations"/>
+                </label>
             </p>
         </div>
         <div class="col-4 border form-padding">
+            <!---->
+            <!--На подумать, привязка МКБ-->
+            <!---->
             <p>Сопутствующее психическое (наркологическое) заболевание</p>
-                <textarea></textarea>
+                <textarea @bind="model.ConcomitantMentalIllness"></textarea>
             <p>
                 <label class="document-text">Код по МКБ-10 F</label>
-                <input class="document-input"/></p>
+                <input class="document-input" @bind="model.ConcomitantMentalIllnessMKB"/></p>
             <p>Сопутствующее соматическое заболевание</p>
             <p> <label class="document-text">Код по МКБ-10</label>
-                <input class="document-input"/>
+                <input class="document-input" @bind="model.ConcomitantSomaticDiseaseMKB"/>
             </p>
             <p>
                 <label class="document-text">Инвалидность по общему заболеванию</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">1 группа инвалидности</option>
-                    <option value="">2 группа инвалидности</option>
-                    <option value="">3 группа инвалидности</option>
-                    <option value="">ребенок инвалид</option>
-                    <option value="">не инвалид</option>
+                <select class="document-input" @bind="model.DisabilityDueToCommonDisease">                   
+                    @if (disabilityGroupCollection != null)
+                    {
+                        @foreach (var item in disabilityGroupCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Инвалид ВОВ</label>
-                <input type="checkbox">
+                <input type="checkbox" @bind="model.IsDisabledVeteran">
             </p>
             <p>
                 <label class="document-text">Участник ВОВ</label>
-                <input type="checkbox">
+                <input type="checkbox" @bind="model.IsVeteran">
             </p>
             <p>
                 <label class="document-text">Число законченных классов</label>
-                <input class="document-input">
+                <input class="document-input" @bind="model.NumberOfCompletedClassesOfSecondaryEducationalInstitution">
             </p>
             <p>
                 <label class="document-text">Образование</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">спец корр. учреждение</option>
-                    <option value="">начальное профессиональное</option>
-                    <option value="">среднее профессиональное</option>
-                    <option value="">незакон. высшее професс.</option>
-                    <option value="">высшее профессионалшьное</option>
-                    <option value="">прочее</option>
+                <select class="document-input" @bind="model.Education">
+                    @if (educationCollection != null)
+                    {
+                        @foreach (var item in educationCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>          
         </div>
         <div class="col-4 border form-padding">
             <p>
                 <label class="document-text">Учится</label>
-                <input type="checkbox">
+                <input type="checkbox" @bind="model.IsStudy">
             </p>
             <p>
                 <label class="document-text">Источник средств существования</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">рабочий</option>
-                    <option value="">служащий</option>
-                    <option value="">пенсия по возрасту</option>
-                    <option value="">соц. пособие по инвалидности</option>
-                    <option value="">соц. пособие по безработице</option>
-                    <option value="">стипендия</option>
-                    <option value="">др. виды гос. обеспечения</option>
-                    <option value="">на иждевении у отд. лиц</option>
-                    <option value="">прочие</option>
+                <select class="document-input" @bind="model.SourceOfLivelihood">
+                    @if (sourceOfLivelihoodCollection != null)
+                    {
+                        @foreach (var item in sourceOfLivelihoodCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Проживает</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">в семье</option>
-                    <option value="">один</option>
+                <select class="document-input" @bind="model.Lives">
+                    @if (livesCollection != null)
+                    {
+                        @foreach (var item in livesCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Условия проживания</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">собственный дом</option>
-                    <option value="">отдельная квартира</option>
-                    <option value="">коммунальная квартира</option>
-                    <option value="">общежитие</option>
-                    <option value="">БОМЖ</option>
-                    <option value="">прочие</option>
+                <select class="document-input" @bind="model.LivingConditions">
+                    @if (livingConditionsCollection != null)
+                    {
+                        @foreach (var item in livingConditionsCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
             <p>
                 <label class="document-text">Исход заболевания</label>
-                <select class="document-input">
-                    <option value="">(не выбрано)</option>
-                    <option value="">выздоровление</option>
-                    <option value="">улучшение</option>
-                    <option value="">без изменений</option>
-                    <option value="">ухудшение</option>
+                <select class="document-input" @bind="model.OutcomeOfTheDisease">
+                    @if (outcomeOfTheDiseaseCollection != null)
+                    {
+                        @foreach (var item in outcomeOfTheDiseaseCollection)
+                        {
+                            <option value="@item.Name">@item.Name</option>
+                        }
+                    }
                 </select>
             </p>
         </div>
@@ -481,12 +517,3 @@
 </div>
 
 <Footer></Footer>
-
-
-
-@code {
-    int size = 0;
-    void Add() => size++;
-    void Sub() => size--;
-    void Save() => size += 2;   
-}

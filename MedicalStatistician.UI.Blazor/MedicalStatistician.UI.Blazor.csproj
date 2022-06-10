@@ -13,7 +13,6 @@
     <None Remove="Pages\Report.razor.css" />
     <None Remove="Pages\StatisticalMap.razor.css" />
     <None Remove="Pages\Users.razor.css" />
-    <None Remove="Shared\NavMenuAdmin.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +22,6 @@
     <Content Include="Pages\Report.razor.css" />
     <Content Include="Pages\StatisticalMap.razor.css" />
     <Content Include="Pages\Users.razor.css" />
-    <Content Include="Shared\NavMenuAdmin.razor.css" />
   </ItemGroup>
 
   <ItemGroup>

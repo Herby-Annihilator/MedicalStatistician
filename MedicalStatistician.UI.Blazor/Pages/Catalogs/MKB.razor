@@ -13,11 +13,11 @@
 
 <div class="row">
     <div class="col-5">
-        <input placeholder="Код МКБ" class="form-control rounded-3"/>
+        <input placeholder="Код МКБ" class="form-control rounded-3" @bind="searchMkbCode"/>
         
     </div>
     <div class="col-2">
-        <button class="btn btn-primary" style="width:150px;">Поиск</button>
+        <button class="btn btn-primary" style="width:150px;" @onclick="SearchOnMkbCode">Поиск</button>
     </div>
     <div class="col-5 object-right">
         <button class="btn btn-primary" style="width:150px;" @onclick="Create">Добавить</button>
@@ -25,13 +25,8 @@
     
 </div>
 <p class="divider"></p>
- 
-@*<div class="object-right">
-    <button class="btn btn-primary oi oi-plus"></button>
-    <button class="btn btn-primary oi oi-minus"></button>
-</div>  
-*@
-@if (_MKB is { } mkbCatalog)
+
+@if (_MKBStorage is { } mkbCatalog)
 {
     <div class="table-responsive">
         <table class="table table-bordered" border="1">
@@ -101,10 +96,13 @@ else
     private IList<MKB10> _MKB;
     private MKB10 _ObjectToCreate = new();
     private MKB10 _ObjectToUpdate;
+    private string? searchMkbCode;
+    private IList<MKB10>? _MKBStorage;
 
     protected override async Task OnInitializedAsync()
     {
         _MKB = (await MKBEntity.GetAllAsync()).ToList();
+        _MKBStorage = _MKB;
     }
 
     private void Remove(MKB10 item)
@@ -168,12 +166,19 @@ else
         Modal.Close();
     }
 
-   /* bool isActual(MKB10 mkb)
+    /// <summary>
+    /// Поиск по коду МКБ
+    /// </summary>
+    private void SearchOnMkbCode()
     {
-        if (mkb.Actual == 1)
-            return true;
-        else
-            return false;
-    }*/
+        _MKBStorage = _MKB;
+        foreach (var item in _MKB)
+        {
+            if (!item.MkbCode.Contains(searchMkbCode))
+            {
+                _MKBStorage.Remove(item);
+            }
+        }
+    }
 }
 
