@@ -1,5 +1,6 @@
 ﻿using MedicalStatistician.DAL.Entities.Base;
 using MedicalStatistician.DAL.Repositories.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace MedicalStatistician.API.Controllers.Base
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class DefaultCrudController<T> : ControllerBase where T : Entity
     {
         protected ICrudRepository<T> _repository;
