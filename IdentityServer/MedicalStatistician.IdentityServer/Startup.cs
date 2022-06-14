@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Reflection;
+using MedicalStatistician.IdentityServer.IdentityUsers;
+using Microsoft.AspNetCore.Identity;
 
 namespace MedicalStatistician.IdentityServer
 {
@@ -29,8 +31,25 @@ namespace MedicalStatistician.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var migrationsAssembly = "MedicalStatistician.DAL.Postrgres";
+            string migrationsAssembly = "MedicalStatistician.DAL.Postrgres";
+
+            services.AddDbContext<ApplicationUsersDbContext>(options =>
+            {
+                options.UseNpgsql(_configuration.GetConnectionString("Identity"),
+                    sql => sql.MigrationsAssembly(migrationsAssembly));
+            });
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 8;
+            })
+                .AddEntityFrameworkStores<ApplicationUsersDbContext>();
+
             services.AddIdentityServer()
+                .AddAspNetIdentity<ApplicationUser>()
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = builder =>
@@ -47,7 +66,8 @@ namespace MedicalStatistician.IdentityServer
 
                     options.EnableTokenCleanup = true;
                     options.TokenCleanupInterval = 3600;
-                });
+                })
+                .AddDeveloperSigningCredential();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
