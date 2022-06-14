@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Identity\MedicalStatistician.Identity\MedicalStatistician.Identity.csproj" />
     <ProjectReference Include="..\..\MedicalStatistician.DAL.Postrgres\MedicalStatistician.DAL.Postrgres.csproj" />
   </ItemGroup>
 

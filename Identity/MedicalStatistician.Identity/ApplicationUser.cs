@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace MedicalStatistician.IdentityServer.IdentityUsers
+namespace MedicalStatistician.Identity.IdentityUsers
 {
     public class ApplicationUser : IdentityUser
     {

@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Reflection;
-using MedicalStatistician.IdentityServer.IdentityUsers;
+using MedicalStatistician.Identity.IdentityUsers;
 using Microsoft.AspNetCore.Identity;
 
 namespace MedicalStatistician.IdentityServer
