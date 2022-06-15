@@ -38,9 +38,10 @@ namespace MedicalStatistician.IdentityServer
             },
             new Client
             {
-                ClientId = "swagger",
+                ClientId = "swagger_id",
                 ClientSecrets = { new Secret("swagger_secret".Sha256()) },
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                AllowedCorsOrigins = { "http://localhost:5000" },
                 AllowedScopes =
                 {
                     "RepositoriesAPI",

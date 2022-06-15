@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MedicalStatistician.DAL.Postrgres.Migrations.IdentityServer.PersistedGrantDb
 {
     [DbContext(typeof(PersistedGrantDbContext))]
-    [Migration("20220614102837_InitPersistedGrantDb")]
+    [Migration("20220615130954_InitPersistedGrantDb")]
     partial class InitPersistedGrantDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

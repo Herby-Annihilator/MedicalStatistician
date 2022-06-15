@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MedicalStatistician.DAL.Postrgres.Migrations.IdentityServer.ConfigurationDb
 {
     [DbContext(typeof(ConfigurationDbContext))]
-    [Migration("20220614102911_InitConfigurationDb")]
+    [Migration("20220615130936_InitConfigurationDb")]
     partial class InitConfigurationDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

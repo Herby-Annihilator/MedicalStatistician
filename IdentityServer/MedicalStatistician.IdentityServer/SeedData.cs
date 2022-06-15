@@ -78,7 +78,7 @@ namespace MedicalStatistician.IdentityServer
                     Email = "user.freeman@email.com",
                     EmailConfirmed = true
                 };
-                var result = userManager.CreateAsync(user, "Pass123$").Result;
+                var result = userManager.CreateAsync(user, "Qwerty123@").Result;
                 if (!result.Succeeded)
                 {
                     throw new Exception(result.Errors.First().Description);

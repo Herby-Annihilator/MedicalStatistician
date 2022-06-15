@@ -64,6 +64,23 @@ namespace MedicalStatistician.API
                         }
                     }
                 });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "oauth2"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header
+                        },
+                        new List<string>()
+                    }
+                });
             });
 
             services.AddAuthentication(options =>
@@ -92,7 +109,7 @@ namespace MedicalStatistician.API
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "MedicalStatistician.API v1");
-                    c.OAuthClientId("swagger");
+                    c.OAuthClientId("swagger_id");
                     c.OAuthClientSecret("swagger_secret");
                 });
             }
