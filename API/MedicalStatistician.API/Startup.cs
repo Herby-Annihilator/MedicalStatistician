@@ -1,6 +1,7 @@
 using MedicalStatistician.DAL.Entities.DbContexts;
 using MedicalStatistician.DAL.Repositories.Base;
 using MedicalStatistician.DAL.Repositories.EfCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -48,17 +49,37 @@ namespace MedicalStatistician.API
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalStatistician.API", Version = "v1" });
+                c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme()
+                {
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows()
+                    {
+                        Password = new OpenApiOAuthFlow()
+                        {
+                            TokenUrl = new Uri("http://localhost:5005/connect/token"),
+                            Scopes = new Dictionary<string, string>()
+                            {
+                                { "RepositoriesAPI", "Web API" }
+                            }
+                        }
+                    }
+                });
             });
 
-            services.AddAuthentication("JWT")
-                .AddJwtBearer(options =>
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddIdentityServerAuthentication(options =>
                 {
+                    options.RequireHttpsMetadata = false;
                     options.Authority = "http://localhost:5005";
-                    options.TokenValidationParameters = new TokenValidationParameters()
-                    {
-                        ValidateAudience = false,
-                    };
+                    options.ApiName = "RepositoriesAPI";
                 });
+               
+            services.AddAuthorization();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +89,12 @@ namespace MedicalStatistician.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MedicalStatistician.API v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MedicalStatistician.API v1");
+                    c.OAuthClientId("swagger");
+                    c.OAuthClientSecret("swagger_secret");
+                });
             }
 
             app.UseRouting();

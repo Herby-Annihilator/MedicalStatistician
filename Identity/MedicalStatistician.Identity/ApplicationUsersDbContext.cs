@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MedicalStatistician.Identity.IdentityUsers
 {
-    public class ApplicationUsersDbContext : IdentityDbContext
+    public class ApplicationUsersDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationUsersDbContext(DbContextOptions<ApplicationUsersDbContext> options) : base(options)
         {
