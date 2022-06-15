@@ -5,10 +5,9 @@ using MedicalStatistician.DAL.Repositories.Base;
 using MedicalStatistician.DAL.Repositories.EfCore;
 using MedicalStatistician.UI.Blazor;
 using MedicalStatistician.WebApiClients.Repositories;
-using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.EntityFrameworkCore;
-
+using System.Security.Claims;
 
 namespace MedicalStatistician.UI.Blazor
 {
@@ -21,6 +20,21 @@ namespace MedicalStatistician.UI.Blazor
             //builder.RootComponents.Add<HeadOutlet>("head::after");
             var services = builder.Services;
             services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            services.AddOidcAuthentication(options =>
+            {
+                options.ProviderOptions.Authority = "http://localhost:10000";
+                options.ProviderOptions.ClientId = "client_blazor";
+                options.ProviderOptions.DefaultScopes.Add("profile");
+                options.ProviderOptions.DefaultScopes.Add("email");
+                options.ProviderOptions.DefaultScopes.Add("openid");
+                options.ProviderOptions.ResponseType = "code";
+            });
+
+            services.AddOptions();
+            services.AddAuthorizationCore();
+
+            services.AddScoped<AuthenticationStateProvider, TokenAuthenticationStateProvider>();
             InitializeRepositories(services);
             await builder.Build().RunAsync();
         }
@@ -66,6 +80,16 @@ namespace MedicalStatistician.UI.Blazor
             services.AddHttpClient<ICrudRepository<SourcesOfPaymentForMedicalCare>, WebRepository<SourcesOfPaymentForMedicalCare>>(
                 (host, client) => client.BaseAddress = new(host.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress + "api/SourcesOfPaymentForMedicalCare"));
 
+        }
+    }
+
+    public class TokenAuthenticationStateProvider : AuthenticationStateProvider
+    {
+        public override async Task<AuthenticationState> GetAuthenticationStateAsync()
+        {
+            var anonymousIdentity = new ClaimsIdentity();
+            var anonymousPrincipal = new ClaimsPrincipal(anonymousIdentity);
+            return new AuthenticationState(anonymousPrincipal);
         }
     }
 }

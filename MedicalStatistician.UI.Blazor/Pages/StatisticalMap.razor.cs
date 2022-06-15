@@ -12,22 +12,22 @@ namespace MedicalStatistician.UI.Blazor.Pages
         //
         // Списки данных из базы
         //
-        IList<Sex> sexCollection;
-        IList<SourcesOfPaymentForMedicalCare> typesOfPaymentCollection;
-        IList<WhoSentToHospital> sentByWhomCollection;
-        IList<OrderOfAdmission> admissionProcedureCollection;
-        IList<StatusOfJudgesDecisionUnderArticle35> judgesDecisionOnArticle35Collection;
-        IList<PatientEntryRoutes> whereDidHeComeFromCollection;
-        IList<PurposeOfReferralForTreatment> purposeOfTheDirectionCollection;
-        IList<DisabilityGroup> disabilityGroupCollection;
-        IList<PlaceOfDeparture> leaveCollection;
-        IList<CauseOfDeath> deathHasOccurredCollection;
-        IList<TypeOfOutpatientCare> typeOfOutpatientObservationCollection;
-        IList<Education> educationCollection;
-        IList<SourceOfLivelihood> sourceOfLivelihoodCollection;
-        IList<ResidenceStatus> livesCollection;
-        IList<Accommodations> livingConditionsCollection;
-        IList<DiseaseOutcome> outcomeOfTheDiseaseCollection;
+        IList<Sex>? sexCollection;
+        IList<SourcesOfPaymentForMedicalCare>? typesOfPaymentCollection;
+        IList<WhoSentToHospital>? sentByWhomCollection;
+        IList<OrderOfAdmission>? admissionProcedureCollection;
+        IList<StatusOfJudgesDecisionUnderArticle35>? judgesDecisionOnArticle35Collection;
+        IList<PatientEntryRoutes>? whereDidHeComeFromCollection;
+        IList<PurposeOfReferralForTreatment>? purposeOfTheDirectionCollection;
+        IList<DisabilityGroup>? disabilityGroupCollection;
+        IList<PlaceOfDeparture>? leaveCollection;
+        IList<CauseOfDeath>? deathHasOccurredCollection;
+        IList<TypeOfOutpatientCare>? typeOfOutpatientObservationCollection;
+        IList<Education>? educationCollection;
+        IList<SourceOfLivelihood>? sourceOfLivelihoodCollection;
+        IList<ResidenceStatus>? livesCollection;
+        IList<Accommodations>? livingConditionsCollection;
+        IList<DiseaseOutcome>? outcomeOfTheDiseaseCollection;
 
         /// <summary>
         /// Инициализация списков
