@@ -48,6 +48,15 @@ namespace MedicalStatistician.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalStatistician.API", Version = "v1" });
             });
+            services.AddAuthentication("JWT")
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = "http://localhost:5005";
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateAudience = false,
+                    };
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

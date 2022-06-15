@@ -1,44 +1,20 @@
-﻿@page "/"
+﻿@page "/login"
+@layout LoginLayout
+@inherits LoginModel
 @using MedicalStatistician.DAL.Repositories.Base
-@inject NavigationManager MyNavigationManager
 
 
-<p style="height:300px"></p>
-
-<div class="m-auto form-signin">
-  @*<p style="height:100px"></p>*@
-  <!--todo сделать выравнивание по центру-->
-
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" @bind=@userName>
-      <label for="floatingInput">логин</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">пароль</label>
-    </div>
-
+<EditForm Model="@LoginData" OnValidSubmit="LoginAsync">
+    <h2 class="text-center">Система стат. учета</h2>
+    <p><input id="username" placeholder="логин" @bind-value="LoginData.UserName" class="form-control" /></p>
+    <p><input type="password" id="password" placeholder="пароль" @bind-value="LoginData.Password" class="form-control" /></p>
     <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> запомнить меня
+      <label style="padding:5px">
+        <input type="checkbox" style="transform: scale(1.5);"> запомнить меня
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="window.location.href = '@ChangeUser()';">Войти</button>
-</div>
+    <p><button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button></p>
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+</EditForm>
 
-@code {
-    string userName = "";
-    string ChangeUser()
-    {
-        if(userName != "admin")
-        {
-            userName = "";
-            return MyNavigationManager.BaseUri + "statisticalMap";
-        }
-        else
-        {
-            userName = "";
-            return MyNavigationManager.BaseUri + "catalogue";
-        }    
-    }
-}
