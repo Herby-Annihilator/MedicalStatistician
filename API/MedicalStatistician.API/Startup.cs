@@ -88,14 +88,20 @@ namespace MedicalStatistician.API
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddIdentityServerAuthentication(options =>
-                {
-                    options.RequireHttpsMetadata = false;
-                    options.Authority = "http://localhost:5005";
-                    options.ApiName = "RepositoriesAPI";
-                });
-               
+            });
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+             {
+                 options.Authority = "http://localhost:5005";
+                 options.Audience = "RepositoriesAPI";
+                 options.RequireHttpsMetadata = false;
+
+                 options.TokenValidationParameters = new TokenValidationParameters()
+                 {
+                     ValidateAudience = false
+                 };
+             });
+
             services.AddAuthorization();
         }
 
