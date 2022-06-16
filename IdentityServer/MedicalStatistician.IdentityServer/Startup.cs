@@ -47,6 +47,7 @@ namespace MedicalStatistician.IdentityServer
                 options.Password.RequiredLength = 8;
             })
                 .AddEntityFrameworkStores<ApplicationUsersDbContext>();
+            
 
             services.AddIdentityServer()
                 .AddAspNetIdentity<ApplicationUser>()
@@ -81,14 +82,6 @@ namespace MedicalStatistician.IdentityServer
             app.UseRouting();
 
             app.UseIdentityServer();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
         }
     }
 }

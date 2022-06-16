@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,10 +10,13 @@ namespace MedicalStatistician.IdentityServer
     {
         public static IEnumerable<ApiScope> ApiScopes => new List<ApiScope>()
         {
-            new ApiScope("ApiRepositories", "Web API"),
+            new ApiScope("RepositoriesAPI", "Web API"),
         };
 
-        public static IEnumerable<ApiResource> ApiResources => new List<ApiResource>();
+        public static IEnumerable<ApiResource> ApiResources => new List<ApiResource>()
+        {
+            new ApiResource("RepositoriesAPI"),
+        };
 
         public static IEnumerable<Client> Clients => new List<Client>()
         {
@@ -30,12 +34,32 @@ namespace MedicalStatistician.IdentityServer
                 },
 
                 // scopes that client has access to
-                AllowedScopes = { "ApiRepositories" }
+                AllowedScopes = { "RepositoriesAPI" }
+            },
+            new Client
+            {
+                ClientId = "swagger_id",
+                ClientSecrets = { new Secret("swagger_secret".Sha256()) },
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                AllowedCorsOrigins = { "http://localhost:5000" },
+                AllowedScopes =
+                {
+                    "RepositoriesAPI",
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                }
             }
         };
 
-        public static IEnumerable<IdentityResource> IdentityResources => new List<IdentityResource>();
+        public static IEnumerable<IdentityResource> IdentityResources => new List<IdentityResource>()
+        {
+            new IdentityResources.OpenId(),
+            new IdentityResources.Profile(),
+        };
 
-        public static List<TestUser> TestUsers => new List<TestUser>();
+        public static List<TestUser> TestUsers => new List<TestUser>()
+        {
+            new TestUser() {Password = "123", Username = "user"},
+        };
     }
 }

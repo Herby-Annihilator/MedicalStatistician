@@ -10,3 +10,7 @@ Add-Migration InitApplicationUsersDb -c ApplicationUsersDbContext -o Migrations/
 Update-Database -Context ConfigurationDbContext
 Update-Database -Context PersistedGrantDbContext
 Update-Database -Context ApplicationUsersDbContext
+//
+// start with '/seed' argument to ensure database created, you must be in folder named 'MedicalStatistician.IdentityServer'
+//
+dotnet run MedicalStatistician.IdentityServer\bin\Debug\net6.0\MedicalStatistician.IdentityServer /seed --project MedicalStatistician.IdentityServer.csproj
