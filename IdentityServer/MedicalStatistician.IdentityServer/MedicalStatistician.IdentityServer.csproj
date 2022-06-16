@@ -1,26 +1,25 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+    <PackageReference Include="IdentityServer4" Version="4.1.2" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.2" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="4.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.4" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DAL\Entities\MedicalStatistician.DAL.Entities\MedicalStatistician.DAL.Entities.csproj" />
-    <ProjectReference Include="..\..\DAL\Repositories\MedicalStatistician.DAL.Repositories\MedicalStatistician.DAL.Repositories.csproj" />
+    <ProjectReference Include="..\..\Identity\MedicalStatistician.Identity\MedicalStatistician.Identity.csproj" />
     <ProjectReference Include="..\..\MedicalStatistician.DAL.Postrgres\MedicalStatistician.DAL.Postrgres.csproj" />
-    <ProjectReference Include="..\..\MedicalStatistician.UI.Blazor\MedicalStatistician.UI.Blazor.csproj" />
   </ItemGroup>
 
 </Project>
