@@ -2,7 +2,7 @@
 @inject NavigationManager NavigationManager
 <MedicalStatistician.UI.Blazor.Modal.ModalChangePassword @ref=ChangePassword></MedicalStatistician.UI.Blazor.Modal.ModalChangePassword>
 
-<AuthorizeView>
+@*<AuthorizeView>*@
     <div class="page">
 
         <div class="sidebar">
@@ -21,21 +21,21 @@
             </article>
         </main>
     </div>
-</AuthorizeView>
+@*</AuthorizeView>*@
 
 @code {
     MedicalStatistician.UI.Blazor.Modal.ModalChangePassword ChangePassword { get; set; }
 
-    [CascadingParameter]
-    public Task<AuthenticationState> AuthenticationState { get; set; }
+    //[CascadingParameter]
+    //public Task<AuthenticationState> AuthenticationState { get; set; }
 
-    protected override async Task OnParametersSetAsync()
-    {
-        var user = (await AuthenticationState).User;
-        if(!user.Identity.IsAuthenticated)
-        {
+    //protected override async Task OnParametersSetAsync()
+    //{
+    //    var user = (await AuthenticationState).User;
+    //    if(!user.Identity.IsAuthenticated)
+    //    {
             
-            NavigationManager.NavigateTo("login");
-        }
-    }
+    //        NavigationManager.NavigateTo("login");
+    //    }
+    //}
 }

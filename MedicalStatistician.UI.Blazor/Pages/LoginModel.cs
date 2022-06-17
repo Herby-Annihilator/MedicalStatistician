@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using System.ComponentModel.DataAnnotations;
 
 namespace MedicalStatistician.UI.Blazor.Pages
 {
     public class LoginModel : ComponentBase
     {
-                
+        [CascadingParameter]
+        public Task<AuthenticationState> _AuthenticationState { get; set; }     
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
@@ -17,7 +19,6 @@ namespace MedicalStatistician.UI.Blazor.Pages
 
         protected Task LoginAsync()
         {
-            
             NavigationManager.NavigateTo("/statisticalMap");
             return Task.CompletedTask;
         }
